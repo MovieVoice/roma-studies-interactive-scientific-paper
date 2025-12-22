@@ -1,0 +1,16 @@
+a {
+    color: inherit;
+}
+
+img {
+    pointer-events: none;
+    user-select: none;
+}
+
+p {
+    margin: 0;
+}
+
+@media screen and (min-width: 576px) {}
+
+@media screen and (min-width: 992px) {}

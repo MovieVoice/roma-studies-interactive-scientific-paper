@@ -1,0 +1,115 @@
+:root {
+    --color-bg-0: #FFFFFF;
+    --color-bg-1: #F7F7F8;
+    --color-bg-2: #EEEEF0;
+    --color-bg-3: #E6E7EA;
+    --color-bg-4: #F2F2F4;
+    --color-bg-5: #FAFAFB;
+    --color-bg-6: rgba(250, 250, 251, 0.85);
+
+    --color-fg-0: #191919;
+    --color-fg-1: #424244;
+    --color-fg-2: #6B7280;
+    --color-fg-3: #2E2E30;
+
+    --color-border-0: #E5E7EB;
+    --color-border-1: #D1D5DB;
+    --color-border-2: rgba(0, 0, 0, 0.12);
+
+    --color-box-shadow: rgba(0, 0, 0, 0.08);
+
+
+    --color-checkbox-0: #E7E7EA;
+    --color-checkbox-1: #D3D4D8;
+    --color-checkbox-2: #0A0A0A7b;
+
+    --color-ai: #F3F4F6;
+
+    --color-primary-0: #1E7AF5;
+    --color-primary-1: #3086F8;
+    --color-primary-contrast: #3F8EF5;
+    --color-primary-shadow: rgba(43, 111, 221, 0.75);
+
+    --color-error: #FF6969;
+
+    --color-warning-bg-0: #FF38381a;
+    --color-warning-bg-1: #FF383833;
+    --color-warning-fg-0: #B91C1C;
+
+    --color-overdue: #FF3838;
+
+    --sidebar-bg:
+        linear-gradient(0deg, rgba(250, 250, 251, 0.95), rgba(250, 250, 251, 0.95)),
+        radial-gradient(263.41% 100% at 50% 0%, #DCEBFF 0%, #FFFFFF 75%);
+
+    --overlay-closed: rgba(0, 0, 0, 0);
+    --overlay: rgba(0, 0, 0, 0.25);
+
+    --spotlight-hover: rgba(221, 221, 255, 0.2);
+
+    color-scheme: light;
+
+    /* Sidebar */
+    --sidebar-max-width: 320px;
+    --sidebar-gap: 12px;
+    --sidebar-width: clamp(260px, calc(100% - (48px + 2 * var(--sidebar-gap))), var(--sidebar-max-width));
+}
+
+
+@font-face {
+    font-family: 'Inter';
+    src: url('/font/inter_bold.woff2') format('woff2'),
+        url('/font/inter_bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('/font/inter_semibold.woff2') format('woff2'),
+        url('/font/inter_semibold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('/font/inter_medium.woff2') format('woff2'),
+        url('/font/inter_medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('/font/inter_regular.woff2') format('woff2'),
+        url('/font/inter_regular.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+html {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    /* scrollbar-color: var(--primary-blue) var(--primary-white); */
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans";
+    font-weight: 500;
+    font-style: normal;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-smooth: never;
+    background-color: var(--color-bg-0);
+}

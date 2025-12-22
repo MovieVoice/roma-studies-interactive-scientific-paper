@@ -1,0 +1,28 @@
+.overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background-color: var(--overlay);
+    transition: background-color 0.2s ease;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 320px;
+    height: 100vh;
+    background: var(--sidebar-bg);
+    border-right: 1px solid var(--color-border-0);
+    transform: translateX(-100%);
+    transition: transform 200ms ease;
+    will-change: transform;
+    z-index: 105;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.open {
+    transform: translateX(0);
+}
