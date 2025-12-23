@@ -84,68 +84,126 @@ function Sidebar() {
                             to="/"
                             end
                             title="Forschungsfrage & Zielsetzung"
-                            className={({ isActive }) => (isActive ? "navlink active" : "navlink")}
+                            className={({ isActive }) =>
+                                isActive
+                                    ? `${styles.navLink} ${styles.navLinkActive}`
+                                    : `${styles.navLink}`
+                            }
                             onClick={() => !isDesktop && setOpen(false)}
                         >
-                            <span className={styles.linkTitleBox}>
-                                <img className={styles.linkIcon} src={({ isActive }) => (isActive ? "/src/assets/nav-1-active.svg" : "/src/assets/nav-1.svg")} alt="" />
-                                <span className={styles.linkTitle}>Forschungsfrage & Zielsetzung</span>
-                            </span>
+                            {({ isActive }) => (
+                                <span className={styles.linkTitleBox}>
+                                    <img
+                                        src={isActive ? "/src/assets/nav-1-active.svg" : "/src/assets/nav-1.svg"}
+                                        alt=""
+                                    />
+                                    <span className={styles.linkTitle}>Forschungsfrage & Zielsetzung</span>
+                                </span>
+                            )}
                         </NavLink>
+
                         <NavLink
-                            to="/"
+                            to="/method"
                             end
                             title="Methodik"
-                            className={({ isActive }) => (isActive ? "navlink active" : "navlink")}
+                            className={({ isActive }) =>
+                                isActive
+                                    ? `${styles.navLink} ${styles.navLinkActive}`
+                                    : `${styles.navLink}`
+                            }
                             onClick={() => !isDesktop && setOpen(false)}
                         >
-                            <span className={styles.linkTitleBox}>
-                                <img className={styles.linkIcon} src={({ isActive }) => (isActive ? "/src/assets/nav-2-active.svg" : "/src/assets/nav-2.svg")} alt="" />
-                                <span className={styles.linkTitle}>Methodik</span>
-                            </span>
+                            {({ isActive }) => (
+                                <span className={styles.linkTitleBox}>
+                                    <img
+                                        className={styles.linkIcon}
+                                        src={isActive ? "/src/assets/nav-2-active.svg" : "/src/assets/nav-2.svg"}
+                                        alt=""
+                                    />
+                                    <span className={styles.linkTitle}>Methodik</span>
+                                </span>
+                            )}
                         </NavLink>
+
                         <NavLink
-                            to="/"
+                            to="/questionnaire"
                             end
                             title="Fragebogen"
-                            className={({ isActive }) => (isActive ? "navlink active" : "navlink")}
+                            className={({ isActive }) =>
+                                isActive
+                                    ? `${styles.navLink} ${styles.navLinkActive}`
+                                    : `${styles.navLink}`
+                            }
                             onClick={() => !isDesktop && setOpen(false)}
                         >
-                            <span className={styles.linkTitleBox}>
-                                <img className={styles.linkIcon} src={({ isActive }) => (isActive ? "/src/assets/nav-3-active.svg" : "/src/assets/nav-3.svg")} alt="" />
-                                <span className={styles.linkTitle}>Fragebogen</span>
-                            </span>
+                            {({ isActive }) => (
+                                <span className={styles.linkTitleBox}>
+                                    <img
+                                        className={styles.linkIcon}
+                                        src={isActive ? "/src/assets/nav-3-active.svg" : "/src/assets/nav-3.svg"}
+                                        alt=""
+                                    />
+                                    <span className={styles.linkTitle}>Fragebogen</span>
+                                </span>
+                            )}
                         </NavLink>
+
                         <NavLink
-                            to="/"
+                            to="/results"
                             end
                             title="Ergebnisübersicht"
-                            className={({ isActive }) => (isActive ? "navlink active" : "navlink")}
+                            className={({ isActive }) =>
+                                isActive
+                                    ? `${styles.navLink} ${styles.navLinkActive}`
+                                    : `${styles.navLink}`
+                            }
                             onClick={() => !isDesktop && setOpen(false)}
                         >
-                            <span className={styles.linkTitleBox}>
-                                <img className={styles.linkIcon} src={({ isActive }) => (isActive ? "/src/assets/nav-4-active.svg" : "/src/assets/nav-4.svg")} alt="" />
-                                <span className={styles.linkTitle}>Ergebnisübersicht</span>
-                            </span>
+                            {({ isActive }) => (
+                                <span className={styles.linkTitleBox}>
+                                    <img
+                                        className={styles.linkIcon}
+                                        src={isActive ? "/src/assets/nav-4-active.svg" : "/src/assets/nav-4.svg"}
+                                        alt=""
+                                    />
+                                    <span className={styles.linkTitle}>Ergebnisübersicht</span>
+                                </span>
+                            )}
                         </NavLink>
+
                         <NavLink
-                            to="/"
+                            to="/conclusion"
                             end
                             title="Fazit"
-                            className={({ isActive }) => (isActive ? "navlink active" : "navlink")}
+                            className={({ isActive }) =>
+                                isActive
+                                    ? `${styles.navLink} ${styles.navLinkActive}`
+                                    : `${styles.navLink}`
+                            }
                             onClick={() => !isDesktop && setOpen(false)}
                         >
-                            <span className={styles.linkTitleBox}>
-                                <img className={styles.linkIcon} src={({ isActive }) => (isActive ? "/src/assets/nav-5-active.svg" : "/src/assets/nav-5.svg")} alt="" />
-                                <span className={styles.linkTitle}>Fazit</span>
-                            </span>
+                            {({ isActive }) => (
+                                <span className={styles.linkTitleBox}>
+                                    <img
+                                        className={styles.linkIcon}
+                                        src={isActive ? "/src/assets/nav-5-active.svg" : "/src/assets/nav-5.svg"}
+                                        alt=""
+                                    />
+                                    <span className={styles.linkTitle}>Fazit</span>
+                                </span>
+                            )}
                         </NavLink>
+
                     </div>
                 </nav>
-                <div className={styles.sidebarBottom}>
-                    <p>Studie in Textform herunterladen</p>
-                    <p>Jetzt kostenlos herunterladen und alle Forschungsergebnisse anschauen.</p>
-                    <button>Herunterladen</button>
+                <div className={styles.downloadBox}>
+                    <div className={styles.downloadTextContainer}>
+                        <p className={styles.downloadHeadline}>Studie in Textform herunterladen</p>
+                        <p className={styles.downloadDescription}>Jetzt kostenlos herunterladen und alle Forschungsergebnisse anschauen.</p>
+                    </div>
+                    <a href="/docs/Studie_KI_Produktvideos_Erkennbarkeit_Auswirkungen_2025-Robert_Stein-Marcel_Otto.pdf" download className={styles.downloadBtn}>
+                        Herunterladen
+                    </a>
                 </div>
             </aside>
         </>

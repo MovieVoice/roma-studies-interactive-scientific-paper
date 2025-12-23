@@ -25,9 +25,9 @@
 
     --color-ai: #F3F4F6;
 
-    --color-primary-0: #1E7AF5;
-    --color-primary-1: #3086F8;
-    --color-primary-contrast: #3F8EF5;
+    --color-primary: #1F65E8;
+    --color-primary-light: #ECF1F9;
+    --color-primary-dark: #113982;
     --color-primary-shadow: rgba(43, 111, 221, 0.75);
 
     --color-error: #FF6969;
@@ -48,7 +48,7 @@
     color-scheme: light;
 
     /* Sidebar */
-    --sidebar-max-width: 320px;
+    --sidebar-max-width: 321px;
     --sidebar-gap: 12px;
     --sidebar-width: clamp(260px, calc(100% - (48px + 2 * var(--sidebar-gap))), var(--sidebar-max-width));
 }
