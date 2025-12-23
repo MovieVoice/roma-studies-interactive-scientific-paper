@@ -1,51 +1,20 @@
 :root {
     --color-bg-0: #FFFFFF;
-    --color-bg-1: #F7F7F8;
-    --color-bg-2: #EEEEF0;
-    --color-bg-3: #E6E7EA;
-    --color-bg-4: #F2F2F4;
-    --color-bg-5: #FAFAFB;
-    --color-bg-6: rgba(250, 250, 251, 0.85);
+    --color-bg-1: #E6E6E6;
 
-    --color-fg-0: #191919;
-    --color-fg-1: #424244;
-    --color-fg-2: #6B7280;
-    --color-fg-3: #2E2E30;
+    --color-fg-0: #29292B;
+    --color-fg-1: #67676B;
 
-    --color-border-0: #E5E7EB;
-    --color-border-1: #D1D5DB;
-    --color-border-2: rgba(0, 0, 0, 0.12);
+    --color-border-0: #EBEBEB;
 
     --color-box-shadow: rgba(0, 0, 0, 0.08);
-
-
-    --color-checkbox-0: #E7E7EA;
-    --color-checkbox-1: #D3D4D8;
-    --color-checkbox-2: #0A0A0A7b;
-
-    --color-ai: #F3F4F6;
 
     --color-primary: #1F65E8;
     --color-primary-light: #ECF1F9;
     --color-primary-dark: #113982;
-    --color-primary-shadow: rgba(43, 111, 221, 0.75);
-
-    --color-error: #FF6969;
-
-    --color-warning-bg-0: #FF38381a;
-    --color-warning-bg-1: #FF383833;
-    --color-warning-fg-0: #B91C1C;
-
-    --color-overdue: #FF3838;
-
-    --sidebar-bg: #FFFFFF;
 
     --overlay-closed: rgba(0, 0, 0, 0);
     --overlay: rgba(0, 0, 0, 0.25);
-
-    --spotlight-hover: rgba(221, 221, 255, 0.2);
-
-    color-scheme: light;
 
     /* Sidebar */
     --sidebar-max-width: 321px;
@@ -90,7 +59,7 @@ html {
     box-sizing: border-box;
     scroll-behavior: smooth;
     scrollbar-width: thin;
-    /* scrollbar-color: var(--primary-blue) var(--primary-white); */
+    scrollbar-color: var(--primary-blue) var(--primary-white);
 }
 
 *,

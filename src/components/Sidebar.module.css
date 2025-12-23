@@ -3,7 +3,17 @@
     inset: 0;
     z-index: 100;
     background-color: var(--overlay);
-    transition: background-color 0.2s ease;
+    animation: fade-in 0.2s ease;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 .sidebar {
@@ -12,7 +22,7 @@
     left: 0;
     width: var(--sidebar-width);
     height: 100vh;
-    background: var(--sidebar-bg);
+    background: var(--color-bg-0);
     border-right: 1px solid var(--color-border-0);
     transform: translateX(-100%);
     transition: transform 200ms ease;
@@ -139,7 +149,7 @@
     font-weight: 500;
     font-size: 14px;
     line-height: 20px;
-    color: #29292B;
+    color: var(--color-fg-0);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -158,7 +168,7 @@
     align-items: flex-start;
     padding: 24px 16px 16px;
     gap: 24px;
-    background: linear-gradient(99.68deg, #1F65E8 0.13%, #113982 99.87%);
+    background: linear-gradient(99.68deg, var(--color-primary) 0.13%, var(--color-primary-dark) 99.87%);
     border-radius: 16px;
 }
 
@@ -204,7 +214,7 @@
     font-size: 16px;
     line-height: 120%;
     text-align: center;
-    color: #29292B;
+    color: var(--color-fg-0);
     user-select: none;
 }
 
