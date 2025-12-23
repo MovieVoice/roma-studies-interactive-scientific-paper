@@ -143,15 +143,10 @@ function Sidebar() {
                     </div>
                 </nav>
                 <div className={styles.sidebarBottom}>
-                    {/* <VoiceControl hasUsers={(users?.length || 0) > 0} />
-                    <MoreOptionsMenu onNavigate={handleNavigate} /> */}
+                    <p>Studie in Textform herunterladen</p>
+                    <p>Jetzt kostenlos herunterladen und alle Forschungsergebnisse anschauen.</p>
+                    <button>Herunterladen</button>
                 </div>
-
-
-
-
-
-
             </aside>
         </>
     );

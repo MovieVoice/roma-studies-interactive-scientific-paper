@@ -38,9 +38,7 @@
 
     --color-overdue: #FF3838;
 
-    --sidebar-bg:
-        linear-gradient(0deg, rgba(250, 250, 251, 0.95), rgba(250, 250, 251, 0.95)),
-        radial-gradient(263.41% 100% at 50% 0%, #DCEBFF 0%, #FFFFFF 75%);
+    --sidebar-bg: #FFFFFF;
 
     --overlay-closed: rgba(0, 0, 0, 0);
     --overlay: rgba(0, 0, 0, 0.25);
