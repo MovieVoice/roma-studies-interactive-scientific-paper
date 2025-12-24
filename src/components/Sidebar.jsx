@@ -1,10 +1,13 @@
 import { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import styles from './Sidebar.module.css';
 
 const LG_QUERY = '(min-width: 992px)';
 
 function Sidebar() {
+    const location = useLocation();
+    const isInQuestionnaire = location.pathname.startsWith("/questionnaire");
+
     const initialIsDesktop = typeof window !== 'undefined'
         ? window.matchMedia(LG_QUERY).matches
         : true;
@@ -126,27 +129,58 @@ function Sidebar() {
                         </NavLink>
 
                         <NavLink
-                            to="/questionnaire"
-                            end
+                            to="/questionnaire/"
                             title="Fragebogen"
                             className={({ isActive }) =>
                                 isActive
-                                    ? `${styles.navLink} ${styles.navLinkActive}`
+                                    ? `${styles.navLink} ${styles.navLinkActive} ${styles.navLinkQuestionnaire}`
                                     : `${styles.navLink}`
                             }
                             onClick={() => !isDesktop && setOpen(false)}
                         >
                             {({ isActive }) => (
-                                <span className={styles.linkTitleBox}>
-                                    <img
-                                        className={styles.linkIcon}
-                                        src={isActive ? "/src/assets/nav-3-active.svg" : "/src/assets/nav-3.svg"}
-                                        alt=""
-                                    />
-                                    <span className={styles.linkTitle}>Fragebogen</span>
+                                <span className={styles.navLinkQuestionnaireContainer}>
+                                    <span className={styles.linkTitleBox}>
+                                        <img
+                                            className={styles.linkIcon}
+                                            src={isActive ? "/src/assets/nav-3-active.svg" : "/src/assets/nav-3.svg"}
+                                            alt=""
+                                        />
+                                        <span className={styles.linkTitle}>Fragebogen</span>
+                                    </span>
+                                    {isActive && (
+                                        <button className={styles.navLinkQuestionaireToggleButton}><img src="/src/assets/arrow-down.svg" alt="" /></button>
+                                    )}
                                 </span>
                             )}
                         </NavLink>
+                        {isInQuestionnaire && (
+                            <>
+                                <div className={styles.spacerContainer}>
+                                    <div className={styles.spacer}></div>
+                                </div>
+                                <div className={styles.submenu}>
+                                    {[...Array(19)].map((_, i) => (
+                                        <NavLink
+                                            key={i}
+                                            to={`/questionnaire/${i + 1}`}
+                                            className={({ isActive }) =>
+                                                isActive ? styles.subActive : styles.sub
+                                            }
+                                        >
+                                            {({ isActive }) => (
+                                                <span className={styles.subLinkBox}>
+                                                    <span className={styles.subIcon}>
+                                                        {isActive ? "➤" : null} {/* Pfeil oder Whitespace */}
+                                                    </span>
+                                                    <span className={styles.linkTitle}>Fragebogen {i + 1}</span>
+                                                </span>
+                                            )}
+                                        </NavLink>
+                                    ))}
+                                </div>
+                            </>
+                        )}
 
                         <NavLink
                             to="/results"

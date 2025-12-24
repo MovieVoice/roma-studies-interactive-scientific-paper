@@ -120,6 +120,44 @@
     text-decoration: none;
 }
 
+.navLinkQuestionnaire {
+    border-radius: 16px 16px 0px 0px;
+}
+
+.navLinkQuestionnaireContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navLinkQuestionaireToggleButton {
+    all: unset;
+    width: 32px;
+    height: 32px;
+    margin-right: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    background-color: transparent;
+    transition: background-color 0.2s ease;
+    flex-shrink: 0;
+    flex-grow: 0;
+}
+
+.navLinkQuestionaireToggleButton:hover {
+    background-color: var(--color-primary-medium);
+    cursor: pointer;
+}
+
+.navLinkQuestionaireToggleButton img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
 .navLink:hover {
     background-color: var(--color-primary-light);
 }
@@ -127,6 +165,73 @@
 .navLinkActive {
     background-color: var(--color-primary-light);
 }
+
+.navLinkContainer {
+    width: 100%;
+    height: fit-content;
+}
+
+.spacerContainer {
+    width: 100%;
+    height: 1px;
+    background-color: var(--color-primary-light);
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+}
+
+.spacer {
+    width: calc(100% - 28px);
+    height: 1px;
+    background-color: var(--color-primary);
+    margin: 0px 14px;
+}
+
+.submenu {
+    width: 100%;
+    height: fit-content;
+    max-height: 300px;
+    border-radius: 0px 0px 16px 16px;
+    background-color: var(--color-primary-light);
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+
+.subLinkBox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: 32px;
+    border-radius: 8px;
+    padding: 4px 8px;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.sub {
+    color: var(--color-fg-0);
+}
+
+.sub:hover {
+    background-color: var(--color-primary-light);
+}
+
+.subActive {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+.subIcon {
+    width: 12px;
+    text-align: center;
+}
+
 
 .linkTitleBox {
     width: 100%;
@@ -136,6 +241,9 @@
     justify-content: flex-start;
     align-items: center;
     gap: 8px;
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
 }
 
 .linkTitleBox img {
@@ -144,8 +252,6 @@
 }
 
 .linkTitle {
-    font-family: 'Inter';
-    font-style: normal;
     font-weight: 500;
     font-size: 14px;
     line-height: 20px;
@@ -181,8 +287,6 @@
 }
 
 .downloadHeadline {
-    font-family: 'Inter';
-    font-style: normal;
     font-weight: 600;
     font-size: 16px;
     line-height: 120%;
@@ -190,8 +294,6 @@
 }
 
 .downloadDescription {
-    font-family: 'Inter';
-    font-style: normal;
     font-weight: 500;
     font-size: 12px;
     line-height: 140%;
@@ -208,8 +310,6 @@
     align-items: center;
     background: #FFFFFF;
     border-radius: 8px;
-    font-family: 'Inter';
-    font-style: normal;
     font-weight: 600;
     font-size: 16px;
     line-height: 120%;
