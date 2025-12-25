@@ -7,6 +7,7 @@ const LG_QUERY = '(min-width: 992px)';
 function Sidebar() {
     const location = useLocation();
     const isInQuestionnaire = location.pathname.startsWith("/questionnaire");
+    const [isQuestionnaireOpen, setIsQuestionnaireOpen] = useState(isInQuestionnaire);
 
     const initialIsDesktop = typeof window !== 'undefined'
         ? window.matchMedia(LG_QUERY).matches
@@ -28,6 +29,15 @@ function Sidebar() {
             if (mql.removeEventListener) mql.removeEventListener('change', handler);
         };
     }, []);
+
+    useEffect(() => {
+        if (isInQuestionnaire && !isQuestionnaireOpen) {
+            setIsQuestionnaireOpen(true);
+        }
+        if (!isInQuestionnaire) {
+            setIsQuestionnaireOpen(false);
+        }
+    }, [location.pathname]);
 
     useEffect(() => {
         if (isDesktop) {
@@ -132,9 +142,13 @@ function Sidebar() {
                             to="/questionnaire/"
                             title="Fragebogen"
                             className={({ isActive }) =>
-                                isActive
-                                    ? `${styles.navLink} ${styles.navLinkActive} ${styles.navLinkQuestionnaire}`
-                                    : `${styles.navLink}`
+                                [
+                                    styles.navLink,
+                                    isActive && styles.navLinkActive,
+                                    isQuestionnaireOpen && styles.navLinkQuestionnaire,
+                                ]
+                                    .filter(Boolean)
+                                    .join(" ")
                             }
                             onClick={() => !isDesktop && setOpen(false)}
                         >
@@ -149,12 +163,27 @@ function Sidebar() {
                                         <span className={styles.linkTitle}>Fragebogen</span>
                                     </span>
                                     {isActive && (
-                                        <button className={styles.navLinkQuestionaireToggleButton}><img src="/src/assets/arrow-down.svg" alt="" /></button>
+                                        <button
+                                            className={styles.navLinkQuestionaireToggleButton}
+                                            onClick={(e) => {
+                                                e.preventDefault();
+                                                e.stopPropagation();
+                                                setIsQuestionnaireOpen(v => !v);
+                                            }}
+                                        >
+                                            <img
+                                                src="/src/assets/arrow-down.svg"
+                                                alt=""
+                                                style={{
+                                                    transform: isQuestionnaireOpen ? "rotate(0deg)" : "rotate(180deg)",
+                                                }}
+                                            />
+                                        </button>
                                     )}
                                 </span>
                             )}
                         </NavLink>
-                        {isInQuestionnaire && (
+                        {isInQuestionnaire && isQuestionnaireOpen && (
                             <>
                                 <div className={styles.spacerContainer}>
                                     <div className={styles.spacer}></div>
