@@ -343,10 +343,6 @@
         --sidebar-width: 321px;
     }
 
-    .sidebar {
-        flex-shrink: 0;
-    }
-
     .nav {
         margin: 16px;
     }
@@ -383,5 +379,6 @@
         transform: none;
         width: 321px;
         max-width: 321px;
+        flex-shrink: 0;
     }
 }

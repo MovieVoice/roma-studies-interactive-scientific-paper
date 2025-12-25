@@ -195,6 +195,7 @@ function Sidebar() {
                                             key={i}
                                             to={`/questionnaire/${i + 1}`}
                                             className={styles.sub}
+                                            onClick={() => !isDesktop && setOpen(false)}
                                         >
                                             {({ isActive }) => (
                                                 <span className={styles.subLinkBox}>
@@ -209,6 +210,7 @@ function Sidebar() {
                                             key={i + 16}
                                             to={`/questionnaire/${i + 17}`}
                                             className={styles.sub}
+                                            onClick={() => !isDesktop && setOpen(false)}
                                         >
                                             {({ isActive }) => (
                                                 <span className={styles.subLinkBox}>

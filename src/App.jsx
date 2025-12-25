@@ -11,7 +11,7 @@ function App() {
     const backgroundLocation = state.background;
 
     return (
-        <div style={{ display: 'flex', minHeight: '100vh' }}>
+        <div className={styles.container}>
             <Sidebar />
             <main className={styles.main}>
                 <Appbar />
