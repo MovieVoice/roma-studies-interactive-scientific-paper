@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="1000" height="1000"><style>
+    #light-icon {
+      display: inline;
+    }
+    #dark-icon {
+      display: none;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      #light-icon {
+        display: none;
+      }
+      #dark-icon {
+        display: inline;
+      }
+    }
+  </style><g id="light-icon"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="1000" height="1000"><g><g transform="matrix(25,0,0,25,0,0)"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" height="40"><svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #1f65e8;
+      }
+    </style>
+  </defs>
+  <path class="cls-1" d="M21.15,2.73c-.52-.31-1.17-.31-1.69,0l-8.04,4.74,15.73,9.25v18.73l8.02-4.72c.51-.3.83-.85.83-1.46V11.48L21.15,2.73Z"></path>
+  <path class="cls-1" d="M11.43,12.44l-7.43,4.3,11.68,6.87v13.9l7.41-4.29c.38-.23.62-.64.62-1.08v-13.2l-11.02-6.49c-.39-.23-.87-.23-1.25,0Z"></path>
+  <path class="cls-1" d="M12.14,34.91v-9.38l-7.96,4.69,7.96,4.69Z"></path>
+</svg></svg></g></g></svg></g><g id="dark-icon"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="1000" height="1000"><g clip-path="url(#SvgjsClipPath1020)"><rect width="1000" height="1000" fill="#ffffff"></rect><g transform="matrix(17.5,0,0,17.5,150,150)"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" height="40"><svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #1f65e8;
+      }
+    </style>
+  <clipPath id="SvgjsClipPath1020"><rect width="1000" height="1000" x="0" y="0" rx="350" ry="350"></rect></clipPath></defs>
+  <path class="cls-1" d="M21.15,2.73c-.52-.31-1.17-.31-1.69,0l-8.04,4.74,15.73,9.25v18.73l8.02-4.72c.51-.3.83-.85.83-1.46V11.48L21.15,2.73Z"></path>
+  <path class="cls-1" d="M11.43,12.44l-7.43,4.3,11.68,6.87v13.9l7.41-4.29c.38-.23.62-.64.62-1.08v-13.2l-11.02-6.49c-.39-.23-.87-.23-1.25,0Z"></path>
+  <path class="cls-1" d="M12.14,34.91v-9.38l-7.96,4.69,7.96,4.69Z"></path>
+</svg></svg></g></g></svg></g></svg>
