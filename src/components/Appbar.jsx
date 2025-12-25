@@ -1,13 +1,46 @@
+import { useEffect, useState } from 'react';
 import styles from './Appbar.module.css';
 
 function Appbar() {
+    const [menuOpen, setMenuOpen] = useState(false);
+
+    const toggleMenu = () => setMenuOpen(!menuOpen);
+    const closeMenu = () => setMenuOpen(false);
+
+    useEffect(() => {
+        const handleClick = (e) => {
+            if (!e.target.closest(`.${styles.dropdown}`) && !e.target.closest(`.${styles.settingsToggle}`)) {
+                setMenuOpen(false);
+            }
+        };
+        document.addEventListener('click', handleClick);
+        return () => document.removeEventListener('click', handleClick);
+    }, []);
+
+    useEffect(() => {
+        const handleResize = () => setMenuOpen(false);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
     return (
         <>
-
             <div className={styles.appbar}>
                 <h1 className={styles.title}>Künstliche Intelligenz (KI) zur Erzeugung von Produktvideos: Erkennbarkeit und Auswirkungen</h1>
+                <div className={styles.placeholder}></div>
+                <button className={styles.settingsToggle} onClick={toggleMenu}><img src="/src/assets/settings.svg" alt="" /></button>
             </div>
-            <button className={styles.settingsToggle}><img src="/src/assets/settings.svg" alt="" /></button>
+
+            {menuOpen && (
+                <>
+                    <div className={styles.dropdown}>
+                        <button><img src="/src/assets/about.svg" alt="" />About</button>
+                        <button><img src="/src/assets/law.svg" alt="" />Datenschutzerklärung</button>
+                        <button><img src="/src/assets/imprint.svg" alt="" />Impressum</button>
+                        <button><img src="/src/assets/reset.svg" alt="" />Fragebogen zurücksetzen</button>
+                    </div>
+                </>
+            )}
         </>
     );
 }
