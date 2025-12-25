@@ -164,16 +164,12 @@ function Sidebar() {
                                         <NavLink
                                             key={i}
                                             to={`/questionnaire/${i + 1}`}
-                                            className={({ isActive }) =>
-                                                isActive ? styles.subActive : styles.sub
-                                            }
+                                            className={styles.sub}
                                         >
                                             {({ isActive }) => (
                                                 <span className={styles.subLinkBox}>
-                                                    <span className={styles.subIcon}>
-                                                        {isActive ? "➤" : null} {/* Pfeil oder Whitespace */}
-                                                    </span>
-                                                    <span className={styles.linkTitle}>Fragebogen {i + 1}</span>
+                                                    {isActive ? <img className={styles.subIcon} src="/src/assets/arrow-right.svg" alt="" /> : <div className={styles.subIconPlaceholder} />}
+                                                    <span className={styles.linkTitle}>Video #{i + 1}</span>
                                                 </span>
                                             )}
                                         </NavLink>
