@@ -41,19 +41,18 @@
 .toggleSidebar {
     all: unset;
     box-sizing: border-box;
-    width: 48px;
-    height: 48px;
+    width: 52px;
+    height: 52px;
     position: fixed;
-    top: 12px;
-    left: 12px;
+    top: 16.5px;
+    left: 16px;
     z-index: 110;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid transparent;
-    border-radius: 8px;
-    background-color: transparent;
-    transition: background-color 0.3s ease, border 0.3s ease, left 200ms ease;
+    border-radius: 16px;
+    background-color: var(--color-bg-0);
+    transition: background-color 0.2s ease, left 0.2s ease;
     cursor: pointer;
 }
 
@@ -62,13 +61,13 @@
 }
 
 .toggleSidebar:hover {
-    background-color: var(--color-bg-2);
-    border: 1px solid var(--color-border-0);
+    background-color: var(--color-bg-1);
 }
 
 .toggleSidebar img {
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
 }
 
 .iconOpen {
