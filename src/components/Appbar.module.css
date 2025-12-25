@@ -1,0 +1,63 @@
+.appbar {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 0 80px 0px 28px;
+    border-bottom: 1px solid var(--color-border-0);
+    height: 85px;
+    box-sizing: border-box;
+}
+
+.title {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 120%;
+    color: var(--color-fg-0);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    flex: 1 1 auto;
+    min-width: 0;
+    display: none;
+}
+
+.settingsToggle {
+    all: unset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+    background-color: transparent;
+    transition: background-color 0.2s ease;
+    flex-shrink: 0;
+    position: absolute;
+    right: 16px;
+    top: 16.5px;
+}
+
+.settingsToggle:hover {
+    background-color: #F9F9F9;
+    cursor: pointer;
+}
+
+.settingsToggle img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+@media (min-width: 992px) {
+    .appbar {
+        width: calc(100% - var(--sidebar-width));
+    }
+
+    .title {
+        display: block;
+    }
+}

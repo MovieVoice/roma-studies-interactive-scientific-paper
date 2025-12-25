@@ -1,8 +1,9 @@
 import { useEffect } from 'react';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import Appbar from './components/Appbar.jsx';
 import Sidebar from './components/Sidebar.jsx';
 
-import './App.module.css';
+import styles from './App.module.css';
 
 function App() {
     const location = useLocation();
@@ -12,8 +13,9 @@ function App() {
     return (
         <div style={{ display: 'flex', minHeight: '100vh' }}>
             <Sidebar />
-            {/* <main className={styles.main}>
-                <Routes location={backgroundLocation || location}>
+            <main className={styles.main}>
+                <Appbar />
+                {/* <Routes location={backgroundLocation || location}>
           <Route path="/" element={<HomePage />} />
                     <Route path="/users/:id" element={<UserTasksPage />} />
                     <Route path="/categories/:id" element={<CategoryTasksPage />} />
@@ -33,8 +35,8 @@ function App() {
                         <Route path="/create-category" element={<CreateCategoryModal />} />
                         <Route path="/edit-category/:id" element={<EditCategoryModal />} />
           </Routes>
-        )}
-            </main> */}
+        )} */}
+            </main>
         </div>
     );
 }
