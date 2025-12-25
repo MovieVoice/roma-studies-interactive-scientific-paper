@@ -31,6 +31,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    overflow: hidden;
 }
 
 .open {
@@ -93,6 +94,9 @@
     flex-direction: column;
     gap: 32px;
     flex-shrink: 1;
+    flex: 1;
+    overflow-y: auto;
+    scrollbar-width: none;
 }
 
 .logoContainer {
@@ -107,6 +111,7 @@
 .links {
     width: 100%;
     overflow-y: auto;
+    scrollbar-width: none;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -189,8 +194,8 @@
 
 .submenu {
     width: 100%;
-    height: fit-content;
-    max-height: 300px;
+    max-height: 268px;
+    min-height: 88px;
     border-radius: 0px 0px 16px 16px;
     background-color: var(--color-primary-light);
     padding: 8px;
@@ -199,6 +204,7 @@
     overflow-x: hidden;
     overflow-y: auto;
     scrollbar-width: none;
+    flex-shrink: 1;
 }
 
 .subLinkBox {
