@@ -189,7 +189,7 @@ function Sidebar() {
                                     <div className={styles.spacer}></div>
                                 </div>
                                 <div className={styles.submenu}>
-                                    {[...Array(19)].map((_, i) => (
+                                    {[...Array(16)].map((_, i) => (
                                         <NavLink
                                             key={i}
                                             to={`/questionnaire/${i + 1}`}
@@ -199,6 +199,20 @@ function Sidebar() {
                                                 <span className={styles.subLinkBox}>
                                                     {isActive ? <img className={styles.subIcon} src="/src/assets/arrow-right.svg" alt="" /> : <div className={styles.subIconPlaceholder} />}
                                                     <span className={styles.linkTitle}>Video #{i + 1}</span>
+                                                </span>
+                                            )}
+                                        </NavLink>
+                                    ))}
+                                    {[...Array(3)].map((_, i) => (
+                                        <NavLink
+                                            key={i + 16}
+                                            to={`/questionnaire/${i + 17}`}
+                                            className={styles.sub}
+                                        >
+                                            {({ isActive }) => (
+                                                <span className={styles.subLinkBox}>
+                                                    {isActive ? <img className={styles.subIcon} src="/src/assets/arrow-right.svg" alt="" /> : <div className={styles.subIconPlaceholder} />}
+                                                    <span className={styles.linkTitle}>Einstellungsfrage #{i + 1}</span>
                                                 </span>
                                             )}
                                         </NavLink>

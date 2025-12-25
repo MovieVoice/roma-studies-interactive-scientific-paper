@@ -236,11 +236,13 @@
     width: 20px;
     height: 20px;
     object-fit: contain;
+    flex-shrink: 0;
 }
 
 .subIconPlaceholder {
     width: 20px;
     height: 20px;
+    flex-shrink: 0;
 }
 
 .linkTitleBox {
