@@ -28,12 +28,14 @@ function Appbar() {
             <div className={styles.appbar}>
                 <h1 className={styles.title}>Künstliche Intelligenz (KI) zur Erzeugung von Produktvideos: Erkennbarkeit und Auswirkungen</h1>
                 <div className={styles.placeholder}></div>
+                <img src="/src/assets/logo-big.svg" alt="" className={styles.logo} />
                 <button className={styles.settingsToggle} onClick={toggleMenu}><img src="/src/assets/settings.svg" alt="" /></button>
             </div>
 
             {menuOpen && (
                 <>
                     <div className={styles.dropdown}>
+                        {/* TODO Funktionen der Knöpfe hinzufügen */}
                         <button><img src="/src/assets/about.svg" alt="" />About</button>
                         <button><img src="/src/assets/law.svg" alt="" />Datenschutzerklärung</button>
                         <button><img src="/src/assets/imprint.svg" alt="" />Impressum</button>

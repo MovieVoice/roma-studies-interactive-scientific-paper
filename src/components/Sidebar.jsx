@@ -93,6 +93,7 @@ function Sidebar() {
                     </NavLink>
 
                     <div className={styles.links}>
+                        <p className={styles.navTitle}>Navigation</p>
                         <NavLink
                             to="/"
                             end
