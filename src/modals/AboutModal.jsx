@@ -25,8 +25,23 @@ function AboutModal() {
                             <img src="/src/assets/icons/close.svg" alt="Fenster schließen" />
                         </button>
                     </div>
-                    <div className={`${styles.content} ${styles.contentCenter}`}>
-                        <p>Hinzufügen für Webversion.</p>
+                    <div className={styles.content}>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione hic impedit similique repudiandae, neque ducimus dolore quas saepe aliquam dignissimos, architecto, amet sit! Consectetur nesciunt ut ipsum corrupti perspiciatis doloribus.</p>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione hic impedit similique repudiandae, neque ducimus dolore quas saepe aliquam dignissimos, architecto, amet sit! Consectetur nesciunt ut ipsum corrupti perspiciatis doloribus.</p>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione hic impedit similique repudiandae, neque ducimus dolore quas saepe aliquam dignissimos, architecto, amet sit! Consectetur nesciunt ut ipsum corrupti perspiciatis doloribus.</p>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione hic impedit similique repudiandae, neque ducimus dolore quas saepe aliquam dignissimos, architecto, amet sit! Consectetur nesciunt ut ipsum corrupti perspiciatis doloribus.</p>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione hic impedit similique repudiandae, neque ducimus dolore quas saepe aliquam dignissimos, architecto, amet sit! Consectetur nesciunt ut ipsum corrupti perspiciatis doloribus.</p>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione hic impedit similique repudiandae, neque ducimus dolore quas saepe aliquam dignissimos, architecto, amet sit! Consectetur nesciunt ut ipsum corrupti perspiciatis doloribus.</p>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione hic impedit similique repudiandae, neque ducimus dolore quas saepe aliquam dignissimos, architecto, amet sit! Consectetur nesciunt ut ipsum corrupti perspiciatis doloribus.</p>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione hic impedit similique repudiandae, neque ducimus dolore quas saepe aliquam dignissimos, architecto, amet sit! Consectetur nesciunt ut ipsum corrupti perspiciatis doloribus.</p>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione hic impedit similique repudiandae, neque ducimus dolore quas saepe aliquam dignissimos, architecto, amet sit! Consectetur nesciunt ut ipsum corrupti perspiciatis doloribus.</p>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione hic impedit similique repudiandae, neque ducimus dolore quas saepe aliquam dignissimos, architecto, amet sit! Consectetur nesciunt ut ipsum corrupti perspiciatis doloribus.</p>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione hic impedit similique repudiandae, neque ducimus dolore quas saepe aliquam dignissimos, architecto, amet sit! Consectetur nesciunt ut ipsum corrupti perspiciatis doloribus.</p>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione hic impedit similique repudiandae, neque ducimus dolore quas saepe aliquam dignissimos, architecto, amet sit! Consectetur nesciunt ut ipsum corrupti perspiciatis doloribus.</p>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione hic impedit similique repudiandae, neque ducimus dolore quas saepe aliquam dignissimos, architecto, amet sit! Consectetur nesciunt ut ipsum corrupti perspiciatis doloribus.</p>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione hic impedit similique repudiandae, neque ducimus dolore quas saepe aliquam dignissimos, architecto, amet sit! Consectetur nesciunt ut ipsum corrupti perspiciatis doloribus.</p>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione hic impedit similique repudiandae, neque ducimus dolore quas saepe aliquam dignissimos, architecto, amet sit! Consectetur nesciunt ut ipsum corrupti perspiciatis doloribus.</p>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione hic impedit similique repudiandae, neque ducimus dolore quas saepe aliquam dignissimos, architecto, amet sit! Consectetur nesciunt ut ipsum corrupti perspiciatis doloribus.</p>
                     </div>
                 </div>
             </div>
