@@ -26,7 +26,7 @@ function ImprintModal() {
                         </button>
                     </div>
                     <div className={`${styles.content} ${styles.contentCenter}`}>
-                        <p>Impressum hinzufügen, sobald das Projekt über das Web erreichbar ist.</p>
+                        <p className={styles.text}>Impressum hinzufügen, sobald das Projekt über das Web erreichbar ist.</p>
                     </div>
                 </div>
             </div>

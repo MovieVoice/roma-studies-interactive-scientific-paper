@@ -26,7 +26,7 @@ function PrivacyPolicyModal() {
                         </button>
                     </div>
                     <div className={`${styles.content} ${styles.contentCenter}`}>
-                        <p>Datenschutzerklärung hinzufügen, sobald das Projekt über das Web erreichbar ist.</p>
+                        <p className={styles.text}>Datenschutzerklärung hinzufügen, sobald das Projekt über das Web erreichbar ist.</p>
                     </div>
                 </div>
             </div>

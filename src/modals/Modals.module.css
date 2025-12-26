@@ -22,10 +22,10 @@
 }
 
 .modal {
-    width: calc(100% - 48px);
-    max-width: 1200px;
+    width: calc(100% - 32px);
+    max-width: 800px;
     height: fit-content;
-    max-height: calc(100% - 48px);
+    max-height: calc(100% - 32px);
     overflow-x: hidden;
     overflow-y: auto;
     transform-origin: 50% 50%;
@@ -98,14 +98,25 @@
 .content {
     width: 100%;
     height: fit-content;
-    padding: 16px;
+    padding: 24px;
 }
 
-.content p {
+.text {
     font-weight: 500;
     font-size: 16px;
     line-height: 140%;
     color: var(--color-fg-1);
+}
+
+.subheading {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--color-fg-0);
+}
+
+.bold {
+    font-weight: 600;
+    color: var(--color-fg-0);
 }
 
 .contentCenter {
@@ -118,4 +129,11 @@
 .contentSpacer {
     width: 100%;
     height: 16px;
+}
+
+@media screen and (min-width: 576px) {
+    .modal {
+        width: calc(100% - 92px);
+        max-height: calc(100% - 92px);
+    }
 }
