@@ -38,7 +38,7 @@ function Appbar() {
                 </h1>
 
                 <div className={styles.placeholder}></div>
-                <img src="/src/assets/icons/logo-big.svg" alt="" className={styles.logo} />
+                <img src="/src/assets/icons/logo/logo-big.svg" alt="" className={styles.logo} />
 
                 <button className={styles.settingsToggle} onClick={toggleMenu}>
                     <img src="/src/assets/icons/settings.svg" alt="Einstellungen" />
