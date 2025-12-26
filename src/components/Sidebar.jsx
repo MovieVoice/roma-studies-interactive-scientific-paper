@@ -89,7 +89,7 @@ function Sidebar() {
                         onClick={() => !isDesktop && setOpen(false)}
                         title="Zur Hauptseite"
                     >
-                        <img src="/src/assets/icons/logo-big.svg" alt="RoMa Studies" className={styles.logo} />
+                        <img src="/src/assets/logo/logo-big.svg" alt="RoMa Studies" className={styles.logo} />
                     </NavLink>
 
                     <div className={styles.links}>
