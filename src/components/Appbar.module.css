@@ -1,14 +1,17 @@
 .appbar {
     width: 100%;
     position: sticky;
+    top: 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 12px;
     padding: 0 16px;
+    background-color: var(--color-bg-0);
     border-bottom: 1px solid var(--color-border-0);
     height: 85px;
     box-sizing: border-box;
+    z-index: 1000;
 }
 
 .title {
