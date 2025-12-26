@@ -1,4 +1,4 @@
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import styles from './ResearchQuestionPage.module.css';
 
 function ResearchQuestionPage() {
@@ -12,6 +12,17 @@ function ResearchQuestionPage() {
                 </div>
             </div>
             <div className={styles.bottomNavbar}>
+                <NavLink
+                    to="/conclusion"
+                    end
+                    title="Fazit"
+                    className={styles.bottomNavbarItem}
+                >
+                    <span className={styles.bottomNavbarItemBox}>
+                        <img src="/src/assets/icons/previous-page.svg" alt="" />
+                        <span className={styles.linkTitle}>Zum Fazit</span>
+                    </span>
+                </NavLink>
                 <NavLink
                     to="/method"
                     end
