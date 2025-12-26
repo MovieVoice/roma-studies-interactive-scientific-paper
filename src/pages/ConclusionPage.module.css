@@ -10,10 +10,10 @@
 }
 
 .content {
-    width: calc(100% - 92px);
+    width: calc(100% - 48px);
     max-width: 1200px;
     height: fit-content;
-    margin: 124px 48px 204px 48px;
+    margin: 80px 24px 204px 24px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -101,4 +101,11 @@
     width: 20px;
     height: 20px;
     object-fit: contain;
+}
+
+@media screen and (min-width: 576px) {
+    .content {
+        width: calc(100% - 92px);
+        margin: 124px 48px 204px 48px;
+    }
 }
