@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import styles from './Appbar.module.css';
 
 function Appbar() {
     const [menuOpen, setMenuOpen] = useState(false);
+    const location = useLocation();
 
     const toggleMenu = () => setMenuOpen(!menuOpen);
     const closeMenu = () => setMenuOpen(false);
@@ -23,30 +25,43 @@ function Appbar() {
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
+    useEffect(() => {
+        setMenuOpen(false);
+    }, [location]);
+
     return (
         <>
             <div className={styles.appbar}>
-                <h1 className={styles.title}>Künstliche Intelligenz (KI) zur Erzeugung von Produktvideos: Erkennbarkeit und Auswirkungen</h1>
+                <h1 className={styles.title}>
+                    Künstliche Intelligenz (KI) zur Erzeugung von Produktvideos:
+                    Erkennbarkeit und Auswirkungen
+                </h1>
+
                 <div className={styles.placeholder}></div>
                 <img src="/src/assets/icons/logo-big.svg" alt="" className={styles.logo} />
-                <button className={styles.settingsToggle} onClick={toggleMenu}><img src="/src/assets/icons/settings.svg" alt="" /></button>
+
+                <button className={styles.settingsToggle} onClick={toggleMenu}>
+                    <img src="/src/assets/icons/settings.svg" alt="Einstellungen" />
+                </button>
             </div>
 
             {menuOpen && (
                 <div className={styles.dropdown}>
-                    {/* TODO Funktionen der Knöpfe hinzufügen */}
-                    <button className={styles.dropdownAction}>
+                    <Link to="/about" state={{ background: location }} className={styles.dropdownAction}>
                         <img src="/src/assets/icons/about.svg" alt="" />
                         About
-                    </button>
-                    <button className={styles.dropdownAction}>
+                    </Link>
+
+                    <Link to="/privacy-policy" state={{ background: location }} className={styles.dropdownAction}>
                         <img src="/src/assets/icons/law.svg" alt="" />
                         Datenschutzerklärung
-                    </button>
-                    <button className={styles.dropdownAction}>
+                    </Link>
+
+                    <Link to="/imprint" state={{ background: location }} className={styles.dropdownAction}>
                         <img src="/src/assets/icons/imprint.svg" alt="" />
                         Impressum
-                    </button>
+                    </Link>
+
                     <button className={styles.dropdownAction}>
                         <img src="/src/assets/icons/reset.svg" alt="" />
                         Fragebogen zurücksetzen
