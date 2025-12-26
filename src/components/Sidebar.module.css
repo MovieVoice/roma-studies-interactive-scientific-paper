@@ -1,7 +1,7 @@
 .overlay {
     position: fixed;
     inset: 0;
-    z-index: 100;
+    z-index: 200;
     background-color: var(--overlay);
     animation: fade-in 0.2s ease;
 }
@@ -27,7 +27,7 @@
     transform: translateX(-100%);
     transition: transform 0.2s ease;
     will-change: transform;
-    z-index: 105;
+    z-index: 205;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -46,7 +46,7 @@
     position: fixed;
     top: 16.5px;
     left: 16px;
-    z-index: 110;
+    z-index: 210;
     display: flex;
     justify-content: center;
     align-items: center;
