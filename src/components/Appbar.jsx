@@ -28,27 +28,27 @@ function Appbar() {
             <div className={styles.appbar}>
                 <h1 className={styles.title}>Künstliche Intelligenz (KI) zur Erzeugung von Produktvideos: Erkennbarkeit und Auswirkungen</h1>
                 <div className={styles.placeholder}></div>
-                <img src="/src/assets/logo-big.svg" alt="" className={styles.logo} />
-                <button className={styles.settingsToggle} onClick={toggleMenu}><img src="/src/assets/settings.svg" alt="" /></button>
+                <img src="/src/assets/icons/logo-big.svg" alt="" className={styles.logo} />
+                <button className={styles.settingsToggle} onClick={toggleMenu}><img src="/src/assets/icons/settings.svg" alt="" /></button>
             </div>
 
             {menuOpen && (
                 <div className={styles.dropdown}>
                     {/* TODO Funktionen der Knöpfe hinzufügen */}
                     <button className={styles.dropdownAction}>
-                        <img src="/src/assets/about.svg" alt="" />
+                        <img src="/src/assets/icons/about.svg" alt="" />
                         About
                     </button>
                     <button className={styles.dropdownAction}>
-                        <img src="/src/assets/law.svg" alt="" />
+                        <img src="/src/assets/icons/law.svg" alt="" />
                         Datenschutzerklärung
                     </button>
                     <button className={styles.dropdownAction}>
-                        <img src="/src/assets/imprint.svg" alt="" />
+                        <img src="/src/assets/icons/imprint.svg" alt="" />
                         Impressum
                     </button>
                     <button className={styles.dropdownAction}>
-                        <img src="/src/assets/reset.svg" alt="" />
+                        <img src="/src/assets/icons/reset.svg" alt="" />
                         Fragebogen zurücksetzen
                     </button>
                 </div>

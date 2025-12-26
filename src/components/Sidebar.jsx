@@ -63,8 +63,8 @@ function Sidebar() {
                 aria-controls="app-sidebar"
                 onClick={handleToggle}
             >
-                <img src="/src/assets/sidebar-open.svg" alt="Sidebar öffnen" className={styles.iconOpen} />
-                <img src="/src/assets/sidebar-close.svg" alt="Sidebar schließen" className={styles.iconClose} />
+                <img src="/src/assets/icons/sidebar-open.svg" alt="Sidebar öffnen" className={styles.iconOpen} />
+                <img src="/src/assets/icons/sidebar-close.svg" alt="Sidebar schließen" className={styles.iconClose} />
             </button>
 
             {open && !isDesktop && (
@@ -89,7 +89,7 @@ function Sidebar() {
                         onClick={() => !isDesktop && setOpen(false)}
                         title="Zur Hauptseite"
                     >
-                        <img src="/src/assets/logo-big.svg" alt="RoMa Studies" className={styles.logo} />
+                        <img src="/src/assets/icons/logo-big.svg" alt="RoMa Studies" className={styles.logo} />
                     </NavLink>
 
                     <div className={styles.links}>
@@ -108,7 +108,7 @@ function Sidebar() {
                             {({ isActive }) => (
                                 <span className={styles.linkTitleBox}>
                                     <img
-                                        src={isActive ? "/src/assets/nav-1-active.svg" : "/src/assets/nav-1.svg"}
+                                        src={isActive ? "/src/assets/icons/nav-1-active.svg" : "/src/assets/icons/nav-1.svg"}
                                         alt=""
                                     />
                                     <span className={styles.linkTitle}>Forschungsfrage & Zielsetzung</span>
@@ -131,7 +131,7 @@ function Sidebar() {
                                 <span className={styles.linkTitleBox}>
                                     <img
                                         className={styles.linkIcon}
-                                        src={isActive ? "/src/assets/nav-2-active.svg" : "/src/assets/nav-2.svg"}
+                                        src={isActive ? "/src/assets/icons/nav-2-active.svg" : "/src/assets/icons/nav-2.svg"}
                                         alt=""
                                     />
                                     <span className={styles.linkTitle}>Methodik</span>
@@ -158,7 +158,7 @@ function Sidebar() {
                                     <span className={styles.linkTitleBox}>
                                         <img
                                             className={styles.linkIcon}
-                                            src={isActive ? "/src/assets/nav-3-active.svg" : "/src/assets/nav-3.svg"}
+                                            src={isActive ? "/src/assets/icons/nav-3-active.svg" : "/src/assets/icons/nav-3.svg"}
                                             alt=""
                                         />
                                         <span className={styles.linkTitle}>Fragebogen</span>
@@ -173,7 +173,7 @@ function Sidebar() {
                                             }}
                                         >
                                             <img
-                                                src="/src/assets/arrow-down.svg"
+                                                src="/src/assets/icons/arrow-down.svg"
                                                 alt=""
                                                 style={{
                                                     transform: isQuestionnaireOpen ? "rotate(0deg)" : "rotate(180deg)",
@@ -199,7 +199,7 @@ function Sidebar() {
                                         >
                                             {({ isActive }) => (
                                                 <span className={styles.subLinkBox}>
-                                                    {isActive ? <img className={styles.subIcon} src="/src/assets/arrow-right.svg" alt="" /> : <div className={styles.subIconPlaceholder} />}
+                                                    {isActive ? <img className={styles.subIcon} src="/src/assets/icons/arrow-right.svg" alt="" /> : <div className={styles.subIconPlaceholder} />}
                                                     <span className={styles.linkTitle}>Video #{i + 1}</span>
                                                 </span>
                                             )}
@@ -214,7 +214,7 @@ function Sidebar() {
                                         >
                                             {({ isActive }) => (
                                                 <span className={styles.subLinkBox}>
-                                                    {isActive ? <img className={styles.subIcon} src="/src/assets/arrow-right.svg" alt="" /> : <div className={styles.subIconPlaceholder} />}
+                                                    {isActive ? <img className={styles.subIcon} src="/src/assets/icons/arrow-right.svg" alt="" /> : <div className={styles.subIconPlaceholder} />}
                                                     <span className={styles.linkTitle}>Einstellungsfrage #{i + 1}</span>
                                                 </span>
                                             )}
@@ -239,7 +239,7 @@ function Sidebar() {
                                 <span className={styles.linkTitleBox}>
                                     <img
                                         className={styles.linkIcon}
-                                        src={isActive ? "/src/assets/nav-4-active.svg" : "/src/assets/nav-4.svg"}
+                                        src={isActive ? "/src/assets/icons/nav-4-active.svg" : "/src/assets/icons/nav-4.svg"}
                                         alt=""
                                     />
                                     <span className={styles.linkTitle}>Ergebnisübersicht</span>
@@ -262,7 +262,7 @@ function Sidebar() {
                                 <span className={styles.linkTitleBox}>
                                     <img
                                         className={styles.linkIcon}
-                                        src={isActive ? "/src/assets/nav-5-active.svg" : "/src/assets/nav-5.svg"}
+                                        src={isActive ? "/src/assets/icons/nav-5-active.svg" : "/src/assets/icons/nav-5.svg"}
                                         alt=""
                                     />
                                     <span className={styles.linkTitle}>Fazit</span>
