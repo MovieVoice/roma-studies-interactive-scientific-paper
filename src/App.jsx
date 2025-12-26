@@ -1,7 +1,11 @@
-import { useEffect } from 'react';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Appbar from './components/Appbar.jsx';
 import Sidebar from './components/Sidebar.jsx';
+import ResearchQuestionPage from './pages/ResearchQuestionPage.jsx';
+import MethodPage from './pages/MethodPage.jsx';
+import QuestionnairePage from './pages/QuestionnairePage.jsx';
+import ResultsPage from './pages/ResultsPage.jsx';
+import ConclusionPage from './pages/ConclusionPage.jsx';
 import AboutModal from './modals/AboutModal.jsx';
 import PrivacyPolicyModal from './modals/PrivacyPolicyModal.jsx';
 import ImprintModal from './modals/ImprintModal.jsx';
@@ -18,18 +22,14 @@ function App() {
             <Sidebar />
             <main className={styles.main}>
                 <Appbar />
-                {/* <Routes location={backgroundLocation || location}>
-                    <Route path="/" element={<HomePage />} />
-                    <Route path="/users/:id" element={<UserTasksPage />} />
-                    <Route path="/categories/:id" element={<CategoryTasksPage />} />
-                    <Route path="/tasks/overdue/" element={<OverdueTasksPage />} />
-                    <Route path="/tasks/due_this_week/" element={<DueThisWeekTasksPage />} />
-                    <Route path="/tasks/done/" element={<DoneTasksPage />} />
-                    <Route path="/about/" element={<AboutPage />} />
-                    <Route path="/imprint/" element={<Imprint />} />
-                    <Route path="/privacy-policy/" element={<PrivacyPolicy />} />
+                <Routes location={backgroundLocation || location}>
+                    <Route path="/" element={<ResearchQuestionPage />} />
+                    <Route path="/method/" element={<MethodPage />} />
+                    <Route path="/questionnaire/:id" element={<QuestionnairePage />} />
+                    <Route path="/results/" element={<ResultsPage />} />
+                    <Route path="/conclusion/" element={<ConclusionPage />} />
                     <Route path="*" element={<Navigate to="/" replace />} />
-                </Routes> */}
+                </Routes>
             </main>
 
             {backgroundLocation && (
