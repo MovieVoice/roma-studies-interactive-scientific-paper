@@ -1,6 +1,6 @@
 .appbar {
     width: 100%;
-    max-width: 100%;
+    position: sticky;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -66,7 +66,7 @@
     padding: 8px;
 }
 
-.dropdown button {
+.dropdownAction {
     all: unset;
     width: calc(100% - 28px);
     height: 100%;
@@ -83,12 +83,12 @@
     background-color: transparent;
 }
 
-.dropdown button:hover {
+.dropdownAction:hover {
     background-color: var(--color-bg-1);
     cursor: pointer;
 }
 
-.dropdown button img {
+.dropdownAction img {
     width: 20px;
     height: 20px;
     object-fit: contain;

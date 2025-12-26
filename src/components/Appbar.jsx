@@ -33,15 +33,25 @@ function Appbar() {
             </div>
 
             {menuOpen && (
-                <>
-                    <div className={styles.dropdown}>
-                        {/* TODO Funktionen der Knöpfe hinzufügen */}
-                        <button><img src="/src/assets/about.svg" alt="" />About</button>
-                        <button><img src="/src/assets/law.svg" alt="" />Datenschutzerklärung</button>
-                        <button><img src="/src/assets/imprint.svg" alt="" />Impressum</button>
-                        <button><img src="/src/assets/reset.svg" alt="" />Fragebogen zurücksetzen</button>
-                    </div>
-                </>
+                <div className={styles.dropdown}>
+                    {/* TODO Funktionen der Knöpfe hinzufügen */}
+                    <button className={styles.dropdownAction}>
+                        <img src="/src/assets/about.svg" alt="" />
+                        About
+                    </button>
+                    <button className={styles.dropdownAction}>
+                        <img src="/src/assets/law.svg" alt="" />
+                        Datenschutzerklärung
+                    </button>
+                    <button className={styles.dropdownAction}>
+                        <img src="/src/assets/imprint.svg" alt="" />
+                        Impressum
+                    </button>
+                    <button className={styles.dropdownAction}>
+                        <img src="/src/assets/reset.svg" alt="" />
+                        Fragebogen zurücksetzen
+                    </button>
+                </div>
             )}
         </>
     );
