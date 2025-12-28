@@ -1,5 +1,6 @@
 import { useParams, Navigate, NavLink } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import results from '/src/assets/data/results.json';
 import styles from './QuestionnairePage.module.css';
 
 function QuestionnairePage() {
@@ -15,9 +16,16 @@ function QuestionnairePage() {
         const watchedFlag = localStorage.getItem(`videoWatched_${questionId}`);
         const savedAnswer = localStorage.getItem(`answer_${questionId}`);
 
-        setAlreadyWatched(watchedFlag === 'true');
+        // Wenn bereits eine Antwort existiert, Video wieder freigeben
+        if (savedAnswer) {
+            localStorage.removeItem(`videoWatched_${questionId}`);
+            setAlreadyWatched(false);
+        } else {
+            setAlreadyWatched(watchedFlag === 'true');
+        }
+
         setAnswer(savedAnswer || null);
-    }, [questionId]);
+    }, [questionId, answer]);
 
     // Ungültige IDs -> zurück
     if (isNaN(questionId) || questionId < 1 || questionId > 19) {
@@ -29,6 +37,13 @@ function QuestionnairePage() {
         localStorage.setItem(`answer_${questionId}`, type);
         setAnswer(type);
     };
+
+    // Textdarstellung der Antwort
+    const translate = (type) =>
+        type === 'real' ? 'Echtes Video' : type === 'ai' ? 'KI-generiertes Video' : 'Keine Angabe';
+
+    // Ergebnisse aus JSON holen
+    const resultData = results.find((r) => r.id === questionId);
 
 
     let pageContent;
@@ -43,13 +58,30 @@ function QuestionnairePage() {
 
                     {answer ? (
                         <div className={styles.answerSection}>
-                            <p className={styles.answerLabel}>Deine Antwort:</p>
-                            <p className={styles.answerDisplay}>
-                                {answer === 'real' && '🟢 Echtes Video'}
-                                {answer === 'ai' && '🔵 KI-generiertes Video'}
-                                {answer === '-' && '⚪ Übersprungen'}
+
+                            <div className={styles.onlineResults}>
+                                <p className={styles.onlineResultsHeadline}>Ergebnis der Online‑Befragung:</p>
+                                <div className={`${styles.barContainer} ${answer === 'real' ? styles.barActive : ''}`}>
+                                    <span>Echtes Video</span>
+                                    <span>{resultData.realPercentage}%</span>
+                                    <div className={styles.bar} style={{ 'width': `${resultData.realPercentage}%` }}></div>
+                                </div>
+
+                                <div className={`${styles.barContainer} ${answer === 'ai' ? styles.barActive : ''}`}>
+                                    <span>KI-generiertes Video</span>
+                                    <span>{resultData.aiPercentage}%</span>
+                                    <div className={styles.bar} style={{ 'width': `${resultData.aiPercentage}%` }}></div>
+                                </div>
+                            </div>
+
+                            <p>
+                                <span className={styles.resultLabel}>Richtige Antwort: </span>
+                                <span className={styles.resultValue}>{translate(resultData.correctAnswer)}</span>
                             </p>
-                            <p className={styles.answerNote}>Danke für deine Teilnahme!</p>
+                            <p>
+                                <span className={styles.resultLabel}>Deine Antwort: </span>
+                                <span className={styles.resultValue}>{translate(answer)}</span>
+                            </p>
                         </div>
                     ) : (
                         <>
@@ -78,38 +110,40 @@ function QuestionnairePage() {
                                     Ergebnisse direkt aufdecken
                                 </button>
                             </div>
-
-                            <div className={styles.videoWrapper}>
-                                <div className={styles.videoContainer}>
-                                    {alreadyWatched ? (
-                                        <div className={styles.alreadyWatchedContainer}>
-                                            <div className={styles.alreadyWatchedBox}>
-                                                <img src="/src/assets/icons/no-repeat.svg" alt="" />
-                                                <p>Dieses Video wurde bereits angesehen und kann nicht erneut abgespielt werden.</p>
-                                            </div>
-                                            <img className={styles.alreadyWatchedBG} src={`/src/assets/thumbnails/${questionId}.jpg`} alt="" />
-                                        </div>
-                                    ) : (
-                                        <>
-                                            {isLoading && <div className={styles.loader}></div>}
-                                            <video
-                                                src={`/videos/${questionId}.mp4`}
-                                                controls
-                                                playsInline
-                                                onCanPlay={() => setIsLoading(false)}
-                                                onLoadedData={() => setIsLoading(false)}
-                                                onEnded={() => {
-                                                    localStorage.setItem(`videoWatched_${questionId}`, 'true');
-                                                    setAlreadyWatched(true);
-                                                }}
-                                                className={isLoading ? styles.hidden : ''}
-                                            />
-                                        </>
-                                    )}
-                                </div>
-                            </div>
                         </>
                     )}
+                    <div className={styles.videoWrapper}>
+                        <div className={styles.videoContainer}>
+                            {alreadyWatched ? (
+                                <div className={styles.alreadyWatchedContainer}>
+                                    <div className={styles.alreadyWatchedBox}>
+                                        <img src="/src/assets/icons/no-repeat.svg" alt="" />
+                                        <p>Dieses Video wurde bereits angesehen und kann nicht erneut abgespielt werden.</p>
+                                    </div>
+                                    <img className={styles.alreadyWatchedBG} src={`/src/assets/thumbnails/${questionId}.jpg`} alt="" />
+                                </div>
+                            ) : (
+                                <>
+                                    {isLoading && <div className={styles.loader}></div>}
+                                    <video
+                                        src={`/videos/${questionId}.mp4`}
+                                        controls
+                                        playsInline
+                                        onCanPlay={() => setIsLoading(false)}
+                                        onLoadedData={() => setIsLoading(false)}
+                                        onEnded={() => {
+                                            if (!answer) {
+                                                localStorage.setItem(`videoWatched_${questionId}`, 'true');
+                                                setAlreadyWatched(true);
+                                            }
+                                        }}
+                                        className={isLoading ? styles.hidden : ''}
+                                    />
+                                </>
+                            )}
+                        </div>
+                    </div>
+
                 </div>
                 <div className={styles.layoutVideo}>
                     <p className={styles.headline}>Video #{questionId}</p>
