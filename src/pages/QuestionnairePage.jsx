@@ -1,16 +1,34 @@
 import { useParams, Navigate, NavLink } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './QuestionnairePage.module.css';
 
 function QuestionnairePage() {
     const { id } = useParams();
     const questionId = parseInt(id, 10);
-    const [isLoading, setIsLoading] = useState(true);
 
-    // Ungültige IDs umleiten
+    const [isLoading, setIsLoading] = useState(true);
+    const [alreadyWatched, setAlreadyWatched] = useState(false);
+    const [answer, setAnswer] = useState(null);
+
+    // Prüfen, ob das Video schon angesehen wurde oder eine Antwort existiert
+    useEffect(() => {
+        const watchedFlag = localStorage.getItem(`videoWatched_${questionId}`);
+        const savedAnswer = localStorage.getItem(`answer_${questionId}`);
+
+        setAlreadyWatched(watchedFlag === 'true');
+        setAnswer(savedAnswer || null);
+    }, [questionId]);
+
+    // Ungültige IDs -> zurück
     if (isNaN(questionId) || questionId < 1 || questionId > 19) {
         return <Navigate to="/" replace />;
     }
+
+    // Antwort speichern
+    const handleAnswer = (type) => {
+        localStorage.setItem(`answer_${questionId}`, type);
+        setAnswer(type);
+    };
 
 
     let pageContent;
@@ -23,28 +41,75 @@ function QuestionnairePage() {
                     <p className={styles.headline}>Video #{questionId}</p>
                     <p className={styles.text}>Du darfst das Video genau einmal anschauen. Entscheide dann selbst, ob das Video KI-generiert oder real ist. Du kannst auch direkt die Ergebnisse der Befragung aufdecken.</p>
 
-                    <div className={styles.btnContainer}>
-                        <button className={styles.voteBtn}><img src="/src/assets/icons/real.svg" alt="" />Echtes Video</button>
-                        <button className={styles.voteBtn}><img src="/src/assets/icons/ai.svg" alt="" />KI-generiertes Video</button>
-                        <button className={styles.revealBtn}><img src="/src/assets/icons/reveal.svg" alt="" />Ergebnisse direkt aufdecken</button>
-                    </div>
-
-                    <div className={styles.videoWrapper}>
-                        <div className={styles.videoContainer}>
-                            {isLoading && (
-                                <div className={styles.loader}></div>
-                            )}
-
-                            <video
-                                src={`/videos/${questionId}.mp4`}
-                                controls
-                                playsInline
-                                onCanPlay={() => setIsLoading(false)}
-                                onLoadedData={() => setIsLoading(false)}
-                                className={isLoading ? styles.hidden : ''}
-                            />
+                    {answer ? (
+                        <div className={styles.answerSection}>
+                            <p className={styles.answerLabel}>Deine Antwort:</p>
+                            <p className={styles.answerDisplay}>
+                                {answer === 'real' && '🟢 Echtes Video'}
+                                {answer === 'ai' && '🔵 KI-generiertes Video'}
+                                {answer === '-' && '⚪ Übersprungen'}
+                            </p>
+                            <p className={styles.answerNote}>Danke für deine Teilnahme!</p>
                         </div>
-                    </div>
+                    ) : (
+                        <>
+                            <div className={styles.btnContainer}>
+                                <button
+                                    className={styles.voteBtn}
+                                    onClick={() => handleAnswer('real')}
+                                >
+                                    <img src="/src/assets/icons/real.svg" alt="" />
+                                    Echtes Video
+                                </button>
+
+                                <button
+                                    className={styles.voteBtn}
+                                    onClick={() => handleAnswer('ai')}
+                                >
+                                    <img src="/src/assets/icons/ai.svg" alt="" />
+                                    KI-generiertes Video
+                                </button>
+
+                                <button
+                                    className={styles.revealBtn}
+                                    onClick={() => handleAnswer('-')}
+                                >
+                                    <img src="/src/assets/icons/reveal.svg" alt="" />
+                                    Ergebnisse direkt aufdecken
+                                </button>
+                            </div>
+
+                            <div className={styles.videoWrapper}>
+                                <div className={styles.videoContainer}>
+                                    {alreadyWatched ? (
+                                        <div className={styles.alreadyWatchedContainer}>
+                                            <div className={styles.alreadyWatchedBox}>
+                                                <img src="/src/assets/icons/no-repeat.svg" alt="" />
+                                                <p>Dieses Video wurde bereits angesehen und kann nicht erneut abgespielt werden.</p>
+                                            </div>
+                                            <img className={styles.alreadyWatchedBG} src={`/src/assets/thumbnails/${questionId}.jpg`} alt="" />
+                                        </div>
+                                    ) : (
+                                        <>
+                                            {isLoading && <div className={styles.loader}></div>}
+                                            <video
+                                                src={`/videos/${questionId}.mp4`}
+                                                controls
+                                                playsInline
+                                                onCanPlay={() => setIsLoading(false)}
+                                                onLoadedData={() => setIsLoading(false)}
+                                                onEnded={() => {
+                                                    localStorage.setItem(`videoWatched_${questionId}`, 'true');
+                                                    setAlreadyWatched(true);
+                                                }}
+                                                className={isLoading ? styles.hidden : ''}
+                                            />
+                                        </>
+                                    )}
+                                </div>
+                            </div>
+                        </>
+                    )}
                 </div>
                 <div className={styles.layoutVideo}>
                     <p className={styles.headline}>Video #{questionId}</p>

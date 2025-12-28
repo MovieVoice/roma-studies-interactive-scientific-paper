@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "realPercentage": 87,
+    "aiPercentage": 13,
+    "correctAnswer": "real"
+  },
+  {
+    "id": 2,
+    "realPercentage": 2,
+    "aiPercentage": 98,
+    "correctAnswer": "ai"
+  },
+  {
+    "id": 3,
+    "realPercentage": 18,
+    "aiPercentage": 82,
+    "correctAnswer": "ai"
+  },
+  {
+    "id": 4,
+    "realPercentage": 95,
+    "aiPercentage": 5,
+    "correctAnswer": "real"
+  },
+  {
+    "id": 5,
+    "realPercentage": 5,
+    "aiPercentage": 95,
+    "correctAnswer": "ai"
+  },
+  {
+    "id": 6,
+    "realPercentage": 91,
+    "aiPercentage": 9,
+    "correctAnswer": "real"
+  },
+  {
+    "id": 7,
+    "realPercentage": 89,
+    "aiPercentage": 11,
+    "correctAnswer": "real"
+  },
+  {
+    "id": 8,
+    "realPercentage": 4,
+    "aiPercentage": 96,
+    "correctAnswer": "ai"
+  },
+  {
+    "id": 9,
+    "realPercentage": 96,
+    "aiPercentage": 4,
+    "correctAnswer": "real"
+  },
+  {
+    "id": 10,
+    "realPercentage": 5,
+    "aiPercentage": 95,
+    "correctAnswer": "ai"
+  },
+  {
+    "id": 11,
+    "realPercentage": 98,
+    "aiPercentage": 2,
+    "correctAnswer": "real"
+  },
+  {
+    "id": 12,
+    "realPercentage": 98,
+    "aiPercentage": 2,
+    "correctAnswer": "real"
+  },
+  {
+    "id": 13,
+    "realPercentage": 0,
+    "aiPercentage": 100,
+    "correctAnswer": "ai"
+  },
+  {
+    "id": 14,
+    "realPercentage": 0,
+    "aiPercentage": 100,
+    "correctAnswer": "ai"
+  },
+  {
+    "id": 15,
+    "realPercentage": 95,
+    "aiPercentage": 5,
+    "correctAnswer": "real"
+  },
+  {
+    "id": 16,
+    "realPercentage": 0,
+    "aiPercentage": 100,
+    "correctAnswer": "ai"
+  }
+]
