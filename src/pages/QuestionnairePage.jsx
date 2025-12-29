@@ -54,21 +54,12 @@ function QuestionnairePage() {
             }
         };
 
-        // Debounced resize handler
-        const handleResize = () => {
-            clearTimeout(resizeTimeout);
-            resizeTimeout = setTimeout(adjustVideoSize, 100); // 100ms Delay
-        };
-
-        // Observer für Wrapper, falls sich dieser dynamisch ändert
         const resizeObserver = new ResizeObserver(() => adjustVideoSize());
 
-        // Events
         window.addEventListener("resize", adjustVideoSize);
         window.addEventListener("load", adjustVideoSize);
         resizeObserver.observe(wrapper);
 
-        // Initialer Adjust nach kleinem Delay (wenn alles gerendert ist)
         setTimeout(adjustVideoSize, 50);
 
         return () => {
@@ -78,7 +69,6 @@ function QuestionnairePage() {
             clearTimeout(resizeTimeout);
         };
     }, []);
-
 
 
     // Ungültige IDs -> zurück
@@ -235,6 +225,62 @@ function QuestionnairePage() {
                     <div className={styles.contentSection}>
                         <p className={styles.headline}>Video #{questionId}</p>
                         <p className={styles.text}>Du darfst das Video genau einmal anschauen. Entscheide dann selbst, ob das Video KI-generiert oder real ist. Du kannst auch direkt die Ergebnisse der Befragung aufdecken.</p>
+
+
+
+
+                        {answer && (
+                            <div className={styles.answerSection}>
+                                <div className={styles.onlineResults}>
+                                    <p className={styles.onlineResultsHeadline}>Ergebnis der Online‑Befragung:</p>
+                                    <div className={`${styles.barContainer} ${answer === 'real' ? styles.barActive : ''}`}>
+                                        <span>Echtes Video</span>
+                                        <span>{resultData.realPercentage}%</span>
+                                        <div className={styles.bar} style={{ 'width': `${resultData.realPercentage}%` }}></div>
+                                    </div>
+
+                                    <div className={`${styles.barContainer} ${answer === 'ai' ? styles.barActive : ''}`}>
+                                        <span>KI-generiertes Video</span>
+                                        <span>{resultData.aiPercentage}%</span>
+                                        <div className={styles.bar} style={{ 'width': `${resultData.aiPercentage}%` }}></div>
+                                    </div>
+                                </div>
+
+                                <p>
+                                    <span className={styles.resultLabel}>Richtige Antwort: </span>
+                                    <span className={styles.resultValue}>{translate(resultData.correctAnswer)}</span>
+                                </p>
+                                <p>
+                                    <span className={styles.resultLabel}>Deine Antwort: </span>
+                                    <span className={styles.resultValue}>{translate(answer)}</span>
+                                </p>
+                            </div>
+                        )}
+
+
+                        {!answer && (
+                            <>
+                                <div className={styles.btnContainer}>
+                                    <button
+                                        className={styles.voteBtn}
+                                        onClick={() => handleAnswer('real')}
+                                    >
+                                        <img src="/src/assets/icons/real.svg" alt="" />
+                                        <span className={styles.voteBtnEllipsis}>Echtes Video</span>
+                                    </button>
+
+                                    <button
+                                        className={styles.voteBtn}
+                                        onClick={() => handleAnswer('ai')}
+                                    >
+                                        <img src="/src/assets/icons/ai.svg" alt="" />
+                                        <span className={styles.voteBtnEllipsis}>KI-generiertes Video</span>
+                                    </button>
+                                </div>
+                            </>
+                        )}
+
+
                     </div>
                 </div>
             </>
