@@ -351,13 +351,10 @@
     }
 
     .layoutVideo {
-        width: calc(100% - 96px);
         max-width: 1264px;
         height: fit-content;
         display: flex;
         justify-content: center;
-        gap: 12px;
-        margin: 32px 48px 204px 48px;
     }
 
     .videoWrapper {
@@ -367,18 +364,19 @@
     .contentSection {
         width: 100%;
         max-width: 737px;
-        height: calc(100% - 96px);
+        height: 100%;
         display: flex;
         flex-direction: column;
         gap: 12px;
         overflow-x: hidden;
         overflow-y: auto;
-        margin-top: 96px;
+        padding: 96px 0px;
     }
 
     .headline,
     .text,
-    .btnContainer {
+    .btnContainer,
+    .subheading {
         margin: 0px 32px;
     }
 
@@ -399,8 +397,62 @@
         min-width: 0;
     }
 
+    .subheading {
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 120%;
+        color: var(--color-fg-0);
+    }
+
+    .answerSection {
+        width: calc(100% - 64px);
+        margin: 24px 32px;
+        position: relative;
+    }
+
+    .answerHidden {
+        width: calc(100% + 64px);
+        height: calc(100% + 64px);
+        position: absolute;
+        top: -32px;
+        left: -32px;
+        background-color: rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(7.5px);
+        z-index: 10;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .revealBtn {
+        height: 48px;
+        border-radius: 24px;
+        flex-grow: 0;
+    }
 }
 
+@media screen and (min-width: 992px) and (max-height: 799px) {
+    .layoutVideo {
+        width: calc(100% - 64px);
+        margin: 32px 16px 204px 48px;
+        gap: 0;
+    }
+
+    .contentSection {
+        padding-bottom: 0;
+    }
+
+    .videoWrapper {
+        border: none;
+    }
+
+    .videoContainer {
+        border: 1px solid var(--color-border-0);
+        border-radius: 16px;
+        overflow: hidden;
+        box-sizing: content-box;
+    }
+}
 
 @media screen and (min-width: 992px) and (min-height: 800px) {
     .container {

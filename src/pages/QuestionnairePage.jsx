@@ -227,39 +227,46 @@ function QuestionnairePage() {
                         <p className={styles.text}>Du darfst das Video genau einmal anschauen. Entscheide dann selbst, ob das Video KI-generiert oder real ist. Du kannst auch direkt die Ergebnisse der Befragung aufdecken.</p>
 
 
-
-
-                        {answer && (
-                            <div className={styles.answerSection}>
-                                <div className={styles.onlineResults}>
-                                    <p className={styles.onlineResultsHeadline}>Ergebnis der Online‑Befragung:</p>
-                                    <div className={`${styles.barContainer} ${answer === 'real' ? styles.barActive : ''}`}>
-                                        <span>Echtes Video</span>
-                                        <span>{resultData.realPercentage}%</span>
-                                        <div className={styles.bar} style={{ 'width': `${resultData.realPercentage}%` }}></div>
-                                    </div>
-
-                                    <div className={`${styles.barContainer} ${answer === 'ai' ? styles.barActive : ''}`}>
-                                        <span>KI-generiertes Video</span>
-                                        <span>{resultData.aiPercentage}%</span>
-                                        <div className={styles.bar} style={{ 'width': `${resultData.aiPercentage}%` }}></div>
-                                    </div>
+                        <div className={styles.answerSection}>
+                            {!answer && (
+                                <div className={styles.answerHidden}>
+                                    <button
+                                        className={styles.revealBtn}
+                                        onClick={() => handleAnswer('-')}
+                                    >
+                                        <img src="/src/assets/icons/reveal.svg" alt="" />
+                                        Direkt aufdecken
+                                    </button>
+                                </div>
+                            )}
+                            <div className={styles.onlineResults}>
+                                <p className={styles.onlineResultsHeadline}>Ergebnis der Online‑Befragung:</p>
+                                <div className={`${styles.barContainer} ${answer === 'real' ? styles.barActive : ''}`}>
+                                    <span>Echtes Video</span>
+                                    <span>{answer ? resultData.realPercentage : 0}%</span>
+                                    {answer && <div className={styles.bar} style={{ 'width': `${resultData.realPercentage}%` }}></div>}
                                 </div>
 
-                                <p>
-                                    <span className={styles.resultLabel}>Richtige Antwort: </span>
-                                    <span className={styles.resultValue}>{translate(resultData.correctAnswer)}</span>
-                                </p>
-                                <p>
-                                    <span className={styles.resultLabel}>Deine Antwort: </span>
-                                    <span className={styles.resultValue}>{translate(answer)}</span>
-                                </p>
+                                <div className={`${styles.barContainer} ${answer === 'ai' ? styles.barActive : ''}`}>
+                                    <span>KI-generiertes Video</span>
+                                    <span>{answer ? resultData.aiPercentage : 0}%</span>
+                                    {answer && <div className={styles.bar} style={{ 'width': `${resultData.aiPercentage}%` }}></div>}
+                                </div>
                             </div>
-                        )}
 
+                            <p>
+                                <span className={styles.resultLabel}>Richtige Antwort: </span>
+                                {answer && <span className={styles.resultValue}>{translate(resultData.correctAnswer)}</span>}
+                            </p>
+                            <p>
+                                <span className={styles.resultLabel}>Deine Antwort: </span>
+                                {answer && <span className={styles.resultValue}>{translate(answer)}</span>}
+                            </p>
+                        </div>
 
                         {!answer && (
                             <>
+                                <p className={styles.subheading}>Stimme selbst ab:</p>
                                 <div className={styles.btnContainer}>
                                     <button
                                         className={styles.voteBtn}
