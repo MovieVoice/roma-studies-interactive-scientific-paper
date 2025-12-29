@@ -106,14 +106,14 @@ function QuestionnairePage() {
                             <div className={styles.onlineResults}>
                                 <p className={styles.onlineResultsHeadline}>Ergebnis der Online‑Befragung:</p>
                                 <div className={`${styles.barContainer} ${answer === 'real' ? styles.barActive : ''}`}>
-                                    <span>Echtes Video</span>
-                                    <span>{resultData.realPercentage}%</span>
+                                    <span className={styles.barLabel}>Echtes Video</span>
+                                    <span className={styles.barPercentage}>{resultData.realPercentage}%</span>
                                     <div className={styles.bar} style={{ 'width': `${resultData.realPercentage}%` }}></div>
                                 </div>
 
                                 <div className={`${styles.barContainer} ${answer === 'ai' ? styles.barActive : ''}`}>
-                                    <span>KI-generiertes Video</span>
-                                    <span>{resultData.aiPercentage}%</span>
+                                    <span className={styles.barLabel}>KI-generiertes Video</span>
+                                    <span className={styles.barPercentage}>{resultData.aiPercentage}%</span>
                                     <div className={styles.bar} style={{ 'width': `${resultData.aiPercentage}%` }}></div>
                                 </div>
                             </div>
@@ -242,14 +242,14 @@ function QuestionnairePage() {
                             <div className={styles.onlineResults}>
                                 <p className={styles.onlineResultsHeadline}>Ergebnis der Online‑Befragung:</p>
                                 <div className={`${styles.barContainer} ${answer === 'real' ? styles.barActive : ''}`}>
-                                    <span>Echtes Video</span>
-                                    <span>{answer ? resultData.realPercentage : 0}%</span>
+                                    <span className={styles.barLabel}>Echtes Video</span>
+                                    <span className={styles.barPercentage}>{answer ? resultData.realPercentage : 0}%</span>
                                     {answer && <div className={styles.bar} style={{ 'width': `${resultData.realPercentage}%` }}></div>}
                                 </div>
 
                                 <div className={`${styles.barContainer} ${answer === 'ai' ? styles.barActive : ''}`}>
-                                    <span>KI-generiertes Video</span>
-                                    <span>{answer ? resultData.aiPercentage : 0}%</span>
+                                    <span className={styles.barLabel}>KI-generiertes Video</span>
+                                    <span className={styles.barPercentage}>{answer ? resultData.aiPercentage : 0}%</span>
                                     {answer && <div className={styles.bar} style={{ 'width': `${resultData.aiPercentage}%` }}></div>}
                                 </div>
                             </div>
