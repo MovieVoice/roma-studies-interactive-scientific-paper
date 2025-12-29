@@ -208,6 +208,7 @@
     overflow-y: auto;
     scrollbar-width: none;
     flex-shrink: 1;
+    scroll-behavior: smooth;
 }
 
 .subLinkBox {

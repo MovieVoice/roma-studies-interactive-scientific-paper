@@ -45,6 +45,13 @@ function Sidebar() {
         }
     }, [isDesktop]);
 
+    useEffect(() => {
+        if (!isInQuestionnaire) return;
+        const active = document.querySelector('.' + styles.sub + '.active');
+        active?.scrollIntoView({ block: 'center' });
+    }, [location.pathname]);
+
+
     const handleToggle = () => {
         if (isDesktop) return;
         setOpen(o => o ? false : true);
@@ -190,54 +197,65 @@ function Sidebar() {
                                     <div className={styles.spacer}></div>
                                 </div>
                                 <div className={styles.submenu}>
-                                    {[...Array(16)].map((_, i) => (
-                                        <NavLink
-                                            key={i}
-                                            to={`/questionnaire/${i + 1}`}
-                                            className={styles.sub}
-                                            onClick={() => !isDesktop && setOpen(false)}
-                                        >
-                                            {({ isActive }) => {
-                                                const isAnswered = localStorage.getItem(`answer_${i + 1}`);
-                                                return (
-                                                    <span className={styles.subLinkBox}>
-                                                        {isActive ? (
-                                                            <img className={styles.subIcon} src="/src/assets/icons/arrow-right.svg" alt="" />
-                                                        ) : isAnswered ? (
-                                                            <img className={styles.subIcon} src="/src/assets/icons/check-question.svg" alt="" />
-                                                        ) : (
-                                                            <div className={styles.subIconPlaceholder} />
-                                                        )}
-                                                        <span className={styles.linkTitle}>Video #{i + 1}</span>
-                                                    </span>
-                                                );
-                                            }}
-                                        </NavLink>
-                                    ))}
-                                    {[...Array(3)].map((_, i) => (
-                                        <NavLink
-                                            key={i + 16}
-                                            to={`/questionnaire/${i + 17}`}
-                                            className={styles.sub}
-                                            onClick={() => !isDesktop && setOpen(false)}
-                                        >
-                                            {({ isActive }) => {
-                                                const isAnswered = localStorage.getItem(`answer_${i + 17}`);
-                                                return (
-                                                    <span className={styles.subLinkBox}>
-                                                        {isActive ? (
-                                                            <img className={styles.subIcon} src="/src/assets/icons/arrow-right.svg" alt="" />
-                                                        ) : isAnswered ? (
-                                                            <img className={styles.subIcon} src="/src/assets/icons/check-question.svg" alt="" />
-                                                        ) : (
-                                                            <div className={styles.subIconPlaceholder} />
-                                                        )}
-                                                        <span className={styles.linkTitle}>Einstellungsfrage #{i + 1}</span>
-                                                    </span>
-                                                );
-                                            }}
-                                        </NavLink>
-                                    ))}
+                                    {[...Array(16)].map((_, i) => {
+                                        const qNumber = i + 1;
+                                        const isActive = location.pathname.endsWith(`${qNumber}`);
+                                        return (
+                                            <NavLink
+                                                key={i}
+                                                id={`sidebar-question-${qNumber}`}
+                                                to={`/questionnaire/${qNumber}`}
+                                                className={styles.sub}
+                                                onClick={() => !isDesktop && setOpen(false)}
+                                            >
+                                                {({ isActive }) => {
+                                                    const isAnswered = localStorage.getItem(`answer_${qNumber}`);
+                                                    return (
+                                                        <span className={styles.subLinkBox}>
+                                                            {isActive ? (
+                                                                <img className={styles.subIcon} src="/src/assets/icons/arrow-right.svg" alt="" />
+                                                            ) : isAnswered ? (
+                                                                <img className={styles.subIcon} src="/src/assets/icons/check-question.svg" alt="" />
+                                                            ) : (
+                                                                <div className={styles.subIconPlaceholder} />
+                                                            )}
+                                                            <span className={styles.linkTitle}>Video #{qNumber}</span>
+                                                        </span>
+                                                    );
+                                                }}
+                                            </NavLink>
+                                        );
+                                    })}
+
+                                    {[...Array(3)].map((_, i) => {
+                                        const qNumber = i + 17;
+                                        const isActive = location.pathname.endsWith(`${qNumber}`);
+                                        return (
+                                            <NavLink
+                                                key={i + 16}
+                                                to={`/questionnaire/${qNumber}`}
+                                                className={styles.sub}
+                                                onClick={() => !isDesktop && setOpen(false)}
+                                            >
+                                                {({ isActive }) => {
+                                                    const isAnswered = localStorage.getItem(`answer_${qNumber}`);
+                                                    return (
+                                                        <span className={styles.subLinkBox}>
+                                                            {isActive ? (
+                                                                <img className={styles.subIcon} src="/src/assets/icons/arrow-right.svg" alt="" />
+                                                            ) : isAnswered ? (
+                                                                <img className={styles.subIcon} src="/src/assets/icons/check-question.svg" alt="" />
+                                                            ) : (
+                                                                <div className={styles.subIconPlaceholder} />
+                                                            )}
+                                                            <span className={styles.linkTitle}>Einstellungsfrage #{i + 1}</span>
+                                                        </span>
+                                                    );
+                                                }}
+                                            </NavLink>
+                                        );
+                                    })}
+
                                 </div>
                             </>
                         )}
