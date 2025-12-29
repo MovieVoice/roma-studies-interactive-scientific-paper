@@ -1,5 +1,5 @@
 import { useParams, Navigate, NavLink } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import results from '/src/assets/data/results.json';
 import styles from './QuestionnairePage.module.css';
 
@@ -10,6 +10,10 @@ function QuestionnairePage() {
     const [isLoading, setIsLoading] = useState(true);
     const [alreadyWatched, setAlreadyWatched] = useState(false);
     const [answer, setAnswer] = useState(null);
+
+    const videoRef = useRef(null);
+    const wrapperRef = useRef(null);
+
 
     // Prüfen, ob das Video schon angesehen wurde oder eine Antwort existiert
     useEffect(() => {
@@ -27,10 +31,61 @@ function QuestionnairePage() {
         setAnswer(savedAnswer || null);
     }, [questionId, answer]);
 
+    useEffect(() => {
+        const video = videoRef.current;
+        const wrapper = wrapperRef.current;
+        if (!video || !wrapper) return;
+
+        let resizeTimeout;
+
+        const adjustVideoSize = () => {
+            if (!video || !wrapper) return;
+
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+
+            if (width >= 992 && height >= 800) {
+                const maxVideoHeight = wrapper.offsetHeight;
+                const idealVideoWidth = Math.ceil((maxVideoHeight) * (9 / 16));
+
+                video.style.width = `${idealVideoWidth}px`;
+            } else {
+                video.style.width = "100%";
+            }
+        };
+
+        // Debounced resize handler
+        const handleResize = () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(adjustVideoSize, 100); // 100ms Delay
+        };
+
+        // Observer für Wrapper, falls sich dieser dynamisch ändert
+        const resizeObserver = new ResizeObserver(() => adjustVideoSize());
+
+        // Events
+        window.addEventListener("resize", adjustVideoSize);
+        window.addEventListener("load", adjustVideoSize);
+        resizeObserver.observe(wrapper);
+
+        // Initialer Adjust nach kleinem Delay (wenn alles gerendert ist)
+        setTimeout(adjustVideoSize, 50);
+
+        return () => {
+            window.removeEventListener("resize", adjustVideoSize);
+            window.removeEventListener("load", adjustVideoSize);
+            resizeObserver.disconnect();
+            clearTimeout(resizeTimeout);
+        };
+    }, []);
+
+
+
     // Ungültige IDs -> zurück
     if (isNaN(questionId) || questionId < 1 || questionId > 19) {
         return <Navigate to="/" replace />;
     }
+
 
     // Antwort speichern
     const handleAnswer = (type) => {
@@ -58,7 +113,6 @@ function QuestionnairePage() {
 
                     {answer ? (
                         <div className={styles.answerSection}>
-
                             <div className={styles.onlineResults}>
                                 <p className={styles.onlineResultsHeadline}>Ergebnis der Online‑Befragung:</p>
                                 <div className={`${styles.barContainer} ${answer === 'real' ? styles.barActive : ''}`}>
@@ -146,24 +200,42 @@ function QuestionnairePage() {
 
                 </div>
                 <div className={styles.layoutVideo}>
-                    <p className={styles.headline}>Video #{questionId}</p>
-                    <p className={styles.text}>Dies ist eine normale Video-Frage.</p>
-
-                    {isLoading && (
-                        <div className={styles.loaderWrapper}>
-                            <div className={styles.loader}></div>
-                            <p>Video wird geladen...</p>
+                    <div className={styles.videoWrapper} ref={wrapperRef}>
+                        <div className={styles.videoContainer} ref={videoRef}>
+                            {alreadyWatched ? (
+                                <div className={styles.alreadyWatchedContainer}>
+                                    <div className={styles.alreadyWatchedBox}>
+                                        <img src="/src/assets/icons/no-repeat.svg" alt="" />
+                                        <p>Dieses Video wurde bereits angesehen und kann nicht erneut abgespielt werden.</p>
+                                    </div>
+                                    <img className={styles.alreadyWatchedBG} src={`/src/assets/thumbnails/${questionId}.jpg`} alt="" />
+                                </div>
+                            ) : (
+                                <>
+                                    {isLoading && <div className={styles.loader}></div>}
+                                    <video
+                                        src={`/videos/${questionId}.mp4`}
+                                        controls
+                                        playsInline
+                                        onCanPlay={() => setIsLoading(false)}
+                                        onLoadedData={() => setIsLoading(false)}
+                                        onEnded={() => {
+                                            if (!answer) {
+                                                localStorage.setItem(`videoWatched_${questionId}`, 'true');
+                                                setAlreadyWatched(true);
+                                            }
+                                        }}
+                                        className={isLoading ? styles.hidden : ''}
+                                    />
+                                </>
+                            )}
                         </div>
-                    )}
+                    </div>
 
-                    <video
-                        src={`/videos/${questionId}.mp4`}
-                        controls
-                        onCanPlay={() => setIsLoading(false)}
-                        onLoadedData={() => setIsLoading(false)}
-                        className={isLoading ? styles.hidden : ''}
-                        playsInline
-                    />
+                    <div className={styles.contentSection}>
+                        <p className={styles.headline}>Video #{questionId}</p>
+                        <p className={styles.text}>Du darfst das Video genau einmal anschauen. Entscheide dann selbst, ob das Video KI-generiert oder real ist. Du kannst auch direkt die Ergebnisse der Befragung aufdecken.</p>
+                    </div>
                 </div>
             </>
         );

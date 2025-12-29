@@ -62,7 +62,7 @@ function Appbar() {
                         Impressum
                     </Link>
 
-                    <button className={styles.dropdownAction} onClick={localStorage.clear()}>
+                    <button className={styles.dropdownAction} onClick={() => localStorage.clear()}>
                         <img src="/src/assets/icons/reset.svg" alt="" />
                         Fragebogen zurücksetzen
                     </button>
