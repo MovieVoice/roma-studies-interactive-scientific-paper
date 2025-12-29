@@ -15,6 +15,16 @@ function QuestionnairePage() {
     const wrapperRef = useRef(null);
 
 
+    useEffect(() => {
+        const handleStorageClear = () => {
+            setAnswer(null);
+            setAlreadyWatched(false);
+        };
+        window.addEventListener("storageCleared", handleStorageClear);
+
+        return () => window.removeEventListener("storageCleared", handleStorageClear);
+    }, []);
+
     // Prüfen, ob das Video schon angesehen wurde oder eine Antwort existiert
     useEffect(() => {
         const watchedFlag = localStorage.getItem(`videoWatched_${questionId}`);

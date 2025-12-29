@@ -13,8 +13,11 @@ function Sidebar() {
         ? window.matchMedia(LG_QUERY).matches
         : true;
 
+    const [, forceUpdate] = useState(0);
+
     const [isDesktop, setIsDesktop] = useState(initialIsDesktop);
     const [open, setOpen] = useState(initialIsDesktop ? true : false);
+
 
     useEffect(() => {
         if (typeof window === 'undefined') return;
@@ -50,6 +53,14 @@ function Sidebar() {
         const active = document.querySelector('.' + styles.sub + '.active');
         active?.scrollIntoView({ block: 'center' });
     }, [location.pathname]);
+
+    useEffect(() => {
+        const handleStorageClear = () => {
+            forceUpdate(prev => prev + 1);
+        };
+        window.addEventListener('storageCleared', handleStorageClear);
+        return () => window.removeEventListener('storageCleared', handleStorageClear);
+    }, []);
 
 
     const handleToggle = () => {
