@@ -197,12 +197,21 @@ function Sidebar() {
                                             className={styles.sub}
                                             onClick={() => !isDesktop && setOpen(false)}
                                         >
-                                            {({ isActive }) => (
-                                                <span className={styles.subLinkBox}>
-                                                    {isActive ? <img className={styles.subIcon} src="/src/assets/icons/arrow-right.svg" alt="" /> : <div className={styles.subIconPlaceholder} />}
-                                                    <span className={styles.linkTitle}>Video #{i + 1}</span>
-                                                </span>
-                                            )}
+                                            {({ isActive }) => {
+                                                const isAnswered = localStorage.getItem(`answer_${i + 1}`);
+                                                return (
+                                                    <span className={styles.subLinkBox}>
+                                                        {isActive ? (
+                                                            <img className={styles.subIcon} src="/src/assets/icons/arrow-right.svg" alt="" />
+                                                        ) : isAnswered ? (
+                                                            <img className={styles.subIcon} src="/src/assets/icons/check-question.svg" alt="" />
+                                                        ) : (
+                                                            <div className={styles.subIconPlaceholder} />
+                                                        )}
+                                                        <span className={styles.linkTitle}>Video #{i + 1}</span>
+                                                    </span>
+                                                );
+                                            }}
                                         </NavLink>
                                     ))}
                                     {[...Array(3)].map((_, i) => (
@@ -212,12 +221,21 @@ function Sidebar() {
                                             className={styles.sub}
                                             onClick={() => !isDesktop && setOpen(false)}
                                         >
-                                            {({ isActive }) => (
-                                                <span className={styles.subLinkBox}>
-                                                    {isActive ? <img className={styles.subIcon} src="/src/assets/icons/arrow-right.svg" alt="" /> : <div className={styles.subIconPlaceholder} />}
-                                                    <span className={styles.linkTitle}>Einstellungsfrage #{i + 1}</span>
-                                                </span>
-                                            )}
+                                            {({ isActive }) => {
+                                                const isAnswered = localStorage.getItem(`answer_${i + 17}`);
+                                                return (
+                                                    <span className={styles.subLinkBox}>
+                                                        {isActive ? (
+                                                            <img className={styles.subIcon} src="/src/assets/icons/arrow-right.svg" alt="" />
+                                                        ) : isAnswered ? (
+                                                            <img className={styles.subIcon} src="/src/assets/icons/check-question.svg" alt="" />
+                                                        ) : (
+                                                            <div className={styles.subIconPlaceholder} />
+                                                        )}
+                                                        <span className={styles.linkTitle}>Einstellungsfrage #{i + 1}</span>
+                                                    </span>
+                                                );
+                                            }}
                                         </NavLink>
                                     ))}
                                 </div>
