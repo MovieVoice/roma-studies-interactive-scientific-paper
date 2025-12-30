@@ -110,5 +110,42 @@
     "maxLabel": "Sehr schadend",
     "meanValue": 5.31,
     "standardDeviation": 1.41
+  },
+  {
+    "id": 19,
+    "yesPercentage": 55,
+    "noPercentage": 45,
+    "quotes": [
+      "Negativ, würde das Produkt weniger kaufen",
+      "Weil die KI sagt was sie soll und nicht die ehrliche Meinung",
+      "Negativ",
+      "Nicht kaufen. Scam oder Drang zum Boykott.",
+      "Eher negativ, wenn KI zu sehr und zu stark erkennbar genutzt wird entscheide ich mich gegen den Kauf",
+      "Ich bin dafurch abgeneigt das Produkt zu kaufen.",
+      "Eher kein Kaufinteresse dann",
+      "Gut gemacht = eher kaufen \nSchlecht gemacht = eher nicht kaufen",
+      "Ki Videos halten mich vom Kauf ab. Ich sehen keine Person hinter dem Produkt und kann mich somit nicht damit identifizieren.",
+      "Eher ins Negative, wirkt unglaubwürdig und würde Produkte eher nicht kaufen",
+      "Wirkt oft unseriös.",
+      "Ich kaufe keine Produkte mit ki Werbung",
+      "No go",
+      "Das ich es nicht kaufen werde",
+      "Negativ: weniger \"persönlich\"bzw. Kommt es darauf an, ob eine komplette Person durch KI ersetzt wird oder verschiedene Bildabläufe",
+      "Nicht überzeugend, kein gutes Image",
+      "Kauf ich dann einfach nicht",
+      "Mir gefällt es nicht, dass Künstler durch die KI ersetzt werden.",
+      "Eher negativ",
+      "Wenn ich werbung von einem Produkt kriegen würde beim dem das video ki generiert wurde, würde ich dies nicht kaufen, da ich mir unsicher wäre das dieses Produkt wirklich existiert und ich nicht abgezogen werde.",
+      ".",
+      "Negativ, da es unglaubwürdigkeit ausstrahlt",
+      "Negativ",
+      "Negativ.",
+      "Negativ",
+      "Meiner Meinung nach wirken ki generierte Inhalte billig und dadurch wirkt das Unternehmen für mich nicht ernst zunehmend.",
+      "Negativ. Man entwickelt eine hohe Skepsis darüber ob es ein echtes Produkt ist oder einfach nur ein Scam",
+      "Es wirkt für mich lieb- und mühelos, man hinterfragt dann die Qualität der Produkte, die damit beworben werden",
+      "Negativ",
+      "Die Videos wirken unauthentisch und wie ein \"Fake\" Produkt."
+    ]
   }
 ]

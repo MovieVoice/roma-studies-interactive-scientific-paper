@@ -10,6 +10,7 @@ function QuestionnairePage() {
     const [isLoading, setIsLoading] = useState(true);
     const [alreadyWatched, setAlreadyWatched] = useState(false);
     const [answer, setAnswer] = useState(null);
+    const [visibleQuotes, setVisibleQuotes] = useState(5);
 
     const videoRef = useRef(null);
     const wrapperRef = useRef(null);
@@ -102,7 +103,7 @@ function QuestionnairePage() {
 
     // Textdarstellung der Antwort
     const translate = (type) =>
-        type === 'real' ? 'Echtes Video' : type === 'ai' ? 'KI-generiertes Video' : 'Keine Angabe';
+        type === 'real' ? 'Echtes Video' : type === 'ai' ? 'KI-generiertes Video' : type === 'yes' ? 'Ja' : type === 'no' ? 'Nein' : 'Keine Angabe';
 
     // Ergebnisse aus JSON holen
     const resultData = results.find((r) => r.id === questionId);
@@ -475,10 +476,92 @@ function QuestionnairePage() {
 
     // ID 19
     if (questionId === 19) {
+        const quotes = resultData.quotes || [];
+
+        const showMore = () => {
+            setVisibleQuotes((prev) => Math.min(prev + 5, quotes.length));
+        };
+
         pageContent = (
             <div className={styles.layoutSettingsQuestion}>
-                <h1>Vielen Dank für deine Teilnahme!</h1>
-                <p>Deine Antworten wurden gespeichert.</p>
+                <p className={`${styles.headline} ${styles.settingsMargin}`}>Beeinflussen KI-generierte Videos Ihre Kaufentscheidung?</p>
+                <p className={`${styles.text} ${styles.settingsMargin}`}>Entscheide selbst, wie du auf diese Frage antworten würdest. Du kannst auch direkt die Ergebnisse der Befragung aufdecken.</p>
+
+                <div className={`${styles.answerSection} ${styles.settingsAnswerSection}`}>
+                    {!answer && (
+                        <div className={`${styles.answerHidden} ${styles.settingsAnswerHidden}`}>
+                            <button
+                                className={`${styles.revealBtn} ${styles.settingsRevealBtn}`}
+                                onClick={() => handleAnswer('-')}
+                            >
+                                <img src="/src/assets/icons/reveal.svg" alt="" />
+                                Direkt aufdecken
+                            </button>
+                        </div>
+                    )}
+                    <div className={styles.onlineResults}>
+                        <p className={styles.onlineResultsHeadline}>Ergebnis der Online‑Befragung:</p>
+                        <div className={`${styles.barContainer} ${answer === 'yes' ? styles.barActive : ''}`}>
+                            <span className={styles.barLabel}>Ja</span>
+                            <span className={styles.barPercentage}>{answer ? resultData.yesPercentage : 0}%</span>
+                            {answer && <div className={styles.bar} style={{ 'width': `${resultData.yesPercentage}%` }}></div>}
+                        </div>
+
+                        <div className={`${styles.barContainer} ${answer === 'no' ? styles.barActive : ''}`}>
+                            <span className={styles.barLabel}>Nein</span>
+                            <span className={styles.barPercentage}>{answer ? resultData.noPercentage : 0}%</span>
+                            {answer && <div className={styles.bar} style={{ 'width': `${resultData.noPercentage}%` }}></div>}
+                        </div>
+                    </div>
+
+                    <p>
+                        <span className={styles.resultLabel}>Deine Antwort: </span>
+                        {answer && <span className={styles.resultValue}>{translate(answer)}</span>}
+                    </p>
+
+                    {answer && (
+                        <div className={styles.freeTextResponsesContainer}>
+                            <p className={styles.onlineResultsHeadline}>Begründungen bei Antwort "Ja":</p>
+                            <div className={styles.freeTextResponses}>
+                                {quotes.slice(0, visibleQuotes).map((quote, index) => (
+                                    <div key={index} className={styles.quoteBox}>
+                                        <p className={styles.quoteText}>{quote}</p>
+                                    </div>
+                                ))}
+                                {visibleQuotes < quotes.length && (
+                                    <button className={styles.showMoreBtn} onClick={showMore}>
+                                        <img src="/src/assets/icons/more.svg" alt="" />
+                                        Mehr anzeigen
+                                    </button>
+                                )}
+                            </div>
+                        </div>
+                    )}
+                </div>
+
+                {!answer && (
+                    <>
+                        <p className={`${styles.subheading} ${styles.settingsMargin}`}>Stimme selbst ab:</p>
+                        <div className={`${styles.btnContainer} ${styles.binaryBtnContainer}`}>
+                            <button
+                                className={styles.voteBtn}
+                                onClick={() => handleAnswer('yes')}
+                            >
+                                <img src="/src/assets/icons/yes.svg" alt="" />
+                                Ja
+                            </button>
+
+                            <button
+                                className={styles.voteBtn}
+                                onClick={() => handleAnswer('no')}
+                            >
+                                <img src="/src/assets/icons/no.svg" alt="" />
+                                Nein
+                            </button>
+                        </div>
+                    </>
+                )}
+
             </div>
         );
     }

@@ -321,7 +321,8 @@
     margin: 0px 24px;
 }
 
-.settingsBtnContainer {
+.settingsBtnContainer,
+.binaryBtnContainer {
     width: calc(100% - 48px);
     display: flex;
     flex-wrap: nowrap;
@@ -470,6 +471,74 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.freeTextResponsesContainer {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.freeTextResponses {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.quoteBox {
+    width: fit-content;
+    max-width: 100%;
+    height: fit-content;
+    min-height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 14px 24px;
+    border: 2px solid var(--color-border-0);
+    border-radius: 16px;
+}
+
+.quoteText {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 120%;
+    color: var(--color-fg-0);
+}
+
+.showMoreBtn {
+    all: unset;
+    width: fit-content;
+    height: 52px;
+    padding: 0px 16px;
+    gap: 12px;
+    background: var(--color-primary-light);
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 120%;
+    color: var(--color-primary-0);
+}
+
+.showMoreBtn:hover {
+    cursor: pointer;
+    background-color: var(--color-primary-medium);
+}
+
+.showMoreBtn img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.binaryBtnContainer .voteBtn {
+    justify-content: flex-start;
 }
 
 
