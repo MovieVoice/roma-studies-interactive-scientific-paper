@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import styles from './Sidebar.module.css';
 
@@ -8,6 +8,7 @@ function Sidebar() {
     const location = useLocation();
     const isInQuestionnaire = location.pathname.startsWith("/questionnaire");
     const [isQuestionnaireOpen, setIsQuestionnaireOpen] = useState(isInQuestionnaire);
+    const prevIsInQuestionnaire = useRef(isInQuestionnaire);
 
     const initialIsDesktop = typeof window !== 'undefined'
         ? window.matchMedia(LG_QUERY).matches
@@ -18,6 +19,17 @@ function Sidebar() {
     const [isDesktop, setIsDesktop] = useState(initialIsDesktop);
     const [open, setOpen] = useState(initialIsDesktop ? true : false);
 
+    useEffect(() => {
+        if (!isInQuestionnaire) {
+            setIsQuestionnaireOpen(false);
+        }
+
+        if (!prevIsInQuestionnaire.current && isInQuestionnaire) {
+            setIsQuestionnaireOpen(true);
+        }
+
+        prevIsInQuestionnaire.current = isInQuestionnaire;
+    }, [isInQuestionnaire]);
 
     useEffect(() => {
         if (typeof window === 'undefined') return;
@@ -34,25 +46,25 @@ function Sidebar() {
     }, []);
 
     useEffect(() => {
-        if (isInQuestionnaire && !isQuestionnaireOpen) {
-            setIsQuestionnaireOpen(true);
-        }
-        if (!isInQuestionnaire) {
-            setIsQuestionnaireOpen(false);
-        }
-    }, [location.pathname]);
-
-    useEffect(() => {
         if (isDesktop) {
             setOpen(true);
         }
     }, [isDesktop]);
 
+
     useEffect(() => {
         if (!isInQuestionnaire) return;
-        const active = document.querySelector('.' + styles.sub + '.active');
+        const active = document.querySelector(`.${styles.sub}.active`);
         active?.scrollIntoView({ block: 'center' });
     }, [location.pathname]);
+
+    useEffect(() => {
+        if (isQuestionnaireOpen && isInQuestionnaire) {
+            const active = document.querySelector(`.${styles.sub}.active`);
+            active?.scrollIntoView({ block: 'center', behavior: 'auto' });
+        }
+    }, [isQuestionnaireOpen, isInQuestionnaire]);
+
 
     useEffect(() => {
         const handleStorageClear = () => {
