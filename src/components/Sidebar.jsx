@@ -68,10 +68,6 @@ function Sidebar() {
         setOpen(o => o ? false : true);
     };
 
-    function handleNavigate() {
-        if (!isDesktop) setOpen(false);
-    }
-
     return (
         <>
             <button

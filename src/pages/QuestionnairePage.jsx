@@ -16,6 +16,13 @@ function QuestionnairePage() {
 
 
     useEffect(() => {
+        if (questionId > 16) {
+            window.scrollTo({ top: 0, behavior: "auto" });
+        }
+    }, [questionId]);
+
+
+    useEffect(() => {
         const handleStorageClear = () => {
             setAnswer(null);
             setAlreadyWatched(false);
@@ -99,6 +106,69 @@ function QuestionnairePage() {
 
     // Ergebnisse aus JSON holen
     const resultData = results.find((r) => r.id === questionId);
+
+
+    useEffect(() => {
+        if (questionId !== 17 && questionId !== 18) return;
+        if (!answer || !resultData) return;
+
+        const mean = parseFloat(resultData.meanValue);
+        const std = parseFloat(resultData.standardDeviation);
+        const min = 1, max = 7;
+        const tickWidth = 16;
+        const barEndWidth = 4;
+
+        const bar = document.querySelector(`.${styles.scaleBar}`);
+        const meanDot = document.querySelector(`.${styles.scaleMean}`);
+        const scaleAxis = document.querySelector(`.${styles.scaleAxis}`);
+        if (!bar || !meanDot || !scaleAxis) return;
+
+        const halfTick = tickWidth / 2;
+        const halfEnd = barEndWidth / 2;
+
+        function updateScale() {
+            const width = scaleAxis.offsetWidth;
+
+            // Mittelpunkt (Zentrum) des Mean in Pixeln von links bis Mitte des Mean-Ticks
+            const xPx = ((mean - min) / (max - min)) * (width - tickWidth) + halfTick;
+
+            // Pixel-Entfernung, die die Standardabweichung abbildet
+            const deltaPx = (std / (max - min)) * (width - tickWidth);
+
+            // Rohbereiche der Balkenmitte (bevor geclamped)
+            let leftBarPx = xPx - deltaPx;
+            let rightBarPx = xPx + deltaPx;
+
+            // Clamping, so dass Balken-End-MITTEN auf Tick 1/7 sitzen
+            const boundLeft = halfTick;
+            const boundRight = width - halfTick;
+            leftBarPx = Math.max(boundLeft, leftBarPx);
+            rightBarPx = Math.min(boundRight, rightBarPx);
+
+            // Prozent-Umrechnung
+            const toPercent = (px) => (px / width) * 100;
+
+            // Endgültige Positionsberechnung
+            const meanLeft = toPercent(xPx - halfTick);
+            const barLeft = toPercent(leftBarPx - halfEnd);
+            const barWidth = toPercent(
+                (rightBarPx + halfEnd) - (leftBarPx - halfEnd)
+            );
+
+            // CSS setzen
+            meanDot.style.left = `${meanLeft}%`;
+            bar.style.left = `${barLeft}%`;
+            bar.style.width = `${barWidth}%`;
+        }
+
+        updateScale();
+
+        window.addEventListener("resize", updateScale);
+
+        return () => {
+            window.removeEventListener("resize", updateScale);
+        };
+    }, [questionId, resultData, answer]);
 
 
     let pageContent;
@@ -236,7 +306,6 @@ function QuestionnairePage() {
                         <p className={styles.headline}>Video #{questionId}</p>
                         <p className={styles.text}>Du darfst das Video genau einmal anschauen. Entscheide dann selbst, ob das Video KI-generiert oder real ist. Du kannst auch direkt die Ergebnisse der Befragung aufdecken.</p>
 
-
                         <div className={styles.answerSection}>
                             {!answer && (
                                 <div className={styles.answerHidden}>
@@ -297,7 +366,6 @@ function QuestionnairePage() {
                             </>
                         )}
 
-
                     </div>
                 </div>
             </>
@@ -307,10 +375,100 @@ function QuestionnairePage() {
     // IDs 17–18
     if (questionId >= 17 && questionId <= 18) {
         pageContent = (
-            <div className={styles.layoutSettings}>
-                <h1>Einstellungsfrage {questionId - 16}</h1>
-                <p>Dies ist eine textbasierte Einstellungsfrage.</p>
-                <textarea placeholder="Bitte gib deine Antwort ein..." />
+            <div className={styles.layoutSettingsQuestion}>
+                <p className={`${styles.headline} ${styles.settingsMargin}`}>{resultData.question}</p>
+                <p className={`${styles.text} ${styles.settingsMargin}`}>Entscheide selbst, wie du auf diese Frage antworten würdest. Du kannst auch direkt die Ergebnisse der Befragung aufdecken.</p>
+
+                <div className={`${styles.answerSection} ${styles.settingsAnswerSection}`}>
+                    {!answer && (
+                        <div className={`${styles.answerHidden} ${styles.settingsAnswerHidden}`}>
+                            <button
+                                className={`${styles.revealBtn} ${styles.settingsRevealBtn}`}
+                                onClick={() => handleAnswer('Keine Angabe')}
+                            >
+                                <img src="/src/assets/icons/reveal.svg" alt="" />
+                                Direkt aufdecken
+                            </button>
+                        </div>
+                    )}
+                    <div className={styles.onlineResults}>
+                        <p className={styles.onlineResultsHeadline}>Ergebnis der Online‑Befragung:</p>
+                        <div className={styles.scale}>
+                            <div className={styles.scaleAxis}>
+                                {[...Array(7)].map((_, i) => {
+                                    const num = i + 1;
+                                    return (
+                                        <div
+                                            key={num}
+                                            className={`${styles.scaleTick} ${Number(answer) === num ? styles.scaleActive : ''}`}
+                                        />
+                                    );
+                                })}
+                            </div>
+                            {answer && (
+                                <>
+                                    <div className={styles.scaleBar}>
+                                        <div className={styles.scaleBarEnd}></div>
+                                        <div className={styles.scaleBarEnd}></div>
+                                    </div>
+                                    <div className={styles.scaleMean}></div>
+                                </>
+                            )}
+                        </div>
+                        <div className={styles.scaleNumbers}>
+                            {[...Array(7)].map((_, i) => (
+                                <div key={i} className={styles.scaleNumberBox}>
+                                    <p className={styles.scaleNumber}>{i + 1}</p>
+                                </div>
+                            ))}
+                        </div>
+                        <div className={styles.scaleLabels}>
+                            <p className={styles.text}>{resultData.minLabel}</p>
+                            <p className={styles.text}>{resultData.maxLabel}</p>
+                        </div>
+                    </div>
+
+                    <p>
+                        <span className={styles.resultLabel}>Mittelwert: </span>
+                        {answer && <span className={styles.resultValue}>{resultData.meanValue}</span>}
+                    </p>
+                    <p>
+                        <span className={styles.resultLabel}>Standardabweichung: </span>
+                        {answer && <span className={styles.resultValue}>{resultData.standardDeviation}</span>}
+                    </p>
+                    <p>
+                        <span className={styles.resultLabel}>Deine Antwort: </span>
+                        {answer && <span className={styles.resultValue}>{answer}</span>}
+                    </p>
+                </div>
+
+                {!answer && (
+                    <>
+                        <p className={`${styles.subheading} ${styles.settingsMargin}`}>Stimme selbst ab:</p>
+                        <div className={styles.settingsVote}>
+                            <div className={styles.settingsBtnContainer}>
+                                {[...Array(7)].map((_, i) => {
+                                    const num = i + 1;
+                                    return (
+                                        <button
+                                            key={num}
+                                            className={styles.settingsLickertBtn}
+                                            onClick={() => handleAnswer(num)}
+                                        >
+                                            {num}
+                                        </button>
+                                    );
+                                })}
+
+                            </div>
+                            <div className={`${styles.settingsMargin} ${styles.settingsLabels}`}>
+                                <p className={styles.text}>{resultData.minLabel}</p>
+                                <p className={styles.text}>{resultData.maxLabel}</p>
+                            </div>
+                        </div>
+                    </>
+                )}
+
             </div>
         );
     }
@@ -318,7 +476,7 @@ function QuestionnairePage() {
     // ID 19
     if (questionId === 19) {
         pageContent = (
-            <div className={styles.layoutSettings}>
+            <div className={styles.layoutSettingsQuestion}>
                 <h1>Vielen Dank für deine Teilnahme!</h1>
                 <p>Deine Antworten wurden gespeichert.</p>
             </div>
@@ -328,13 +486,14 @@ function QuestionnairePage() {
     // Fallback
     return (
         <>
-            <div className={styles.container}>
+            <div className={`${styles.container} ${questionId < 17 ? styles.containerVideo : ''}`}>
                 {pageContent}
             </div>
 
-            <div className={styles.bottomNavbar}>
+            <div className={`${styles.bottomNavbar} ${questionId < 17 ? styles.bottomNavbarVideo : ''}`}>
                 <NavLink
                     to={questionId > 1 ? `/questionnaire/${questionId - 1}` : '/method'}
+                    preventScrollReset={true}
                     title="Zurück"
                     className={styles.bottomNavbarItem}
                 >

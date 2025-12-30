@@ -9,21 +9,16 @@
     align-items: flex-start;
 }
 
-/* .content {
-    width: calc(100% - 48px);
-    max-width: 1200px;
-    height: fit-content;
-    margin: 80px 24px 204px 24px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: 16px;
-} */
-
 .headline {
     font-weight: 700;
     font-size: 36px;
+    line-height: 120%;
+    color: var(--color-fg-0);
+}
+
+.subheading {
+    font-weight: 600;
+    font-size: 16px;
     line-height: 120%;
     color: var(--color-fg-0);
 }
@@ -218,6 +213,20 @@
     gap: 24px;
 }
 
+.answerHidden {
+    width: calc(100% + 48px);
+    height: calc(100% + 64px);
+    position: absolute;
+    top: -32px;
+    left: -24px;
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(7.5px);
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .onlineResults {
     width: 100%;
     height: fit-content;
@@ -296,6 +305,174 @@
     z-index: 1;
 }
 
+.layoutSettingsQuestion {
+    width: 100%;
+    max-width: 700px;
+    height: fit-content;
+    margin: 80px 0px 204px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.settingsMargin {
+    margin: 0px 24px;
+}
+
+.settingsBtnContainer {
+    width: calc(100% - 48px);
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 12px;
+    margin: 0px 24px;
+}
+
+.settingsVote {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.settingsLickertBtn {
+    all: unset;
+    width: 20px;
+    height: 52px;
+    padding: 0px 16px;
+    gap: 12px;
+    background: var(--color-primary-light);
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 120%;
+    color: var(--color-primary-0);
+    flex-grow: 1;
+}
+
+.settingsLickertBtn:hover {
+    cursor: pointer;
+    background-color: var(--color-primary-medium);
+}
+
+.settingsLabels {
+    width: calc(100% - 48px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.settingsAnswerSection {
+    width: calc(100% - 48px);
+    margin: 24px;
+    position: relative;
+}
+
+.settingsRevealBtn {
+    height: 48px;
+    border-radius: 24px;
+    flex-grow: 0;
+}
+
+.scale {
+    width: 100%;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-top: 14px;
+    margin-bottom: 2px;
+}
+
+.scaleAxis {
+    width: 100%;
+    height: 2px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    border-top: 2px solid var(--color-fg-1);
+}
+
+.scaleTick {
+    width: 16px;
+    height: 16px;
+    position: relative;
+    top: -9px;
+    border: 2px solid var(--color-fg-1);
+    border-radius: 4px;
+    background-color: var(--color-bg-0);
+}
+
+.scaleActive {
+    border-color: var(--color-primary-0);
+}
+
+.scaleBar {
+    width: 100px;
+    height: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    left: 30px;
+    background-color: var(--color-primary-0);
+}
+
+.scaleBarEnd {
+    width: 4px;
+    height: 20px;
+    border-radius: 2px;
+    background-color: var(--color-primary-0);
+}
+
+.scaleMean {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 2px;
+    left: 100px;
+    border-radius: 4px;
+    background-color: var(--color-primary-0);
+}
+
+.scaleNumbers {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2px;
+}
+
+.scaleNumberBox {
+    width: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.scaleNumber {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 120%;
+    text-align: center;
+    color: var(--color-fg-1);
+}
+
+.scaleLabels {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
 
 .bottomNavbar {
     width: 100%;
@@ -305,10 +482,6 @@
     bottom: 0;
     right: 0;
     background: linear-gradient(0deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
-    /* height: 85px;
-    backdrop-filter: blur(4px);
-    background-color: #ffffff;
-    border-top: 1px solid var(--color-border-0); */
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
@@ -358,6 +531,46 @@
     .layoutVideoMobile {
         width: calc(100% - 96px);
         margin: 128px 48px 204px 48px;
+    }
+
+    .layoutSettingsQuestion {
+        width: calc(100% - 32px);
+        margin: 128px 16px 204px 16px;
+    }
+
+    .settingsMargin {
+        margin: 0px 32px;
+    }
+
+    .settingsAnswerHidden {
+        width: calc(100% + 64px);
+        left: -32px;
+    }
+
+    .settingsAnswerSection {
+        width: calc(100% - 64px);
+        margin: 24px 32px;
+    }
+
+    .settingsBtnContainer {
+        width: calc(100% - 64px);
+        margin: 0px 32px;
+    }
+
+    .settingsLabels {
+        width: calc(100% - 64px);
+    }
+
+    .settingsLickertBtn {
+        flex-grow: 0;
+    }
+
+    .settingsVote {
+        max-width: fit-content;
+    }
+
+    .settingsBtnContainer {
+        max-width: fit-content;
     }
 }
 
@@ -414,13 +627,6 @@
         min-width: 0;
     }
 
-    .subheading {
-        font-weight: 600;
-        font-size: 16px;
-        line-height: 120%;
-        color: var(--color-fg-0);
-    }
-
     .answerSection {
         width: calc(100% - 64px);
         margin: 24px 32px;
@@ -429,22 +635,18 @@
 
     .answerHidden {
         width: calc(100% + 64px);
-        height: calc(100% + 64px);
-        position: absolute;
-        top: -32px;
         left: -32px;
-        background-color: rgba(255, 255, 255, 0.5);
-        backdrop-filter: blur(7.5px);
-        z-index: 10;
-        display: flex;
-        justify-content: center;
-        align-items: center;
     }
 
     .revealBtn {
         height: 48px;
         border-radius: 24px;
         flex-grow: 0;
+    }
+
+    .settingsLabels .text,
+    .scaleLabels .text {
+        margin: 0;
     }
 }
 
@@ -472,7 +674,7 @@
 }
 
 @media screen and (min-width: 992px) and (min-height: 800px) {
-    .container {
+    .containerVideo {
         height: calc(100vh - 169px);
         overflow: hidden;
     }
@@ -520,7 +722,7 @@
         position: static;
     }
 
-    .bottomNavbar {
+    .bottomNavbarVideo {
         height: 84px;
         background: var(--color-bg-0);
     }

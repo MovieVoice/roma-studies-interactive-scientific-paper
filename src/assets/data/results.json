@@ -94,5 +94,21 @@
     "realPercentage": 0,
     "aiPercentage": 100,
     "correctAnswer": "ai"
+  },
+  {
+    "id": 17,
+    "question": "Empfinden Sie KI-generierte Videos als störend in den Sozialen Medien?",
+    "minLabel": "Nicht störend",
+    "maxLabel": "Sehr störend",
+    "meanValue": 5.74,
+    "standardDeviation": 1.31
+  },
+  {
+    "id": 18,
+    "question": "Wie sehr schadet der Einsatz von KI-generierten Produktvideos Ihrer Meinung nach dem Image eines Unternehmens?",
+    "minLabel": "Nicht schadend",
+    "maxLabel": "Sehr schadend",
+    "meanValue": 5.31,
+    "standardDeviation": 1.41
   }
 ]
