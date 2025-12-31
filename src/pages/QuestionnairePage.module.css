@@ -740,6 +740,11 @@
         overflow: hidden;
         box-sizing: content-box;
     }
+
+    .alreadyWatchedBox {
+        width: calc(100% - 96px);
+        height: calc(100% - 96px);
+    }
 }
 
 @media screen and (min-width: 992px) and (min-height: 800px) {
