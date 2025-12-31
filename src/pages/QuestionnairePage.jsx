@@ -17,9 +17,7 @@ function QuestionnairePage() {
 
 
     useEffect(() => {
-        if (questionId > 16) {
-            window.scrollTo({ top: 0, behavior: "auto" });
-        }
+        window.scrollTo({ top: 0, behavior: "auto" });
     }, [questionId]);
 
 
@@ -182,7 +180,7 @@ function QuestionnairePage() {
                     <p className={styles.headline}>Video #{questionId}</p>
                     <p className={styles.text}>Du darfst das Video genau einmal anschauen. Entscheide dann selbst, ob das Video KI-generiert oder real ist. Du kannst auch direkt die Ergebnisse der Befragung aufdecken.</p>
 
-                    {answer ? (
+                    {answer ? (<>
                         <div className={styles.answerSection}>
                             <div className={styles.onlineResults}>
                                 <p className={styles.onlineResultsHeadline}>Ergebnis der Online‑Befragung:</p>
@@ -208,6 +206,33 @@ function QuestionnairePage() {
                                 <span className={styles.resultValue}>{translate(answer)}</span>
                             </p>
                         </div>
+                        {resultData.correctAnswer === "ai" && (
+                            <div className={styles.aiContainer}>
+                                {(() => {
+                                    const isDigen = resultData.aiModel === "digen";
+
+                                    const headline = isDigen ? "Video erstellt mit Digen" : "Video erstellt mit Tasy";
+
+                                    const text = isDigen
+                                        ? "Digen ist eine Plattform zur Generierung von Videos aller Art auf Basis künstlicher Intelligenz. Verwendet wird das KI-Modell Sora 2 von OpenAI."
+                                        : "Tasy ist eine Plattform spezialisiert auf die Generierung von UGC-Videos auf Basis künstlicher Intelligenz. Dabei kommt eine Kombination verschiedener KI-Modelle zum Einsatz: Kling, ElevenLabs, Higgsfield, Mirage, Google Nano Banana, Sync und Veed Lipsync.";
+
+                                    const link = isDigen ? "https://digen.ai/" : "https://www.tasy.ai/";
+
+                                    return (
+                                        <>
+                                            <p className={styles.aiHeadline}>{headline}</p>
+                                            <p className={styles.aiText}>{text}</p>
+                                            <a className={styles.aiLink} href={link} target="_blank" rel="noopener noreferrer" >
+                                                <img src="/src/assets/icons/link.svg" alt="" />
+                                                Zur Website
+                                            </a>
+                                        </>
+                                    );
+                                })()}
+                            </div>
+                        )}
+                    </>
                     ) : (
                         <>
                             <div className={styles.btnContainer}>
@@ -343,6 +368,33 @@ function QuestionnairePage() {
                                 {answer && <span className={styles.resultValue}>{translate(answer)}</span>}
                             </p>
                         </div>
+
+                        {answer && resultData.correctAnswer === "ai" && (
+                            <div className={styles.aiContainer}>
+                                {(() => {
+                                    const isDigen = resultData.aiModel === "digen";
+
+                                    const headline = isDigen ? "Video erstellt mit Digen" : "Video erstellt mit Tasy";
+
+                                    const text = isDigen
+                                        ? "Digen ist eine Plattform zur Generierung von Videos aller Art auf Basis künstlicher Intelligenz. Verwendet wird das KI-Modell Sora 2 von OpenAI."
+                                        : "Tasy ist eine Plattform spezialisiert auf die Generierung von UGC-Videos auf Basis künstlicher Intelligenz. Dabei kommt eine Kombination verschiedener KI-Modelle zum Einsatz: Kling, ElevenLabs, Higgsfield, Mirage, Google Nano Banana, Sync und Veed Lipsync.";
+
+                                    const link = isDigen ? "https://digen.ai/" : "https://www.tasy.ai/";
+
+                                    return (
+                                        <>
+                                            <p className={styles.aiHeadline}>{headline}</p>
+                                            <p className={styles.aiText}>{text}</p>
+                                            <a className={styles.aiLink} href={link} target="_blank" rel="noopener noreferrer" >
+                                                <img src="/src/assets/icons/link.svg" alt="" />
+                                                Zur Website
+                                            </a>
+                                        </>
+                                    );
+                                })()}
+                            </div>
+                        )}
 
                         {!answer && (
                             <>

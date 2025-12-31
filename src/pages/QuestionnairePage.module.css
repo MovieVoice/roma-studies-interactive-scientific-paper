@@ -303,6 +303,64 @@
     z-index: 1;
 }
 
+.aiContainer {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px;
+    gap: 8px;
+    background: var(--color-primary-light);
+    border-radius: 16px;
+    margin-bottom: 24px;
+}
+
+.aiHeadline {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 120%;
+    color: var(--color-primary-0);
+}
+
+.aiText {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 140%;
+    color: var(--color-fg-0);
+}
+
+.aiLink {
+    all: unset;
+    width: fit-content;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 16px;
+    gap: 12px;
+    background: var(--color-primary-medium);
+    border-radius: 24px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 120%;
+    color: var(--color-primary-0);
+    margin-top: 8px;
+    box-sizing: border-box;
+    border: 1px solid var(--color-primary-medium);
+}
+
+.aiLink:hover {
+    cursor: pointer;
+    border: 1px solid var(--color-primary-0);
+}
+
+.aiLink img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
 .layoutSettingsQuestion {
     width: 100%;
     max-width: 764px;
@@ -673,7 +731,8 @@
     .headline,
     .text,
     .btnContainer,
-    .subheading {
+    .subheading,
+    .aiContainer {
         margin: 0px 32px;
     }
 
@@ -692,6 +751,10 @@
         overflow: hidden;
         text-overflow: ellipsis;
         min-width: 0;
+    }
+
+    .aiContainer {
+        width: calc(100% - 64px);
     }
 
     .answerSection {

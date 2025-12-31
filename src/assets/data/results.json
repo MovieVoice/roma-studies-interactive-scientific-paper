@@ -9,13 +9,15 @@
     "id": 2,
     "realPercentage": 2,
     "aiPercentage": 98,
-    "correctAnswer": "ai"
+    "correctAnswer": "ai",
+    "aiModel": "digen"
   },
   {
     "id": 3,
     "realPercentage": 18,
     "aiPercentage": 82,
-    "correctAnswer": "ai"
+    "correctAnswer": "ai",
+    "aiModel": "tasy"
   },
   {
     "id": 4,
@@ -27,7 +29,8 @@
     "id": 5,
     "realPercentage": 5,
     "aiPercentage": 95,
-    "correctAnswer": "ai"
+    "correctAnswer": "ai",
+    "aiModel": "digen"
   },
   {
     "id": 6,
@@ -45,7 +48,8 @@
     "id": 8,
     "realPercentage": 4,
     "aiPercentage": 96,
-    "correctAnswer": "ai"
+    "correctAnswer": "ai",
+    "aiModel": "tasy"
   },
   {
     "id": 9,
@@ -57,7 +61,8 @@
     "id": 10,
     "realPercentage": 5,
     "aiPercentage": 95,
-    "correctAnswer": "ai"
+    "correctAnswer": "ai",
+    "aiModel": "tasy"
   },
   {
     "id": 11,
@@ -75,13 +80,15 @@
     "id": 13,
     "realPercentage": 0,
     "aiPercentage": 100,
-    "correctAnswer": "ai"
+    "correctAnswer": "ai",
+    "aiModel": "tasy"
   },
   {
     "id": 14,
     "realPercentage": 0,
     "aiPercentage": 100,
-    "correctAnswer": "ai"
+    "correctAnswer": "ai",
+    "aiModel": "digen"
   },
   {
     "id": 15,
@@ -93,7 +100,8 @@
     "id": 16,
     "realPercentage": 0,
     "aiPercentage": 100,
-    "correctAnswer": "ai"
+    "correctAnswer": "ai",
+    "aiModel": "digen"
   },
   {
     "id": 17,
