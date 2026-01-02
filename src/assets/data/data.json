@@ -2,10 +2,26 @@
     {
         "id": 1,
         "genders": [
-            { "label": "Männlich", "percentage": 49 },
-            { "label": "Weiblich", "percentage": 47 },
-            { "label": "Divers", "percentage": 2 },
-            { "label": "Keine Angabe", "percentage": 2 }
+            {
+                "label": "Männlich",
+                "percentage": 49,
+                "tooltip": "Männliche Teilnehmenden: 49 %"
+            },
+            {
+                "label": "Weiblich",
+                "percentage": 47,
+                "tooltip": "Weibliche Teilnehmenden: 47 %"
+            },
+            {
+                "label": "Divers",
+                "percentage": 2,
+                "tooltip": "Diverse Teilnehmenden: 2 %"
+            },
+            {
+                "label": "Keine Angabe",
+                "percentage": 2,
+                "tooltip": "Keine Angabe: 2 %"
+            }
         ]
     },
     {

@@ -85,6 +85,159 @@
     color: var(--color-fg-1);
 }
 
+.dataDiagram {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    align-items: flex-start;
+}
+
+.dataDiagramLabels {
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 12px;
+    gap: 12px;
+}
+
+.dataDiagramLabelsItem {
+    width: fit-content;
+    height: 20px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 140%;
+    color: var(--color-fg-1);
+    flex: none;
+}
+
+.dataDiagramBars {
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 12px;
+    gap: 12px;
+    flex-grow: 1;
+}
+
+.dataDiagramBarContainer {
+    width: 100%;
+    height: 20px;
+    background-color: var(--color-primary-light);
+    border-radius: 8px;
+    position: relative;
+    cursor: pointer;
+}
+
+.dataDiagramBar {
+    height: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--color-primary-0);
+    border-radius: 8px 0 0 8px;
+    transition: filter 0.2s ease;
+}
+
+.tooltip {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translate(-50%, -6px);
+    background-color: var(--color-fg-0);
+    color: var(--color-bg-0);
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    pointer-events: none;
+    user-select: none;
+}
+
+.dataDiagramBarContainer:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -10px);
+}
+
+.dataDiagramBarContainer:hover .dataDiagramBar {
+    filter: brightness(1.2);
+}
+
+
+
+.dataDiagramPercentageScaleContainer {
+    width: 100%;
+    height: 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.dataDiagramPercentageScale {
+    width: 100%;
+    height: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.dataDiagramPercentageScaleMarker {
+    width: 2px;
+    height: 12px;
+    background-color: var(--color-primary-light);
+}
+
+.dataDiagramPercentageScaleBar {
+    width: 100%;
+    height: 2px;
+    position: absolute;
+    left: 0;
+    top: 5px;
+    background-color: var(--color-primary-light);
+}
+
+.dataDiagramPercentageScaleLabels {
+    width: 100%;
+    height: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.dataDiagramPercentageScaleLabels span {
+    width: 50px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 140%;
+    text-align: center;
+    color: var(--color-fg-1);
+    flex-shrink: 1;
+}
+
+.dataDiagramPercentageScaleLabels span:first-child {
+    width: 25px;
+    text-align: left;
+}
+
+.dataDiagramPercentageScaleLabels span:last-child {
+    width: 25px;
+    text-align: right;
+}
+
+
+
+
+
+
 
 
 

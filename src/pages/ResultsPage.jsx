@@ -3,6 +3,10 @@ import data from '/src/assets/data/data.json';
 import styles from './ResultsPage.module.css';
 
 function ResultsPage() {
+    const genderData = data.find(item => item.id === 1).genders;
+    const avgAgeData = data.find(item => item.id === 2).avgAge;
+
+
     return (
         <>
             <div className={styles.wrapper}>
@@ -15,12 +19,53 @@ function ResultsPage() {
                                     <p className={styles.dataBlockItemTitle}>Geschlechterverteilung</p>
                                     <p className={styles.dataBlockItemText}>Angaben in Prozent</p>
                                 </div>
-                                {/* TODO */}
+
+                                <div className={styles.dataDiagram}>
+                                    {/* Labels-Spalte */}
+                                    <div className={styles.dataDiagramLabels}>
+                                        {genderData.map((gender, index) => (
+                                            <p key={index} className={styles.dataDiagramLabelsItem}>
+                                                {gender.label}
+                                            </p>
+                                        ))}
+                                    </div>
+
+                                    {/* Balken-Spalte */}
+                                    <div className={styles.dataDiagramBars}>
+                                        {genderData.map((gender, index) => (
+                                            <div key={index} className={styles.dataDiagramBarContainer}>
+                                                <div
+                                                    className={styles.dataDiagramBar}
+                                                    style={{ width: `${gender.percentage}%` }}
+                                                ></div>
+                                                <div className={styles.tooltip}>{gender.tooltip}</div>
+                                            </div>
+                                        ))}
+                                        <div className={styles.dataDiagramPercentageScaleContainer}>
+                                            <div className={styles.dataDiagramPercentageScale}>
+                                                <div className={styles.dataDiagramPercentageScaleMarker}></div>
+                                                <div className={styles.dataDiagramPercentageScaleMarker}></div>
+                                                <div className={styles.dataDiagramPercentageScaleMarker}></div>
+                                                <div className={styles.dataDiagramPercentageScaleMarker}></div>
+                                                <div className={styles.dataDiagramPercentageScaleMarker}></div>
+                                                <div className={styles.dataDiagramPercentageScaleBar}></div>
+                                            </div>
+                                            <div className={styles.dataDiagramPercentageScaleLabels}>
+                                                <span>0</span>
+                                                <span>25</span>
+                                                <span>50</span>
+                                                <span>75</span>
+                                                <span>100</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                             <div className={styles.dataBlockItem}>
                                 <div className={styles.dataBlockItemDescription}>
                                     <p className={styles.dataBlockItemTitle}>Durchschnittsalter</p>
-                                    {/* <p className={styles.dataBlockItemText}>22,36 Jahre</p> */}
+                                    <p className={styles.dataBlockItemText}>{avgAgeData}</p>
                                 </div>
                             </div>
                             <div className={styles.dataBlockItem}>
