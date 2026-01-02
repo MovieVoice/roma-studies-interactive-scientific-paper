@@ -1,0 +1,142 @@
+[
+    {
+        "id": 1,
+        "genders": [
+            { "label": "Männlich", "percentage": 49 },
+            { "label": "Weiblich", "percentage": 47 },
+            { "label": "Divers", "percentage": 2 },
+            { "label": "Keine Angabe", "percentage": 2 }
+        ]
+    },
+    {
+        "id": 2,
+        "avgAge": "22,36 Jahre"
+    },
+    {
+        "id": 3,
+        "recognitionRate": [
+            {
+                "label": "Video #2",
+                "realPercentage": 2,
+                "aiPercentage": 98,
+                "correctAnswer": "ai",
+                "aiModel": "digen"
+            },
+            {
+                "label": "Video #5",
+                "realPercentage": 5,
+                "aiPercentage": 95,
+                "correctAnswer": "ai",
+                "aiModel": "digen"
+            },
+            {
+                "label": "Video #14",
+                "realPercentage": 0,
+                "aiPercentage": 100,
+                "correctAnswer": "ai",
+                "aiModel": "digen"
+            },
+            {
+                "label": "Video #16",
+                "realPercentage": 0,
+                "aiPercentage": 100,
+                "correctAnswer": "ai",
+                "aiModel": "digen"
+            },
+            {
+                "label": "Video #3",
+                "realPercentage": 18,
+                "aiPercentage": 82,
+                "correctAnswer": "ai",
+                "aiModel": "tasy"
+            },
+            {
+                "label": "Video #8",
+                "realPercentage": 4,
+                "aiPercentage": 96,
+                "correctAnswer": "ai",
+                "aiModel": "tasy"
+            },
+            {
+                "label": "Video #10",
+                "realPercentage": 5,
+                "aiPercentage": 95,
+                "correctAnswer": "ai",
+                "aiModel": "tasy"
+            },
+            {
+                "label": "Video #13",
+                "realPercentage": 0,
+                "aiPercentage": 100,
+                "correctAnswer": "ai",
+                "aiModel": "tasy"
+            },
+            {
+                "label": "Video #1",
+                "realPercentage": 87,
+                "aiPercentage": 13,
+                "correctAnswer": "real"
+            },
+            {
+                "label": "Video #4",
+                "realPercentage": 95,
+                "aiPercentage": 5,
+                "correctAnswer": "real"
+            },
+            {
+                "label": "Video #6",
+                "realPercentage": 91,
+                "aiPercentage": 9,
+                "correctAnswer": "real"
+            },
+            {
+                "label": "Video #7",
+                "realPercentage": 89,
+                "aiPercentage": 11,
+                "correctAnswer": "real"
+            },
+            {
+                "label": "Video #9",
+                "realPercentage": 96,
+                "aiPercentage": 4,
+                "correctAnswer": "real"
+            },
+            {
+                "label": "Video #11",
+                "realPercentage": 98,
+                "aiPercentage": 2,
+                "correctAnswer": "real"
+            },
+            {
+                "label": "Video #12",
+                "realPercentage": 98,
+                "aiPercentage": 2,
+                "correctAnswer": "real"
+            },
+            {
+                "label": "Video #15",
+                "realPercentage": 95,
+                "aiPercentage": 5,
+                "correctAnswer": "real"
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "accuracy": "94,44 %"
+    },
+    {
+        "id": 5,
+        "balancedAccuracy": "94,44 %"
+    },
+    {
+        "id": 6,
+        "minimumHitRate": "95 %",
+        "meanValue": "98,25 %"
+    },
+    {
+        "id": 7,
+        "minimumHitRate": "82 %",
+        "meanValue": "92,25 %"
+    }
+]

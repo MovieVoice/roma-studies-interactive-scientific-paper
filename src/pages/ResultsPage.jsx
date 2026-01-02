@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import data from '/src/assets/data/data.json';
 import styles from './ResultsPage.module.css';
 
 function ResultsPage() {
@@ -8,7 +9,7 @@ function ResultsPage() {
                 <div className={styles.content}>
                     <p className={styles.headline}>Ergebnisübersicht der Befragung</p>
                     <div className={styles.dataContainer}>
-                        <div className={styles.dataBlockLeft}>
+                        <div className={styles.dataBlock}>
                             <div className={styles.dataBlockItem}>
                                 <div className={styles.dataBlockItemDescription}>
                                     <p className={styles.dataBlockItemTitle}>Geschlechterverteilung</p>
@@ -56,7 +57,7 @@ function ResultsPage() {
                                 </div>
                             </div>
                         </div>
-                        <div className={styles.dataBlockRight}>
+                        <div className={styles.dataBlock}>
                             <div className={styles.dataBlockItem}>
                                 <div className={styles.dataBlockItemDescription}>
                                     <p className={styles.dataBlockItemTitle}>Konfusionsmatrix</p>
