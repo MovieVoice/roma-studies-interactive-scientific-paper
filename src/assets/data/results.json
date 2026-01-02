@@ -114,8 +114,8 @@
   {
     "id": 18,
     "question": "Wie sehr schadet der Einsatz von KI-generierten Produktvideos Ihrer Meinung nach dem Image eines Unternehmens?",
-    "minLabel": "Nicht schadend",
-    "maxLabel": "Sehr schadend",
+    "minLabel": "Nicht schädlich",
+    "maxLabel": "Sehr schädlich",
     "meanValue": 5.31,
     "standardDeviation": 1.41
   },
