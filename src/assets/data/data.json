@@ -170,5 +170,46 @@
         "id": 7,
         "minimumHitRate": "82 %",
         "meanValue": "92,25 %"
+    },
+    {
+        "id": 8,
+        "confusionMatrix": {
+            "tp": 412,
+            "fp": 21,
+            "tn": 419,
+            "fn": 28
+        }
+    },
+    {
+        "id": 9,
+        "sensitivity": "93,6 %"
+    },
+    {
+        "id": 10,
+        "specificity": "95,2 %"
+    },
+    {
+        "id": 11,
+        "meanValue": 5.74,
+        "stdDev": 1.31
+    },
+    {
+        "id": 12,
+        "meanValue": 5.31,
+        "stdDev": 1.41
+    },
+    {
+        "id": 13,
+        "yesNoRatio": {
+            "yes": 55,
+            "no": 45
+        },
+        "quotes": [
+            "Negativ, würde das Produkt weniger kaufen.",
+            "Eher negativ, wenn KI zu sehr und zu stark erkennbar genutzt wird entscheide ich mich gegen den Kauf",
+            "Ki Videos halten mich vom Kauf ab. Ich sehen keine Person hinter dem Produkt und kann mich somit nicht damit identifizieren.",
+            "Negativ: weniger \"persönlich\" bzw. Kommt es darauf an, ob eine komplette Person durch KI ersetzt wird oder verschiedene Bildabläufe",
+            "Wenn ich werbung von einem Produkt kriegen würde beim dem das video ki generiert wurde, würde ich dies nicht kaufen, da ich mir unsicher wäre das dieses Produkt wirklich existiert und ich nicht abgezogen werde."
+        ]
     }
 ]
