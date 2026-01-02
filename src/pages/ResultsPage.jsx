@@ -5,6 +5,7 @@ import styles from './ResultsPage.module.css';
 function ResultsPage() {
     const genderData = data.find(item => item.id === 1).genders;
     const avgAgeData = data.find(item => item.id === 2).avgAge;
+    const productVideoData = data.find(item => item.id === 3).recognitionRate;
 
 
     return (
@@ -60,7 +61,6 @@ function ResultsPage() {
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
                             <div className={styles.dataBlockItem}>
                                 <div className={styles.dataBlockItemDescription}>
@@ -73,7 +73,58 @@ function ResultsPage() {
                                     <p className={styles.dataBlockItemTitle}>Einordnung von Produktvideos</p>
                                     <p className={styles.dataBlockItemText}>Angaben in Prozent</p>
                                 </div>
-                                {/* TODO */}
+
+                                <div className={styles.dataLegend}>
+                                    <div className={styles.dataLegendItem}>
+                                        <div className={styles.dataLegendColorBoxReal}></div>
+                                        <p className={styles.dataLegendLabel}>Real</p>
+                                    </div>
+                                    <div className={styles.dataLegendItem}>
+                                        <div className={styles.dataLegendColorBoxVideo}></div>
+                                        <p className={styles.dataLegendLabel}>KI-generiert</p>
+                                    </div>
+                                </div>
+
+                                <div className={styles.dataDiagram}>
+                                    {/* Labels-Spalte */}
+                                    <div className={styles.dataDiagramLabels}>
+                                        {productVideoData.map((video, index) => (
+                                            <p key={index} className={styles.dataDiagramLabelsItem}>
+                                                {video.label}
+                                            </p>
+                                        ))}
+                                    </div>
+
+                                    {/* Balken-Spalte */}
+                                    <div className={styles.dataDiagramBars}>
+                                        {productVideoData.map((video, index) => (
+                                            <div key={index} className={`${styles.dataDiagramBarContainer} ${styles.dataDiagramBarContainerVideo}`}>
+                                                <div
+                                                    className={styles.dataDiagramBar}
+                                                    style={{ width: `${video.realPercentage}%` }}
+                                                ></div>
+                                                <div className={styles.tooltip}>{video.tooltip}</div>
+                                            </div>
+                                        ))}
+                                        <div className={styles.dataDiagramPercentageScaleContainer}>
+                                            <div className={styles.dataDiagramPercentageScale}>
+                                                <div className={styles.dataDiagramPercentageScaleMarker}></div>
+                                                <div className={styles.dataDiagramPercentageScaleMarker}></div>
+                                                <div className={styles.dataDiagramPercentageScaleMarker}></div>
+                                                <div className={styles.dataDiagramPercentageScaleMarker}></div>
+                                                <div className={styles.dataDiagramPercentageScaleMarker}></div>
+                                                <div className={styles.dataDiagramPercentageScaleBar}></div>
+                                            </div>
+                                            <div className={styles.dataDiagramPercentageScaleLabels}>
+                                                <span>0</span>
+                                                <span>25</span>
+                                                <span>50</span>
+                                                <span>75</span>
+                                                <span>100</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div className={styles.dataBlockItem}>
                                 <div className={styles.dataBlockItemDescription}>

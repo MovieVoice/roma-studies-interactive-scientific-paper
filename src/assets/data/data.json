@@ -36,104 +36,120 @@
                 "realPercentage": 2,
                 "aiPercentage": 98,
                 "correctAnswer": "ai",
-                "aiModel": "digen"
+                "aiModel": "digen",
+                "tooltip": "Video KI-generiert mit Digen (Real: 2 %, KI: 98 %)"
             },
             {
                 "label": "Video #5",
                 "realPercentage": 5,
                 "aiPercentage": 95,
                 "correctAnswer": "ai",
-                "aiModel": "digen"
+                "aiModel": "digen",
+                "tooltip": "Video KI-generiert mit Digen (Real: 5 %, KI: 95 %)"
             },
             {
                 "label": "Video #14",
                 "realPercentage": 0,
                 "aiPercentage": 100,
                 "correctAnswer": "ai",
-                "aiModel": "digen"
+                "aiModel": "digen",
+                "tooltip": "Video KI-generiert mit Digen (Real: 0 %, KI: 100 %)"
             },
             {
                 "label": "Video #16",
                 "realPercentage": 0,
                 "aiPercentage": 100,
                 "correctAnswer": "ai",
-                "aiModel": "digen"
+                "aiModel": "digen",
+                "tooltip": "Video KI-generiert mit Digen (Real: 0 %, KI: 100 %)"
             },
             {
                 "label": "Video #3",
                 "realPercentage": 18,
                 "aiPercentage": 82,
                 "correctAnswer": "ai",
-                "aiModel": "tasy"
+                "aiModel": "tasy",
+                "tooltip": "Video KI-generiert mit Tasy (Real: 18 %, KI: 82 %)"
             },
             {
                 "label": "Video #8",
                 "realPercentage": 4,
                 "aiPercentage": 96,
                 "correctAnswer": "ai",
-                "aiModel": "tasy"
+                "aiModel": "tasy",
+                "tooltip": "Video KI-generiert mit Tasy (Real: 4 %, KI: 96 %)"
             },
             {
                 "label": "Video #10",
                 "realPercentage": 5,
                 "aiPercentage": 95,
                 "correctAnswer": "ai",
-                "aiModel": "tasy"
+                "aiModel": "tasy",
+                "tooltip": "Video KI-generiert mit Tasy (Real: 5 %, KI: 95 %)"
             },
             {
                 "label": "Video #13",
                 "realPercentage": 0,
                 "aiPercentage": 100,
                 "correctAnswer": "ai",
-                "aiModel": "tasy"
+                "aiModel": "tasy",
+                "tooltip": "Video KI-generiert mit Tasy (Real: 0 %, KI: 100 %)"
             },
             {
                 "label": "Video #1",
                 "realPercentage": 87,
                 "aiPercentage": 13,
-                "correctAnswer": "real"
+                "correctAnswer": "real",
+                "tooltip": "Reales Video (Real: 87 %, KI: 13 %)"
             },
             {
                 "label": "Video #4",
                 "realPercentage": 95,
                 "aiPercentage": 5,
-                "correctAnswer": "real"
+                "correctAnswer": "real",
+                "tooltip": "Reales Video (Real: 95 %, KI: 5 %)"
             },
             {
                 "label": "Video #6",
                 "realPercentage": 91,
                 "aiPercentage": 9,
-                "correctAnswer": "real"
+                "correctAnswer": "real",
+                "tooltip": "Reales Video (Real: 91 %, KI: 9 %)"
             },
             {
                 "label": "Video #7",
                 "realPercentage": 89,
                 "aiPercentage": 11,
-                "correctAnswer": "real"
+                "correctAnswer": "real",
+                "tooltip": "Reales Video (Real: 89 %, KI: 11 %)"
             },
             {
                 "label": "Video #9",
                 "realPercentage": 96,
                 "aiPercentage": 4,
-                "correctAnswer": "real"
+                "correctAnswer": "real",
+                "tooltip": "Reales Video (Real: 96 %, KI: 4 %)"
             },
             {
                 "label": "Video #11",
                 "realPercentage": 98,
                 "aiPercentage": 2,
-                "correctAnswer": "real"
+                "correctAnswer": "real",
+                "tooltip": "Reales Video (Real: 98 %, KI: 2 %)"
             },
             {
                 "label": "Video #12",
                 "realPercentage": 98,
                 "aiPercentage": 2,
-                "correctAnswer": "real"
+                "correctAnswer": "real",
+                "tooltip": "Reales Video (Real: 98 %, KI: 2 %)"
             },
             {
                 "label": "Video #15",
                 "realPercentage": 95,
                 "aiPercentage": 5,
-                "correctAnswer": "real"
+                "correctAnswer": "real",
+                "tooltip": "Reales Video (Real: 95 %, KI: 5 %)"
             }
         ]
     },

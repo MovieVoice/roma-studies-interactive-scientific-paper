@@ -132,6 +132,11 @@
     cursor: pointer;
 }
 
+.dataDiagramBarContainerVideo {
+    background-color: var(--color-bar-video);
+    transition: filter 0.2s ease;
+}
+
 .dataDiagramBar {
     height: 20px;
     position: absolute;
@@ -171,7 +176,13 @@
     filter: brightness(1.2);
 }
 
+.dataDiagramBarContainerVideo:hover {
+    filter: brightness(1.2);
+}
 
+.dataDiagramBarContainerVideo:hover .dataDiagramBar {
+    filter: none;
+}
 
 .dataDiagramPercentageScaleContainer {
     width: 100%;
@@ -233,11 +244,44 @@
     text-align: right;
 }
 
+.dataLegend {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    gap: 16px;
+    padding-top: 12px;
+    padding-left: 12px;
+}
 
+.dataLegendItem {
+    width: fit-content;
+    height: 20px;
+    display: flex;
+    gap: 8px;
+}
 
+.dataLegendColorBoxReal,
+.dataLegendColorBoxVideo {
+    width: 12px;
+    height: 20px;
+    border-radius: 4px;
+}
 
+.dataLegendColorBoxReal {
+    background-color: var(--color-primary-0);
+}
 
+.dataLegendColorBoxVideo {
+    background-color: var(--color-bar-video);
+}
 
+.dataLegendLabel {
+    width: fit-content;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 140%;
+    color: var(--color-fg-1);
+}
 
 
 
