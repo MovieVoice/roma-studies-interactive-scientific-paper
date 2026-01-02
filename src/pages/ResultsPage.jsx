@@ -7,7 +7,106 @@ function ResultsPage() {
             <div className={styles.wrapper}>
                 <div className={styles.content}>
                     <p className={styles.headline}>Ergebnisübersicht der Befragung</p>
-
+                    <div className={styles.dataContainer}>
+                        <div className={styles.dataBlockLeft}>
+                            <div className={styles.dataBlockItem}>
+                                <div className={styles.dataBlockItemDescription}>
+                                    <p className={styles.dataBlockItemTitle}>Geschlechterverteilung</p>
+                                    <p className={styles.dataBlockItemText}>Angaben in Prozent</p>
+                                </div>
+                                {/* TODO */}
+                            </div>
+                            <div className={styles.dataBlockItem}>
+                                <div className={styles.dataBlockItemDescription}>
+                                    <p className={styles.dataBlockItemTitle}>Durchschnittsalter</p>
+                                    {/* <p className={styles.dataBlockItemText}>22,36 Jahre</p> */}
+                                </div>
+                            </div>
+                            <div className={styles.dataBlockItem}>
+                                <div className={styles.dataBlockItemDescription}>
+                                    <p className={styles.dataBlockItemTitle}>Einordnung von Produktvideos</p>
+                                    <p className={styles.dataBlockItemText}>Angaben in Prozent</p>
+                                </div>
+                                {/* TODO */}
+                            </div>
+                            <div className={styles.dataBlockItem}>
+                                <div className={styles.dataBlockItemDescription}>
+                                    <p className={styles.dataBlockItemTitle}>Gesamttrefferquote (“Accuracy”)</p>
+                                    {/* <p className={styles.dataBlockItemText}>94,44 %</p> */}
+                                </div>
+                            </div>
+                            <div className={styles.dataBlockItem}>
+                                <div className={styles.dataBlockItemDescription}>
+                                    <p className={styles.dataBlockItemTitle}>Ausgewogene Genauigkeit (“Balanced Accuracy”)</p>
+                                    {/* <p className={styles.dataBlockItemText}>94,44 %</p> */}
+                                </div>
+                            </div>
+                            <div className={styles.dataBlockItem}>
+                                <div className={styles.dataBlockItemDescription}>
+                                    <p className={styles.dataBlockItemTitle}>Mit Digen erzeugte KI-Videos</p>
+                                    {/* <p className={styles.dataBlockItemText}>Mindest-Trefferquote: 95 %</p> */}
+                                    {/* <p className={styles.dataBlockItemText}>Mittelwert: 98,25 %</p> */}
+                                </div>
+                            </div>
+                            <div className={styles.dataBlockItem}>
+                                <div className={styles.dataBlockItemDescription}>
+                                    <p className={styles.dataBlockItemTitle}>Mit Tasy erzeugte KI-Videos</p>
+                                    {/* <p className={styles.dataBlockItemText}>Mindest-Trefferquote: 82 %</p> */}
+                                    {/* <p className={styles.dataBlockItemText}>Mittelwert: 92,25 %</p> */}
+                                </div>
+                            </div>
+                        </div>
+                        <div className={styles.dataBlockRight}>
+                            <div className={styles.dataBlockItem}>
+                                <div className={styles.dataBlockItemDescription}>
+                                    <p className={styles.dataBlockItemTitle}>Konfusionsmatrix</p>
+                                    <p className={styles.dataBlockItemText}>Zeigt die Anzahl korrekter und fehlerhafter Zuordnungen der Teilnehmenden zu den Kategorien “real” und “KI-generiert”.</p>
+                                </div>
+                                {/* TODO */}
+                            </div>
+                            <div className={styles.dataBlockItem}>
+                                <div className={styles.dataBlockItemDescription}>
+                                    <p className={styles.dataBlockItemTitle}>Sensitivität für reale Videos</p>
+                                    {/* <p className={styles.dataBlockItemText}>93,6 %</p> */}
+                                </div>
+                            </div>
+                            <div className={styles.dataBlockItem}>
+                                <div className={styles.dataBlockItemDescription}>
+                                    <p className={styles.dataBlockItemTitle}>Spezifität für KI-Videos</p>
+                                    {/* <p className={styles.dataBlockItemText}>95,2 %</p> */}
+                                </div>
+                            </div>
+                            <div className={styles.dataBlockItem}>
+                                <div className={styles.dataBlockItemDescription}>
+                                    <p className={styles.dataBlockItemTitle}>Empfinden Sie KI-generierte Videos als störend in den Sozialen Medien?</p>
+                                    <p className={styles.dataBlockItemText}>Mithilfe einer 7-stufigen Likert-Skala erhoben</p>
+                                </div>
+                                {/* TODO */}
+                                {/* <p className={styles.dataBlockItemText}><span className={styles.dataBlockItemBold}>Mittelwert:</span> 5,74</p> */}
+                                {/* <p className={styles.dataBlockItemText}><span className={styles.dataBlockItemBold}>Standardabweichung: </span> 1,31</p> */}
+                            </div>
+                            <div className={styles.dataBlockItem}>
+                                <div className={styles.dataBlockItemDescription}>
+                                    <p className={styles.dataBlockItemTitle}>Wie sehr schadet der Einsatz von KI-generierten Produktvideos Ihrer Meinung nach dem Image eines Unternehmens?</p>
+                                    <p className={styles.dataBlockItemText}>Mithilfe einer 7-stufigen Likert-Skala erhoben</p>
+                                </div>
+                                {/* TODO */}
+                                {/* <p className={styles.dataBlockItemText}><span className={styles.dataBlockItemBold}>Mittelwert:</span> 5,31</p> */}
+                                {/* <p className={styles.dataBlockItemText}><span className={styles.dataBlockItemBold}>Standardabweichung: </span> 1,41</p> */}
+                            </div>
+                            <div className={styles.dataBlockItem}>
+                                <div className={styles.dataBlockItemDescription}>
+                                    <p className={styles.dataBlockItemTitle}>Beeinflussen KI-generierte Videos Ihre Kaufentscheidung?</p>
+                                    <p className={styles.dataBlockItemText}>Angaben in Prozent</p>
+                                </div>
+                                {/* TODO */}
+                                <div className={styles.dataBlockItemDescription}>
+                                    <p className={styles.dataBlockItemTitle}>Begründungen bei Antwort “Ja”:</p>
+                                    {/* TODO */}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div className={styles.bottomNavbar}>
