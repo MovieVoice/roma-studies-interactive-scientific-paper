@@ -6,6 +6,11 @@ function ResultsPage() {
     const genderData = data.find(item => item.id === 1).genders;
     const avgAgeData = data.find(item => item.id === 2).avgAge;
     const productVideoData = data.find(item => item.id === 3).recognitionRate;
+    const accuracyData = data.find(item => item.id === 4).accuracy;
+    const balancedAccuracyData = data.find(item => item.id === 5).balancedAccuracy;
+    const digenData = data.find(item => item.id === 6);
+    const tasyData = data.find(item => item.id === 7);
+
 
 
     return (
@@ -129,27 +134,27 @@ function ResultsPage() {
                             <div className={styles.dataBlockItem}>
                                 <div className={styles.dataBlockItemDescription}>
                                     <p className={styles.dataBlockItemTitle}>Gesamttrefferquote (“Accuracy”)</p>
-                                    {/* <p className={styles.dataBlockItemText}>94,44 %</p> */}
+                                    <p className={styles.dataBlockItemText}>{accuracyData}</p>
                                 </div>
                             </div>
                             <div className={styles.dataBlockItem}>
                                 <div className={styles.dataBlockItemDescription}>
                                     <p className={styles.dataBlockItemTitle}>Ausgewogene Genauigkeit (“Balanced Accuracy”)</p>
-                                    {/* <p className={styles.dataBlockItemText}>94,44 %</p> */}
+                                    <p className={styles.dataBlockItemText}>{balancedAccuracyData}</p>
                                 </div>
                             </div>
                             <div className={styles.dataBlockItem}>
                                 <div className={styles.dataBlockItemDescription}>
                                     <p className={styles.dataBlockItemTitle}>Mit Digen erzeugte KI-Videos</p>
-                                    {/* <p className={styles.dataBlockItemText}>Mindest-Trefferquote: 95 %</p> */}
-                                    {/* <p className={styles.dataBlockItemText}>Mittelwert: 98,25 %</p> */}
+                                    <p className={styles.dataBlockItemText}>Mindest-Trefferquote: {digenData.minimumHitRate}</p>
+                                    <p className={styles.dataBlockItemText}>Mittelwert: {digenData.meanValue}</p>
                                 </div>
                             </div>
                             <div className={styles.dataBlockItem}>
                                 <div className={styles.dataBlockItemDescription}>
                                     <p className={styles.dataBlockItemTitle}>Mit Tasy erzeugte KI-Videos</p>
-                                    {/* <p className={styles.dataBlockItemText}>Mindest-Trefferquote: 82 %</p> */}
-                                    {/* <p className={styles.dataBlockItemText}>Mittelwert: 92,25 %</p> */}
+                                    <p className={styles.dataBlockItemText}>Mindest-Trefferquote: {tasyData.minimumHitRate}</p>
+                                    <p className={styles.dataBlockItemText}>Mittelwert: {tasyData.meanValue}</p>
                                 </div>
                             </div>
                         </div>
