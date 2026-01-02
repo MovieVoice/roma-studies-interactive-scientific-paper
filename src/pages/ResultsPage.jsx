@@ -10,7 +10,12 @@ function ResultsPage() {
     const balancedAccuracyData = data.find(item => item.id === 5).balancedAccuracy;
     const digenData = data.find(item => item.id === 6);
     const tasyData = data.find(item => item.id === 7);
-
+    const confusionMatrix = data.find(item => item.id === 8).confusionMatrix;
+    const sensitivityData = data.find(item => item.id === 9).sensitivity;
+    const specificityData = data.find(item => item.id === 10).specificity;
+    const disturbanceData = data.find(item => item.id === 11);
+    const imageImpactData = data.find(item => item.id === 12);
+    const purchaseImpactData = data.find(item => item.id === 13);
 
 
     return (
@@ -162,20 +167,56 @@ function ResultsPage() {
                             <div className={styles.dataBlockItem}>
                                 <div className={styles.dataBlockItemDescription}>
                                     <p className={styles.dataBlockItemTitle}>Konfusionsmatrix</p>
-                                    <p className={styles.dataBlockItemText}>Zeigt die Anzahl korrekter und fehlerhafter Zuordnungen der Teilnehmenden zu den Kategorien “real” und “KI-generiert”.</p>
+                                    <p className={styles.dataBlockItemText}>Zeigt die Anzahl korrekter und fehlerhafter Zuordnungen der Teilnehmenden zu den Kategorien "real" und "KI-generiert".</p>
                                 </div>
-                                {/* TODO */}
+
+                                <div className={styles.confusionMatrix}>
+                                    <div className={styles.confusionMatrixLabels}>
+                                        <p className={styles.confusionMatrixLabel}>Reales Video (wahr)</p>
+                                        <p className={styles.confusionMatrixLabel}>KI-Video (wahr)</p>
+                                    </div>
+                                    <div className={styles.confusionMatrixSpacer}></div>
+                                    <div className={styles.confusionMatrixData}>
+                                        <div className={styles.confusionMatrixRow}>
+                                            <div className={styles.confusionMatrixCell}>
+                                                <p className={styles.confusionMatrixLabel}>Eingestuft als real</p>
+                                            </div>
+                                            <div className={styles.confusionMatrixSpacer}></div>
+                                            <div className={styles.confusionMatrixCell}>
+                                                <p className={styles.confusionMatrixLabel}>Eingestuft als KI-generiert</p>
+                                            </div>
+                                        </div>
+                                        <div className={styles.confusionMatrixRow}>
+                                            <div className={styles.confusionMatrixCell}>
+                                                <p className={styles.confusionMatrixValue}>{confusionMatrix.tp}</p>
+                                            </div>
+                                            <div className={styles.confusionMatrixSpacer}></div>
+                                            <div className={styles.confusionMatrixCell}>
+                                                <p className={styles.confusionMatrixValue}>{confusionMatrix.fn}</p>
+                                            </div>
+                                        </div>
+                                        <div className={styles.confusionMatrixRow}>
+                                            <div className={styles.confusionMatrixCell}>
+                                                <p className={styles.confusionMatrixValue}>{confusionMatrix.fp}</p>
+                                            </div>
+                                            <div className={styles.confusionMatrixSpacer}></div>
+                                            <div className={styles.confusionMatrixCell}>
+                                                <p className={styles.confusionMatrixValue}>{confusionMatrix.tn}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div className={styles.dataBlockItem}>
                                 <div className={styles.dataBlockItemDescription}>
                                     <p className={styles.dataBlockItemTitle}>Sensitivität für reale Videos</p>
-                                    {/* <p className={styles.dataBlockItemText}>93,6 %</p> */}
+                                    <p className={styles.dataBlockItemText}>{sensitivityData}</p>
                                 </div>
                             </div>
                             <div className={styles.dataBlockItem}>
                                 <div className={styles.dataBlockItemDescription}>
                                     <p className={styles.dataBlockItemTitle}>Spezifität für KI-Videos</p>
-                                    {/* <p className={styles.dataBlockItemText}>95,2 %</p> */}
+                                    <p className={styles.dataBlockItemText}>{specificityData}</p>
                                 </div>
                             </div>
                             <div className={styles.dataBlockItem}>
@@ -239,4 +280,4 @@ function ResultsPage() {
     );
 }
 
-export default ResultsPage;
+export default ResultsPage;;

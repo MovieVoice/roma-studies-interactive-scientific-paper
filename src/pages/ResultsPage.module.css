@@ -283,6 +283,101 @@
     color: var(--color-fg-1);
 }
 
+.confusionMatrix {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    align-items: flex-end;
+    padding: 12px 0px;
+}
+
+.confusionMatrixLabels {
+    width: fit-content;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 12px 0px;
+    gap: 12px;
+    flex: none;
+}
+
+.confusionMatrixLabel {
+    width: 100%;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 140%;
+    text-align: center;
+    color: var(--color-fg-1);
+    padding: 0px 12px;
+}
+
+.confusionMatrixLabels .confusionMatrixLabel {
+    text-align: right;
+}
+
+.confusionMatrixData {
+    width: 100%;
+    height: fit-content;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.confusionMatrixRow {
+    width: 100%;
+    height: fit-content;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.confusionMatrixCell {
+    width: 100%;
+    height: 100%;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.confusionMatrixRow .confusionMatrixCell {
+    padding: 6px 0px;
+}
+
+.confusionMatrixRow:first-child .confusionMatrixCell {
+    padding-top: 12px;
+}
+
+.confusionMatrixRow:last-child .confusionMatrixCell {
+    padding-bottom: 12px;
+}
+
+.confusionMatrixSpacer {
+    width: 2px;
+    align-self: stretch;
+    background-color: var(--color-primary-light);
+}
+
+.confusionMatrixValue {
+    width: 100%;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 140%;
+    text-align: center;
+    color: var(--color-primary-0);
+}
+
+
+
+
+
+
+
+
+
 
 
 
