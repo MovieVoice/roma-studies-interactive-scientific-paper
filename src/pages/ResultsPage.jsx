@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import { useEffect } from 'react';
 import data from '/src/assets/data/data.json';
 import styles from './ResultsPage.module.css';
 
@@ -16,6 +17,66 @@ function ResultsPage() {
     const disturbanceData = data.find(item => item.id === 11);
     const imageImpactData = data.find(item => item.id === 12);
     const purchaseImpactData = data.find(item => item.id === 13);
+
+
+    useEffect(() => {
+        const scales = [
+            { data: disturbanceData, prefix: "disturbance" },
+            { data: imageImpactData, prefix: "image" },
+        ];
+
+        function updateScale(scaleInfo) {
+            const { data, prefix } = scaleInfo;
+            if (!data || !data.meanValue || !data.stdDev) return;
+
+            const mean = parseFloat(data.meanValue);
+            const std = parseFloat(data.stdDev);
+            const min = 1, max = 7;
+            const tickWidth = 16;
+            const barEndWidth = 4;
+
+            const bar = document.querySelector(`.${styles[`${prefix}ScaleBar`]}`);
+            const meanDot = document.querySelector(`.${styles[`${prefix}ScaleMean`]}`);
+            const axis = document.querySelector(`.${styles[`${prefix}ScaleAxis`]}`);
+            if (!bar || !meanDot || !axis) return;
+
+            const width = axis.offsetWidth;
+            const halfTick = tickWidth / 2;
+            const halfEnd = barEndWidth / 2;
+
+            const xPx = ((mean - min) / (max - min)) * (width - tickWidth) + halfTick;
+            const deltaPx = (std / (max - min)) * (width - tickWidth);
+
+            let leftBarPx = xPx - deltaPx;
+            let rightBarPx = xPx + deltaPx;
+
+            leftBarPx = Math.max(halfTick, leftBarPx);
+            rightBarPx = Math.min(width - halfTick, rightBarPx);
+
+            const toPercent = (px) => (px / width) * 100;
+            const meanLeft = toPercent(xPx - halfTick);
+            const barLeft = toPercent(leftBarPx - halfEnd);
+            const barWidth = toPercent((rightBarPx + halfEnd) - (leftBarPx - halfEnd));
+
+            meanDot.style.left = `${meanLeft}%`;
+            bar.style.left = `${barLeft}%`;
+            bar.style.width = `${barWidth}%`;
+        }
+
+        // Initialisierung
+        scales.forEach(updateScale);
+
+        // Responsive Handling
+        const handleResize = () => scales.forEach(updateScale);
+        window.addEventListener("resize", handleResize);
+
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, [disturbanceData, imageImpactData]);
+
+
+
 
 
     return (
@@ -224,18 +285,80 @@ function ResultsPage() {
                                     <p className={styles.dataBlockItemTitle}>Empfinden Sie KI-generierte Videos als störend in den Sozialen Medien?</p>
                                     <p className={styles.dataBlockItemText}>Mithilfe einer 7-stufigen Likert-Skala erhoben</p>
                                 </div>
-                                {/* TODO */}
-                                {/* <p className={styles.dataBlockItemText}><span className={styles.dataBlockItemBold}>Mittelwert:</span> 5,74</p> */}
-                                {/* <p className={styles.dataBlockItemText}><span className={styles.dataBlockItemBold}>Standardabweichung: </span> 1,31</p> */}
+
+                                <div className={styles.disturbanceScaleContainer}>
+                                    <div className={styles.disturbanceScale}>
+                                        <div className={styles.disturbanceScaleAxis}>
+                                            {[...Array(7)].map((_, i) => {
+                                                const num = i + 1;
+                                                return (
+                                                    <div key={num} className={styles.scaleTick} />
+                                                );
+                                            })}
+                                        </div>
+                                        <>
+                                            <div className={styles.disturbanceScaleBar}>
+                                                <div className={styles.scaleBarEnd}></div>
+                                                <div className={styles.scaleBarEnd}></div>
+                                            </div>
+                                            <div className={styles.disturbanceScaleMean}></div>
+                                        </>
+                                    </div>
+                                    <div className={styles.scaleNumbers}>
+                                        {[...Array(7)].map((_, i) => (
+                                            <div key={i} className={styles.scaleNumberBox}>
+                                                <p className={styles.scaleNumber}>{i + 1}</p>
+                                            </div>
+                                        ))}
+                                    </div>
+                                    <div className={styles.scaleLabels}>
+                                        <p>{disturbanceData.minLabel}</p>
+                                        <p>{disturbanceData.maxLabel}</p>
+                                    </div>
+                                </div>
+
+                                <p className={styles.dataBlockItemText}><span className={styles.dataBlockItemTitle}>Mittelwert:</span> {disturbanceData.meanValue}</p>
+                                <p className={styles.dataBlockItemText}><span className={styles.dataBlockItemTitle}>Standardabweichung:</span> {disturbanceData.stdDev}</p>
                             </div>
                             <div className={styles.dataBlockItem}>
                                 <div className={styles.dataBlockItemDescription}>
                                     <p className={styles.dataBlockItemTitle}>Wie sehr schadet der Einsatz von KI-generierten Produktvideos Ihrer Meinung nach dem Image eines Unternehmens?</p>
                                     <p className={styles.dataBlockItemText}>Mithilfe einer 7-stufigen Likert-Skala erhoben</p>
                                 </div>
-                                {/* TODO */}
-                                {/* <p className={styles.dataBlockItemText}><span className={styles.dataBlockItemBold}>Mittelwert:</span> 5,31</p> */}
-                                {/* <p className={styles.dataBlockItemText}><span className={styles.dataBlockItemBold}>Standardabweichung: </span> 1,41</p> */}
+
+                                <div className={styles.imageScaleContainer}>
+                                    <div className={styles.imageScale}>
+                                        <div className={styles.imageScaleAxis}>
+                                            {[...Array(7)].map((_, i) => {
+                                                const num = i + 1;
+                                                return (
+                                                    <div key={num} className={styles.scaleTick} />
+                                                );
+                                            })}
+                                        </div>
+                                        <>
+                                            <div className={styles.imageScaleBar}>
+                                                <div className={styles.scaleBarEnd}></div>
+                                                <div className={styles.scaleBarEnd}></div>
+                                            </div>
+                                            <div className={styles.imageScaleMean}></div>
+                                        </>
+                                    </div>
+                                    <div className={styles.scaleNumbers}>
+                                        {[...Array(7)].map((_, i) => (
+                                            <div key={i} className={styles.scaleNumberBox}>
+                                                <p className={styles.scaleNumber}>{i + 1}</p>
+                                            </div>
+                                        ))}
+                                    </div>
+                                    <div className={styles.scaleLabels}>
+                                        <p>{disturbanceData.minLabel}</p>
+                                        <p>{disturbanceData.maxLabel}</p>
+                                    </div>
+                                </div>
+
+                                <p className={styles.dataBlockItemText}><span className={styles.dataBlockItemTitle}>Mittelwert:</span> {imageImpactData.meanValue}</p>
+                                <p className={styles.dataBlockItemText}><span className={styles.dataBlockItemTitle}>Standardabweichung:</span> {imageImpactData.stdDev}</p>
                             </div>
                             <div className={styles.dataBlockItem}>
                                 <div className={styles.dataBlockItemDescription}>

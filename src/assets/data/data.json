@@ -159,12 +159,16 @@
     {
         "id": 11,
         "meanValue": 5.74,
-        "stdDev": 1.31
+        "stdDev": 1.31,
+        "minLabel": "Nicht störend",
+        "maxLabel": "Sehr störend"
     },
     {
         "id": 12,
         "meanValue": 5.31,
-        "stdDev": 1.41
+        "stdDev": 1.41,
+        "minLabel": "Nicht schädlich",
+        "maxLabel": "Sehr schädlich"
     },
     {
         "id": 13,
