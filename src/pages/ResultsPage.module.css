@@ -389,7 +389,6 @@
     align-items: center;
     position: relative;
     margin-top: 14px;
-    margin-bottom: 2px;
 }
 
 .disturbanceScaleAxis,
@@ -448,7 +447,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 2px;
 }
 
 .scaleNumberBox {
@@ -460,7 +458,7 @@
 
 .scaleNumber {
     font-weight: 600;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 120%;
     text-align: center;
     color: var(--color-fg-1);
@@ -473,10 +471,9 @@
     align-items: center;
 }
 
-
 .scaleLabels p {
     font-weight: 500;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 140%;
     color: var(--color-fg-1);
 }
@@ -568,5 +565,11 @@
     .content {
         width: calc(100% - 96px);
         margin: 128px 48px 204px 48px;
+    }
+}
+
+@media screen and (min-width: 1300px) {
+    .dataContainer {
+        flex-direction: row;
     }
 }

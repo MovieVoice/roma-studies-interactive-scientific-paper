@@ -170,6 +170,12 @@ function QuestionnairePage() {
     }, [questionId, resultData, answer]);
 
 
+    function formatNumberDE(num) {
+        if (num === null || num === undefined || isNaN(num)) return '';
+        return num.toString().replace('.', ',');
+    }
+
+
     let pageContent;
 
     // IDs 1–16
@@ -483,11 +489,11 @@ function QuestionnairePage() {
 
                     <p>
                         <span className={styles.resultLabel}>Mittelwert: </span>
-                        {answer && <span className={styles.resultValue}>{resultData.meanValue}</span>}
+                        {answer && <span className={styles.resultValue}>{formatNumberDE(resultData.meanValue)}</span>}
                     </p>
                     <p>
                         <span className={styles.resultLabel}>Standardabweichung: </span>
-                        {answer && <span className={styles.resultValue}>{resultData.standardDeviation}</span>}
+                        {answer && <span className={styles.resultValue}>{formatNumberDE(resultData.standardDeviation)}</span>}
                     </p>
                     <p>
                         <span className={styles.resultLabel}>Deine Antwort: </span>

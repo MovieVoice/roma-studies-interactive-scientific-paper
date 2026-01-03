@@ -63,10 +63,8 @@ function ResultsPage() {
             bar.style.width = `${barWidth}%`;
         }
 
-        // Initialisierung
         scales.forEach(updateScale);
 
-        // Responsive Handling
         const handleResize = () => scales.forEach(updateScale);
         window.addEventListener("resize", handleResize);
 
@@ -76,7 +74,10 @@ function ResultsPage() {
     }, [disturbanceData, imageImpactData]);
 
 
-
+    function formatNumberDE(num) {
+        if (num === null || num === undefined || isNaN(num)) return '';
+        return num.toString().replace('.', ',');
+    }
 
 
     return (
@@ -317,8 +318,8 @@ function ResultsPage() {
                                     </div>
                                 </div>
 
-                                <p className={styles.dataBlockItemText}><span className={styles.dataBlockItemTitle}>Mittelwert:</span> {disturbanceData.meanValue}</p>
-                                <p className={styles.dataBlockItemText}><span className={styles.dataBlockItemTitle}>Standardabweichung:</span> {disturbanceData.stdDev}</p>
+                                <p className={styles.dataBlockItemText}><span className={styles.dataBlockItemTitle}>Mittelwert:</span> {formatNumberDE(disturbanceData.meanValue)}</p>
+                                <p className={styles.dataBlockItemText}><span className={styles.dataBlockItemTitle}>Standardabweichung:</span> {formatNumberDE(disturbanceData.stdDev)}</p>
                             </div>
                             <div className={styles.dataBlockItem}>
                                 <div className={styles.dataBlockItemDescription}>
@@ -352,13 +353,13 @@ function ResultsPage() {
                                         ))}
                                     </div>
                                     <div className={styles.scaleLabels}>
-                                        <p>{disturbanceData.minLabel}</p>
-                                        <p>{disturbanceData.maxLabel}</p>
+                                        <p>{imageImpactData.minLabel}</p>
+                                        <p>{imageImpactData.maxLabel}</p>
                                     </div>
                                 </div>
 
-                                <p className={styles.dataBlockItemText}><span className={styles.dataBlockItemTitle}>Mittelwert:</span> {imageImpactData.meanValue}</p>
-                                <p className={styles.dataBlockItemText}><span className={styles.dataBlockItemTitle}>Standardabweichung:</span> {imageImpactData.stdDev}</p>
+                                <p className={styles.dataBlockItemText}><span className={styles.dataBlockItemTitle}>Mittelwert:</span> {formatNumberDE(imageImpactData.meanValue)}</p>
+                                <p className={styles.dataBlockItemText}><span className={styles.dataBlockItemTitle}>Standardabweichung:</span> {formatNumberDE(imageImpactData.stdDev)}</p>
                             </div>
                             <div className={styles.dataBlockItem}>
                                 <div className={styles.dataBlockItemDescription}>
