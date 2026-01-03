@@ -168,10 +168,19 @@
     },
     {
         "id": 13,
-        "yesNoRatio": {
-            "yes": 55,
-            "no": 45
-        },
+        "yesNoRatio": [
+            {
+                "label": "Ja",
+                "data": 55,
+                "tooltip": "Ja: 55 %"
+            },
+            {
+                "label": "Nein",
+                "data": 45,
+                "tooltip": "Nein: 45 %"
+            }
+        ],
+
         "quotes": [
             "Negativ, würde das Produkt weniger kaufen.",
             "Eher negativ, wenn KI zu sehr und zu stark erkennbar genutzt wird entscheide ich mich gegen den Kauf",

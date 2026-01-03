@@ -385,6 +385,65 @@
 
 
 
+
+
+
+
+.dataQuoteContainer {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.dataQuoteIcon {
+    width: 20px;
+    height: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dataQuoteIcon img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.dataQuote {
+    width: 100%;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 140%;
+    color: var(--color-fg-1);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .bottomNavbar {
     width: 100%;
     height: 180px;

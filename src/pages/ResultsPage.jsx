@@ -242,10 +242,60 @@ function ResultsPage() {
                                     <p className={styles.dataBlockItemTitle}>Beeinflussen KI-generierte Videos Ihre Kaufentscheidung?</p>
                                     <p className={styles.dataBlockItemText}>Angaben in Prozent</p>
                                 </div>
-                                {/* TODO */}
+
+                                <div className={styles.dataDiagram}>
+                                    {/* Labels-Spalte */}
+                                    <div className={styles.dataDiagramLabels}>
+                                        {purchaseImpactData.yesNoRatio.map((data, index) => (
+                                            <p key={index} className={styles.dataDiagramLabelsItem}>
+                                                {data.label}
+                                            </p>
+                                        ))}
+                                    </div>
+
+                                    {/* Balken-Spalte */}
+                                    <div className={styles.dataDiagramBars}>
+                                        {purchaseImpactData.yesNoRatio.map((data, index) => (
+                                            <div key={index} className={styles.dataDiagramBarContainer}>
+                                                <div
+                                                    className={styles.dataDiagramBar}
+                                                    style={{ width: `${data.data}%` }}
+                                                ></div>
+                                                <div className={styles.tooltip}>{data.tooltip}</div>
+                                            </div>
+                                        ))}
+                                        <div className={styles.dataDiagramPercentageScaleContainer}>
+                                            <div className={styles.dataDiagramPercentageScale}>
+                                                <div className={styles.dataDiagramPercentageScaleMarker}></div>
+                                                <div className={styles.dataDiagramPercentageScaleMarker}></div>
+                                                <div className={styles.dataDiagramPercentageScaleMarker}></div>
+                                                <div className={styles.dataDiagramPercentageScaleMarker}></div>
+                                                <div className={styles.dataDiagramPercentageScaleMarker}></div>
+                                                <div className={styles.dataDiagramPercentageScaleBar}></div>
+                                            </div>
+                                            <div className={styles.dataDiagramPercentageScaleLabels}>
+                                                <span>0</span>
+                                                <span>25</span>
+                                                <span>50</span>
+                                                <span>75</span>
+                                                <span>100</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <div className={styles.dataBlockItemDescription}>
-                                    <p className={styles.dataBlockItemTitle}>Begründungen bei Antwort “Ja”:</p>
-                                    {/* TODO */}
+                                    <p className={styles.dataBlockItemTitle}>Begründungen bei Antwort "Ja":</p>
+                                    {purchaseImpactData.quotes.map((quote, index) => (
+                                        <div key={index} className={styles.dataQuoteContainer}>
+                                            <div className={styles.dataQuoteIcon}>
+                                                <img src="/src/assets/icons/arrow-right-blue.svg" alt="" />
+                                            </div>
+                                            <p className={styles.dataQuote}>
+                                                "{quote}"
+                                            </p>
+                                        </div>
+                                    ))}
                                 </div>
                             </div>
                         </div>
