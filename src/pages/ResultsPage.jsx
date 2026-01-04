@@ -426,6 +426,7 @@ function ResultsPage() {
                     </div>
                 </div>
             </div>
+
             <div className={styles.bottomNavbar}>
                 <NavLink
                     to="/questionnaire/19"
