@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import data from '/src/assets/data/timeline.json';
 import styles from './MethodPage.module.css';
 
@@ -7,6 +7,25 @@ function MethodPage() {
 
     const [modalOpen, setModalOpen] = useState(false);
     const [selectedStepId, setSelectedStepId] = useState(null);
+
+
+    useEffect(() => {
+        const handleResize = () => {
+            if (modalOpen) setModalOpen(false);
+        };
+
+        if (modalOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'auto';
+        }
+
+        window.addEventListener('resize', handleResize);
+        return () => {
+            document.body.style.overflow = 'auto';
+            window.removeEventListener('resize', handleResize);
+        };
+    }, [modalOpen]);
 
 
     function parseMarkdown(text) {
@@ -123,6 +142,10 @@ function MethodPage() {
                             <div className={styles.overlay} onClick={() => setModalOpen(false)}></div>
                         </>
                     )}
+
+                    <div>
+
+                    </div>
                     {/* timelinecorner */}
 
                 </div>
