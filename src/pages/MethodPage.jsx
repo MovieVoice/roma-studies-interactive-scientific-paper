@@ -1,12 +1,15 @@
 import { NavLink } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, useLayoutEffect } from "react";
 import data from '/src/assets/data/timeline.json';
 import styles from './MethodPage.module.css';
 
 function MethodPage() {
 
     const [modalOpen, setModalOpen] = useState(false);
-    const [selectedStepId, setSelectedStepId] = useState(null);
+    const [selectedStepId, setSelectedStepId] = useState(1);
+
+    const containerRef = useRef(null);
+    const contentRef = useRef(null);
 
 
     useEffect(() => {
@@ -26,6 +29,55 @@ function MethodPage() {
             window.removeEventListener('resize', handleResize);
         };
     }, [modalOpen]);
+
+
+    // Position aktualisieren, wenn sich der ausgewählte Step ändert
+    useLayoutEffect(() => {
+        const sidebar = document.querySelector(`.${styles.timelineMediumSidebar}`);
+        const content = contentRef.current;
+        if (!sidebar || !content) return;
+
+        // Höhe angleichen
+        const sidebarHeight = sidebar.offsetHeight;
+        const contentContainer = document.querySelector(`.${styles.timelineMediumContent}`);
+        contentContainer.style.height = `${sidebarHeight - 102}px`;
+
+        // Button finden und Blase positionieren
+        const activeButton = sidebar.querySelector(`.${styles.timelineItemSelected}`);
+        if (!activeButton) return;
+
+        const sidebarRect = sidebar.getBoundingClientRect();
+        const buttonRect = activeButton.getBoundingClientRect();
+
+        const bubbleHeight = content.offsetHeight;
+        const buttonMidY = buttonRect.top + buttonRect.height / 2 - sidebarRect.top;
+
+        const minTop = 0;
+        const maxTop = sidebarHeight - 102 - bubbleHeight;
+        let newTop = buttonMidY - bubbleHeight / 2;
+
+        newTop = Math.min(Math.max(newTop, minTop), maxTop);
+
+        content.style.top = `${newTop}px`;
+
+        // Pfeil-Position korrigieren
+        const arrow = content.querySelector(`.${styles.timelineMediumContentArrow}`);
+        if (!arrow) return;
+
+        const bubbleRect = content.getBoundingClientRect();
+        const buttonCenterInBubble = buttonRect.top + buttonRect.height / 2 - bubbleRect.top;
+        const arrowHeight = arrow.offsetHeight;
+
+        const visualOffset = -9;
+
+        let newArrowTop = buttonCenterInBubble + visualOffset;
+
+        const minArrowTop = arrowHeight / 2;
+        const maxArrowTop = content.offsetHeight - arrowHeight / 2;
+        newArrowTop = Math.min(Math.max(newArrowTop, minArrowTop), maxArrowTop);
+
+        arrow.style.top = `${newArrowTop}px`;
+    }, [selectedStepId]);
 
 
     function parseMarkdown(text) {
@@ -77,7 +129,6 @@ function MethodPage() {
         html = html.replace(/\\n/g, "<br>").replace(/\n/g, "<br>");
         return html;
     }
-
 
     const selectedStep = data.find((step) => step.id === selectedStepId);
 
@@ -143,9 +194,46 @@ function MethodPage() {
                         </>
                     )}
 
-                    <div>
+                    <div className={styles.timelineMedium}>
+                        <div className={styles.timelineMediumSidebar}>
+                            <div className={styles.pointContainer}>
+                                <p className={styles.pointTitle}>Start der Studie</p>
+                                <div className={styles.point}></div>
+                            </div>
 
+                            {data.map((step) => (
+                                <button
+                                    key={step.id}
+                                    className={`${styles.timelineItem} ${selectedStepId === step.id ? styles.timelineItemSelected : ''}`}
+                                    title={step.title}
+                                    onClick={() => { setSelectedStepId(step.id); }}
+                                    onMouseOver={() => { setSelectedStepId(step.id); }}
+                                >
+                                    <img src={`/src/assets/icons/timeline-${step.id}.svg`} alt={step.title} />
+                                </button>
+                            ))}
+
+                            <div className={styles.pointContainer}>
+                                <div className={styles.point}></div>
+                                <p className={styles.pointTitle}>Ende der Studie</p>
+                            </div>
+
+                            <div className={styles.timelineBar}></div>
+                        </div>
+                        <div className={styles.timelineMediumContent} ref={containerRef}>
+                            <div className={styles.timelineMediumContentContainer} ref={contentRef}>
+                                <div className={styles.timelineMediumContentArrow}></div>
+                                <p className={styles.timelineMediumContentHeadline}>Schritt {selectedStep.id}: {selectedStep.title}</p>
+                                <div className={styles.timelineMediumContentSpacer}></div>
+                                <div
+                                    className={styles.timelineMediumContentText}
+                                    dangerouslySetInnerHTML={{ __html: parseMarkdown(selectedStep.content) }}
+                                ></div>
+                            </div>
+                        </div>
                     </div>
+
+
                     {/* timelinecorner */}
 
                 </div>
