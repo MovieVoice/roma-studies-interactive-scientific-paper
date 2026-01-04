@@ -1,0 +1,47 @@
+[
+    {
+        "id": 1,
+        "title": "Literaturrecherche",
+        "content": "Zu Beginn der Untersuchung erfolgte eine **umfassende Sichtung aktueller Forschung** zu KI-generierten Medien und deren Erkennbarkeit. Ziel war es, den Stand der Forschung zu **Wahrnehmung, Vertrauen und Authentizität** von KI‑Inhalten zu erfassen.\n\nBesonderes Augenmerk lag auf Studien, die den Unterschied zwischen **realen und künstlich erzeugten Videos** untersuchten, um mögliche Wahrnehmungsschwellen zu identifizieren.\n\nFrühere Arbeiten (z. B. *Cooke et al., 2025*) berichteten Erkennungsraten knapp über Zufallsniveau (≈ 51 %). Ein Hinweis auf die zunehmende **Realitätsnähe moderner KI‑Modelle**.\n\n[Cooke et al., 2025](https://cacm.acm.org/research/as-good-as-a-coin-toss-human-detection-of-ai-generated-content/)"
+    },
+    {
+        "id": 2,
+        "title": "Rahmenbedingungen festlegen",
+        "content": "Die Studie folgte einem **quantitativen Forschungsdesign** mit einer **Online‑Befragung** als Datenerhebungsmethode. Teilnehmende sahen *16 Produktvideos* (8 real, 8 KI‑generiert) und ordneten jedes direkt einer Kategorie zu.\n\nAlle Videos folgten **einheitlichen Rahmenbedingungen**, um die Vergleichbarkeit zu gewährleisten: \n- Hochformat (9:16)\n- Auflösung 720 x 1280 Pixel\n- Länge maximal 15 Sekunden\n- Deutsche Sprache\n- Unbearbeitete Einzelaufnahme (kein Schnitt)\nDurch dieses Setup entstand eine **authentische Social‑Media‑ähnliche Rezeptionssituation**, die spontane und intuitive Bewertungen ermöglicht.\n\nAnschließend wurden **drei Einstellungsfragen** präsentiert, um mehr über die Haltung der Teilnehmenden gegenüber KI-Produktvideos herauszufinden."
+    },
+    {
+        "id": 3,
+        "title": "Reale Videos suchen",
+        "content": "Für die realen Stimuli wurden **acht authentische Produktvideos** aus dem Social‑Media‑Kontext ausgewählt. Diese zeigen Personen, die ein Produkt präsentieren oder erklären.\n\nEs wurde darauf geachtet, dass die Auswahl **verschiedene Stile und Produkte** abdeckt, dabei aber hinsichtlich **Länge und Sprache** den KI‑Videos gleicht, um faire Vergleichsbedingungen zu gewährleisten.\n\nDie originalen Clips wurden **nicht nachbearbeitet**."
+    },
+    {
+        "id": 4,
+        "title": "Wege finden auf die KI-Modelle zuzugreifen",
+        "content": "Um zu überprüfen, ob die Erkennbarkeit der Produktvideos mit dem verwendeten KI-Modell zusammenhängt, wurden die Videos über **zwei verschiedene Plattformen mit unterschiedlichen Modellansätzen** generiert:\n1. **Digen** – verwendet OpenAI Sora 2 um aus einem Prompt Videos zu generieren.\n2. **Tasy** – kombiniert mehrere Systeme (Kling, ElevenLabs, Higgsfield, Mirage, Google Nano Banana, Sync, Veed Lipsync) und ist spezialisiert auf die Generierung von UGC-Videocontent.\nDigen wurde über ein kostenpflichtiges Abo genutzt, Tasy wurde **zu Forschungszwecken kostenlos zur Verfügung gestellt**."
+    },
+    {
+        "id": 5,
+        "title": "KI-Videos generieren",
+        "content": "Pro KI-Plattform wurden **jeweils vier Produktvideos** erstellt. Für jedes Video wurde das beworbene Produkt als **Bild** bereitgestellt und ein **Skript** formuliert, das den gesprochenen Text enthielt.\n\nBei **Digen** erfolgte die Generierung direkt über einen Prompt: Bild und Skript wurden gemeinsam hochgeladen, und das KI‑System erzeugte daraus **automatisch das vollständige Video**.\n\nBei **Tasy** war der Workflow komplexer:\n1. Ein **Avatar** wurde ausgewählt und mit dem Produktbild verknüpft.\n2. Anschließend generierte das System ein **Bild des Avatars mit dem Produkt in der Hand**.\n3. Das zuvor erstellte Skript wurde eingegeben und vom System in **Audio** umgewandelt (die Stimme war frei wählbar).\n4. Das zusammengesetzte **Avatarbild** und die **Tonspur** wurden schließlich per Prompt zu einem **vollständigen KI‑Video** umgewandelt, das Bewegung, Mimik und Sprache enthielt.\nSo entstanden insgesamt 8 KI‑Videos, die den realen Clips in Stil und Inhalt möglichst ähnlich waren."
+    },
+    {
+        "id": 6,
+        "title": "Online-Befragung erstellen",
+        "content": "Der Online‑Fragebogen wurde mit dem Tool **Tally** erstellt und einheitlich für alle Teilnehmenden umgesetzt. Tally ermöglichte eine **responsive Darstellung** der Videos und Fragen direkt im Browser mit automatischer Datenerfassung.\n\nDer Fragebogen enthielt:\n- Eine **Instruktion** mit Hinweis auf anonymisierte Datennutzung\n- Die **Darstellung von 16 Produktvideos** mit jeweils zwei Antwortoptionen: **„real“** oder **„KI‑generiert“**\n- Drei **Einstellungsfragen** zu den Themen: *Störungsempfinden in sozialen Medien*, *Wahrgenommene Schädigung des Unternehmensimages* und *Einfluss von KI‑Videos auf Kaufentscheidungen*\nZusätzlich wurde ein **Freitextfeld** integriert, in dem Befragte bei Zustimmung zur letzten Frage ihre **Begründung** für den Einfluss von KI‑Videos auf Kaufentscheidungen angeben konnten.\n\n[Tally](https://tally.so/)"
+    },
+    {
+        "id": 7,
+        "title": "Online-Befragung durchführen",
+        "content": "Die Befragung wurde **komplett online und pseudonymisiert** durchgeführt. Rekrutiert wurde in der Zielgruppe der **18 – 29‑Jährigen** über Social‑Media‑Kanäle (Instagram, TikTok etc.) sowie per **Schneeballsystem**.\n\nDie Umfrage konnte vom **21.11.2025 bis 23.11.2025** durchgeführt werden. Insgesamt nahmen **55 Personen** an der Studie teil."
+    },
+    {
+        "id": 8,
+        "title": "Online-Befragung auswerten",
+        "content": "Für die **quantitative Auswertung** wurden die Antworten den tatsächlichen Labels („real“ / „KI“) gegenübergestellt und in einer **Konfusionsmatrix** zusammengefasst.\n\nBerechnet wurden:\n- **Gesamttrefferquote (Accuracy)**\n- **Balanced Accuracy**\n- **Sensitivität** (richtige Erkennung realer Videos)\n- **Spezifität** (richtige Erkennung von KI‑Videos\nErgänzend erfolgte eine Analyse der **Mittelwerte und Standardabweichungen** für die ersten beiden Einstellungsfragen.\nDie dritte Einstellungsfrage zur Kaufentscheidung wurde inhaltlich codiert, um **wiederkehrende Wahrnehmungsmuster zu identifizieren**."
+    },
+    {
+        "id": 9,
+        "title": "Daten analysieren und interpretieren",
+        "content": "Abschließend wurde das Material systematisch **aufbereitet, analysiert und in den Forschungskontext eingeordnet**.\n\nFolgende Aspekte standen dabei im Fokus:\n- Beantwortung der Forschungsfragen\n- Vergleich zu bestehenden Studien\n- Vergleich zwischen Digen und Tasy\n- Handlungsanweisungen für Unternehmen ableiten\n- Stärken und Schwächen der Studie reflektieren\n- Ausblick für zukünftige Forschungen geben\nAlle Ergebnisse wurden in einem **wissenschaftlichen Bericht** dokumentiert."
+    }
+]
