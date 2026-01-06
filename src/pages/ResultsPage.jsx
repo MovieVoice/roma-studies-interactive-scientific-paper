@@ -84,7 +84,7 @@ function ResultsPage() {
         <>
             <div className={styles.wrapper}>
                 <div className={styles.content}>
-                    <p className={styles.headline}>Ergebnisübersicht der Befragung</p>
+                    <p className={styles.headline}>Ergebnisse der Befragung</p>
                     <div className={styles.dataContainer}>
                         <div className={styles.dataBlock}>
                             <div className={styles.dataBlockItem}>
