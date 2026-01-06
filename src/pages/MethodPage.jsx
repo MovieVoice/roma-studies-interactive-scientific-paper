@@ -6,11 +6,28 @@ import styles from './MethodPage.module.css';
 function MethodPage() {
 
     const [modalOpen, setModalOpen] = useState(false);
+
     const [selectedStepId, setSelectedStepId] = useState(1);
+
+    const [selectedTopStepId, setSelectedTopStepId] = useState(1);
+    const [selectedTopVisible, setSelectedTopVisible] = useState(true);
+
+    const [selectedMiddleStepId, setSelectedMiddleStepId] = useState(1);
+    const [selectedMiddleVisible, setSelectedMiddleVisible] = useState(false);
+
+    const [selectedBottomStepId, setSelectedBottomStepId] = useState(1);
+    const [selectedBottomVisible, setSelectedBottomVisible] = useState(false);
 
     const containerRef = useRef(null);
     const contentRef = useRef(null);
 
+    const middleContainerRef = useRef(null);
+    const middleLargeContentRef = useRef(null);
+    const middleArrowRef = useRef(null);
+
+    const bottomContainerRef = useRef(null);
+    const bottomLargeContentRef = useRef(null);
+    const bottomArrowRef = useRef(null);
 
     useEffect(() => {
         const handleResize = () => {
@@ -37,47 +54,162 @@ function MethodPage() {
         const content = contentRef.current;
         if (!sidebar || !content) return;
 
-        // Höhe angleichen
-        const sidebarHeight = sidebar.offsetHeight;
-        const contentContainer = document.querySelector(`.${styles.timelineMediumContent}`);
-        contentContainer.style.height = `${sidebarHeight - 102}px`;
+        const updatePosition = () => {
+            // Höhe angleichen
+            const sidebarHeight = sidebar.offsetHeight;
+            const contentContainer = document.querySelector(`.${styles.timelineMediumContent}`);
+            if (!contentContainer) return;
+            contentContainer.style.height = `${sidebarHeight - 102}px`;
 
-        // Button finden und Blase positionieren
-        const activeButton = sidebar.querySelector(`.${styles.timelineItemSelected}`);
-        if (!activeButton) return;
+            // Button finden und Blase positionieren
+            const activeButton = sidebar.querySelector(`.${styles.timelineItemSelected}`);
+            if (!activeButton) return;
 
-        const sidebarRect = sidebar.getBoundingClientRect();
-        const buttonRect = activeButton.getBoundingClientRect();
+            const sidebarRect = sidebar.getBoundingClientRect();
+            const buttonRect = activeButton.getBoundingClientRect();
 
-        const bubbleHeight = content.offsetHeight;
-        const buttonMidY = buttonRect.top + buttonRect.height / 2 - sidebarRect.top;
+            const bubbleHeight = content.offsetHeight;
+            const buttonMidY = buttonRect.top + buttonRect.height / 2 - sidebarRect.top;
 
-        const minTop = 0;
-        const maxTop = sidebarHeight - 102 - bubbleHeight;
-        let newTop = buttonMidY - bubbleHeight / 2;
+            const minTop = 0;
+            const maxTop = sidebarHeight - 102 - bubbleHeight;
+            let newTop = buttonMidY - bubbleHeight / 2;
+            newTop = Math.min(Math.max(newTop, minTop), maxTop);
 
-        newTop = Math.min(Math.max(newTop, minTop), maxTop);
+            content.style.top = `${newTop}px`;
 
-        content.style.top = `${newTop}px`;
+            // Pfeil-Position korrigieren
+            const arrow = content.querySelector(`.${styles.timelineMediumContentArrow}`);
+            if (!arrow) return;
 
-        // Pfeil-Position korrigieren
-        const arrow = content.querySelector(`.${styles.timelineMediumContentArrow}`);
-        if (!arrow) return;
+            const bubbleRect = content.getBoundingClientRect();
+            const buttonCenterInBubble = buttonRect.top + buttonRect.height / 2 - bubbleRect.top;
+            const arrowHeight = arrow.offsetHeight;
 
-        const bubbleRect = content.getBoundingClientRect();
-        const buttonCenterInBubble = buttonRect.top + buttonRect.height / 2 - bubbleRect.top;
-        const arrowHeight = arrow.offsetHeight;
+            const visualOffset = -9;
 
-        const visualOffset = -9;
+            let newArrowTop = buttonCenterInBubble + visualOffset;
+            const minArrowTop = arrowHeight / 2;
+            const maxArrowTop = content.offsetHeight - arrowHeight / 2;
+            newArrowTop = Math.min(Math.max(newArrowTop, minArrowTop), maxArrowTop);
 
-        let newArrowTop = buttonCenterInBubble + visualOffset;
+            arrow.style.top = `${newArrowTop}px`;
+        };
 
-        const minArrowTop = arrowHeight / 2;
-        const maxArrowTop = content.offsetHeight - arrowHeight / 2;
-        newArrowTop = Math.min(Math.max(newArrowTop, minArrowTop), maxArrowTop);
+        updatePosition();
+        window.addEventListener("resize", updatePosition);
 
-        arrow.style.top = `${newArrowTop}px`;
+        return () => {
+            window.removeEventListener("resize", updatePosition);
+        };
     }, [selectedStepId]);
+
+
+    useLayoutEffect(() => {
+        const middleContainer = middleContainerRef.current;
+        const arrow = middleArrowRef.current;
+
+        if (selectedMiddleStepId < 2 || selectedMiddleStepId > 5) {
+            if (middleContainer) {
+                middleContainer.style.marginLeft = "";
+                middleContainer.style.transformOrigin = "";
+            }
+            if (arrow) {
+                arrow.style.marginLeft = "";
+            }
+            return;
+        }
+
+        const updateMiddlePosition = () => {
+            const largeContent = middleLargeContentRef.current;
+            const activeButton = document.querySelector(
+                `.${styles.timelineLargeHorizontalContent} .${styles.timelineItemSelected}`
+            );
+
+            if (!middleContainer || !largeContent || !activeButton || !arrow) return;
+
+            const largeRect = largeContent.getBoundingClientRect();
+            const buttonRect = activeButton.getBoundingClientRect();
+
+            const buttonLeft = buttonRect.left;
+            const buttonCenter = buttonLeft + buttonRect.width / 2;
+            const largeLeft = largeRect.left;
+            const containerWidth = middleContainer.offsetWidth;
+
+            const newMarginLeft = buttonCenter - largeLeft - containerWidth / 2;
+            const boundedMarginLeft = Math.min(
+                Math.max(newMarginLeft, 0),
+                largeRect.width - containerWidth
+            );
+
+            middleContainer.style.marginLeft = `${boundedMarginLeft}px`;
+
+            const arrowMarginLeft = buttonLeft - largeLeft - boundedMarginLeft + (buttonRect.width / 2) - 16 - 8 - 1.5; //16px padding, 8px Arrow half width, 1.5px border
+            arrow.style.marginLeft = `${arrowMarginLeft}px`;
+
+            const arrowCenterX = arrowMarginLeft + arrow.offsetWidth / 2;
+            middleContainer.style.transformOrigin = `${arrowCenterX}px top`;
+        };
+
+        updateMiddlePosition();
+        window.addEventListener('resize', updateMiddlePosition);
+
+        return () => {
+            window.removeEventListener('resize', updateMiddlePosition);
+        };
+    }, [selectedMiddleStepId]);
+
+    useLayoutEffect(() => {
+        const bottomContainer = bottomContainerRef.current;
+        const arrow = bottomArrowRef.current;
+
+        if (selectedBottomStepId < 7 || selectedBottomStepId > 9) {
+            if (bottomContainer) {
+                bottomContainer.style.marginLeft = "";
+                bottomContainer.style.transformOrigin = "";
+            }
+            if (arrow) {
+                arrow.style.marginLeft = "";
+            }
+            return;
+        }
+
+        const updateBottomPosition = () => {
+            const largeContent = bottomLargeContentRef.current;
+            const activeButton = document.querySelector(
+                `.${styles.timelineLargeHorizontalContent}:nth-of-type(2) .${styles.timelineItemSelected}`
+            );
+
+            if (!bottomContainer || !largeContent || !activeButton || !arrow) return;
+
+            const largeRect = largeContent.getBoundingClientRect();
+            const buttonRect = activeButton.getBoundingClientRect();
+
+            const buttonLeft = buttonRect.left;
+            const buttonCenter = buttonLeft + buttonRect.width / 2;
+            const largeLeft = largeRect.left;
+            const containerWidth = bottomContainer.offsetWidth;
+
+            let newMarginLeft = buttonCenter - largeLeft - containerWidth / 2;
+            newMarginLeft = Math.min(
+                Math.max(newMarginLeft, 0),
+                largeRect.width - containerWidth
+            );
+
+            bottomContainer.style.marginLeft = `${newMarginLeft}px`;
+
+            const arrowMarginLeft = buttonLeft - largeLeft - newMarginLeft + (buttonRect.width / 2) - 16 - 8 - 1.5; //16px padding, 8px Arrow half width, 1.5px border
+            arrow.style.marginLeft = `${arrowMarginLeft}px`;
+
+            const arrowCenterX = arrowMarginLeft + arrow.offsetWidth / 2;
+            bottomContainer.style.transformOrigin = `${arrowCenterX}px top`;
+        };
+
+        updateBottomPosition();
+        window.addEventListener("resize", updateBottomPosition);
+
+        return () => window.removeEventListener("resize", updateBottomPosition);
+    }, [selectedBottomStepId]);
 
 
     function parseMarkdown(text) {
@@ -130,6 +262,31 @@ function MethodPage() {
         return html;
     }
 
+
+    function handleTimelineSelect(stepId, openModal = false) {
+        setSelectedStepId(stepId);
+
+        if (openModal) setModalOpen(true);
+
+        if (stepId === 1) {
+            setSelectedTopStepId(1);
+            setSelectedTopVisible(true);
+            setSelectedMiddleVisible(false);
+            setSelectedBottomVisible(false);
+        } else if (stepId >= 2 && stepId <= 6) {
+            setSelectedMiddleStepId(stepId);
+            setSelectedTopVisible(false);
+            setSelectedMiddleVisible(true);
+            setSelectedBottomVisible(false);
+        } else if (stepId >= 7) {
+            setSelectedBottomStepId(stepId);
+            setSelectedTopVisible(false);
+            setSelectedMiddleVisible(false);
+            setSelectedBottomVisible(true);
+        }
+    }
+
+
     const selectedStep = data.find((step) => step.id === selectedStepId);
 
 
@@ -153,10 +310,7 @@ function MethodPage() {
                                 key={step.id}
                                 className={styles.timelineItem}
                                 title={step.title}
-                                onClick={() => {
-                                    setSelectedStepId(step.id);
-                                    setModalOpen(true);
-                                }}
+                                onClick={() => handleTimelineSelect(step.id, true)}
                             >
                                 <img src={`/src/assets/icons/timeline-${step.id}.svg`} alt={step.title} />
                             </button>
@@ -206,8 +360,8 @@ function MethodPage() {
                                     key={step.id}
                                     className={`${styles.timelineItem} ${selectedStepId === step.id ? styles.timelineItemSelected : ''}`}
                                     title={step.title}
-                                    onClick={() => { setSelectedStepId(step.id); }}
-                                    onMouseOver={() => { setSelectedStepId(step.id); }}
+                                    onClick={() => handleTimelineSelect(step.id)}
+                                    onMouseOver={() => handleTimelineSelect(step.id)}
                                 >
                                     <img src={`/src/assets/icons/timeline-${step.id}.svg`} alt={step.title} />
                                 </button>
@@ -233,9 +387,195 @@ function MethodPage() {
                         </div>
                     </div>
 
+                    <div className={styles.timelineLarge}>
+                        <div className={styles.pointContainer}>
+                            <div className={styles.point}></div>
+                            <p className={styles.pointTitle}>Start der Studie</p>
+                        </div>
 
-                    {/* timelinecorner */}
+                        <div className={styles.timelineLargeVerticalContent}>
+                            <div className={styles.timelineLargeVerticalContentSidebar}>
+                                <button
+                                    className={`${styles.timelineItem} ${(selectedTopStepId === 1 && selectedTopVisible) ? styles.timelineItemSelected : ''}`}
+                                    title={data[0].title}
+                                    onClick={() => {
+                                        setSelectedStepId(1);
+                                        setSelectedTopStepId(1);
+                                        setSelectedTopVisible(true);
+                                        setSelectedMiddleVisible(false);
+                                        setSelectedBottomVisible(false);
+                                    }}
+                                    onMouseOver={() => {
+                                        setSelectedStepId(1);
+                                        setSelectedTopStepId(1);
+                                        setSelectedTopVisible(true);
+                                        setSelectedMiddleVisible(false);
+                                        setSelectedBottomVisible(false);
+                                    }}
+                                >
+                                    <img src={`/src/assets/icons/timeline-1.svg`} alt={data[0].title} />
+                                </button>
+                                <div className={styles.timelineBar}></div>
+                            </div>
 
+                            <div className={styles.timelineLargeContent}>
+                                <div className={`${styles.timelineLargeContentContainer} ${selectedTopVisible ? styles.timelineLargeContentContainerVisible : ""}`}>
+                                    <div className={`${styles.timelineLargeContentArrow} ${styles.timelineLargeContentArrowLeft}`}></div>
+                                    <p className={styles.timelineLargeContentHeadline}>Schritt {selectedTopStepId}: {data[selectedTopStepId - 1].title}</p>
+                                    <div className={styles.timelineLargeContentSpacer}></div>
+                                    <div
+                                        className={styles.timelineLargeContentText}
+                                        dangerouslySetInnerHTML={{ __html: parseMarkdown(data[selectedTopStepId - 1].content) }}
+                                    ></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className={styles.timelineLargeHorizontalContentBlock}>
+                            <div className={`${styles.timelineCornerContainer} ${styles.timelineCornerContainerTopRight}`}>
+                                <div className={styles.timelineCornerTopRight}></div>
+                            </div>
+
+                            <div className={styles.timelineLargeHorizontalContent}>
+                                <div></div>
+                                {data
+                                    .filter(step => step.id >= 2 && step.id <= 5)
+                                    .map(step => (
+                                        <button
+                                            key={step.id}
+                                            className={`${styles.timelineItem} ${(selectedMiddleStepId === step.id && selectedMiddleVisible) ? styles.timelineItemSelected : ''
+                                                }`}
+                                            title={step.title}
+                                            onClick={() => {
+                                                setSelectedStepId(step.id);
+                                                setSelectedMiddleStepId(step.id);
+                                                setSelectedTopVisible(false);
+                                                setSelectedMiddleVisible(true);
+                                                setSelectedBottomVisible(false);
+                                            }}
+                                            onMouseOver={() => {
+                                                setSelectedStepId(step.id);
+                                                setSelectedMiddleStepId(step.id);
+                                                setSelectedTopVisible(false);
+                                                setSelectedMiddleVisible(true);
+                                                setSelectedBottomVisible(false);
+                                            }}
+                                        >
+                                            <img src={`/src/assets/icons/timeline-${step.id}.svg`} alt={step.title} />
+                                        </button>
+                                    ))}
+                                <div></div>
+                                <div className={styles.timelineBarHorizontal}></div>
+                            </div>
+
+                            <div className={`${styles.timelineCornerContainer} ${styles.timelineCornerContainerBottomLeft}`}>
+                                <div className={styles.timelineCornerBottomLeft}></div>
+                            </div>
+                        </div>
+
+                        <div className={styles.timelineLargeVerticalContent}>
+                            <div ref={middleLargeContentRef} className={styles.timelineLargeContent}>
+                                <div ref={middleContainerRef} className={`${styles.timelineLargeContentContainer} ${styles.timelineLargeContentMiddleContainer} ${selectedMiddleVisible ? styles.timelineLargeContentContainerVisible : ""} ${(selectedMiddleStepId === 6) ? styles.timelineLargeContentContainerRight : styles.timelineLargeContentContainerTop}`}>
+                                    <div ref={middleArrowRef} className={`${styles.timelineLargeContentArrow} ${(selectedMiddleStepId === 6) ? styles.timelineLargeContentArrowRight : styles.timelineLargeContentArrowTop}`}></div>
+                                    <p className={styles.timelineLargeContentHeadline}>Schritt {selectedMiddleStepId}: {data[selectedMiddleStepId - 1].title}</p>
+                                    <div className={styles.timelineLargeContentSpacer}></div>
+                                    <div
+                                        className={styles.timelineLargeContentText}
+                                        dangerouslySetInnerHTML={{ __html: parseMarkdown(data[selectedMiddleStepId - 1].content) }}
+                                    ></div>
+                                </div>
+                            </div>
+
+                            <div className={styles.timelineLargeVerticalContentSidebar}>
+                                <button
+                                    className={`${styles.timelineItem} ${(selectedMiddleStepId === 6 && selectedMiddleVisible) ? styles.timelineItemSelected : ''}`}
+                                    title={data[5].title}
+                                    onClick={() => {
+                                        setSelectedStepId(6);
+                                        setSelectedMiddleStepId(6);
+                                        setSelectedTopVisible(false);
+                                        setSelectedMiddleVisible(true);
+                                        setSelectedBottomVisible(false);
+                                    }}
+                                    onMouseOver={() => {
+                                        setSelectedStepId(6);
+                                        setSelectedMiddleStepId(6);
+                                        setSelectedTopVisible(false);
+                                        setSelectedMiddleVisible(true);
+                                        setSelectedBottomVisible(false);
+                                    }}
+                                >
+                                    <img src={`/src/assets/icons/timeline-6.svg`} alt={data[5].title} />
+                                </button>
+                                <div className={styles.timelineBar}></div>
+                            </div>
+                        </div>
+
+                        <div className={styles.timelineLargeHorizontalContentBlock}>
+                            <div className={styles.timelineCornerContainer}></div>
+
+                            <div className={styles.timelineLargeHorizontalContent}>
+                                <div></div>
+                                <div className={styles.timelineLargePointContainer}>
+                                    <p className={styles.pointTitle}>Ende der Studie</p>
+                                    <div className={styles.point}></div>
+                                </div>
+                                {data
+                                    .filter(step => step.id >= 7 && step.id <= 9)
+                                    .slice()
+                                    .reverse()
+                                    .map(step => (
+                                        <button
+                                            key={step.id}
+                                            className={`${styles.timelineItem} ${(selectedBottomStepId === step.id && selectedBottomVisible) ? styles.timelineItemSelected : ''
+                                                }`}
+                                            title={step.title}
+                                            onClick={() => {
+                                                setSelectedStepId(step.id);
+                                                setSelectedBottomStepId(step.id);
+                                                setSelectedTopVisible(false);
+                                                setSelectedMiddleVisible(false);
+                                                setSelectedBottomVisible(true);
+                                            }}
+                                            onMouseOver={() => {
+                                                setSelectedStepId(step.id);
+                                                setSelectedBottomStepId(step.id);
+                                                setSelectedTopVisible(false);
+                                                setSelectedMiddleVisible(false);
+                                                setSelectedBottomVisible(true);
+                                            }}
+                                        >
+                                            <img
+                                                src={`/src/assets/icons/timeline-${step.id}.svg`}
+                                                alt={step.title}
+                                            />
+                                        </button>
+                                    ))}
+
+                                <div></div>
+                                <div className={styles.timelineBarHorizontalShort}></div>
+                            </div>
+
+                            <div className={`${styles.timelineCornerContainer} ${styles.timelineCornerContainerTopLeft}`}>
+                                <div className={styles.timelineCornerTopLeft}></div>
+                            </div>
+                        </div>
+
+                        <div className={styles.timelineLargeVerticalContent}>
+                            <div ref={bottomLargeContentRef} className={styles.timelineLargeContent}>
+                                <div ref={bottomContainerRef} className={`${styles.timelineLargeContentContainer} ${styles.timelineLargeContentBottomContainer} ${selectedBottomVisible ? styles.timelineLargeContentContainerVisible : ""} ${styles.timelineLargeContentContainerTop}`}>
+                                    <div ref={bottomArrowRef} className={`${styles.timelineLargeContentArrow} ${styles.timelineLargeContentArrowTop}`}></div>
+                                    <p className={styles.timelineLargeContentHeadline}>Schritt {selectedBottomStepId}: {data[selectedBottomStepId - 1].title}</p>
+                                    <div className={styles.timelineLargeContentSpacer}></div>
+                                    <div
+                                        className={styles.timelineLargeContentText}
+                                        dangerouslySetInnerHTML={{ __html: parseMarkdown(data[selectedBottomStepId - 1].content) }}
+                                    ></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
 
