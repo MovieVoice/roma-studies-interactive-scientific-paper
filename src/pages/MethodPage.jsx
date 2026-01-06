@@ -139,7 +139,7 @@ function MethodPage() {
             const newMarginLeft = buttonCenter - largeLeft - containerWidth / 2;
             const boundedMarginLeft = Math.min(
                 Math.max(newMarginLeft, 0),
-                largeRect.width - containerWidth
+                largeRect.width - containerWidth - 26
             );
 
             middleContainer.style.marginLeft = `${boundedMarginLeft}px`;
@@ -158,6 +158,7 @@ function MethodPage() {
             window.removeEventListener('resize', updateMiddlePosition);
         };
     }, [selectedMiddleStepId]);
+
 
     useLayoutEffect(() => {
         const bottomContainer = bottomContainerRef.current;
