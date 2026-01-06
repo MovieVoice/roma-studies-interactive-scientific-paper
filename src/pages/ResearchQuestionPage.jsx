@@ -26,7 +26,7 @@ function ResearchQuestionPage() {
                 <NavLink
                     to="/method"
                     end
-                    title="Methodik"
+                    title="Methodik & Vorgehen"
                     className={styles.bottomNavbarItem}
                 >
                     <span className={styles.bottomNavbarItemBox}>

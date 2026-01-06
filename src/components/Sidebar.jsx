@@ -145,7 +145,7 @@ function Sidebar() {
                         <NavLink
                             to="/method"
                             end
-                            title="Methodik"
+                            title="Methodik & Vorgehen"
                             className={({ isActive }) =>
                                 isActive
                                     ? `${styles.navLink} ${styles.navLinkActive}`
@@ -160,7 +160,7 @@ function Sidebar() {
                                         src={isActive ? "/src/assets/icons/nav-2-active.svg" : "/src/assets/icons/nav-2.svg"}
                                         alt=""
                                     />
-                                    <span className={styles.linkTitle}>Methodik</span>
+                                    <span className={styles.linkTitle}>Methodik & Vorgehen</span>
                                 </span>
                             )}
                         </NavLink>
