@@ -7,7 +7,7 @@
 
 <p align="center">
   <a href="https://youtu.be/@movievoice.app" target="_blank">
-    <img src="https://img.shields.io/badge/Watch-Demo%20Video-red?style=flat-square&logo=youtube" alt="Demo Video">
+    <img src="https://img.shields.io/badge/Watch-Demo_Video-red?style=flat-square&logo=youtube" alt="Demo Video">
   </a>
 </p>
 
@@ -50,4 +50,4 @@
 ## Lizenz & Credits
 
 - Copyright: © Marcel Otto 2026
-- Entstanden als Uni-Projekt (21 Tage Entwicklungsdauer)
+- Entstanden als Projekt an der Hochschule Fulda (21 Tage Entwicklungsdauer)
