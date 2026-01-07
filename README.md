@@ -13,8 +13,7 @@
 
 ## Dokumentation
 
-Die Anwendung **„Roma Studies“** ist als interaktive Lernplattform konzipiert.
-Sie macht die Ergebnisse einer wissenschaftlichen Untersuchung nicht nur lesbar, sondern **erlebbar**: Nutzer können durch die Abschnitte einer echten Studie navigieren, Fragen beantworten, eigene Einschätzungen abgeben und ihre Entscheidungen mit den realen Befragungsergebnissen vergleichen.
+Die Anwendung **„RoMa Studies“** ist als interaktive Lernplattform konzipiert. Sie macht die Ergebnisse einer wissenschaftlichen Untersuchung nicht nur lesbar, sondern **erlebbar**: Nutzer können durch die Abschnitte einer echten Studie navigieren, Fragen beantworten, eigene Einschätzungen abgeben und ihre Entscheidungen mit den realen Befragungsergebnissen vergleichen.
 
 Technisch basiert das Projekt auf **React** und wurde zunächst in **Figma** als Prototyp entworfen. Anschließend erfolgte die Umsetzung als Single‑Page‑Application, wobei die **Daten der Studie aus JSON‑Dateien dynamisch eingelesen** und auf verschiedene Weise visualisiert werden.  
 
@@ -22,14 +21,15 @@ Ziel war es, wissenschaftliche Inhalte in einem **interaktiven Multimediasystem*
 
 ## Features
 
-- Forschungsfrage darstellen
+- Darstellung der Forschungsfrage
 - Interaktives, animiertes Flussdiagramm zum Ablauf der Studie
 - Interaktiver Nachbau des in der Studie verwendeten Fragebogens
-  - Nutzer kann seine Entscheidungen mit den Ergebnissen der Studie vergleichen
-- Darstellung der Ergebnisse in einer interaktiven Übersicht
+  - Unterseiten werden dynamisch auf Grundlage von JSON-Daten gerendert
+  - Nutzer können ihre Entscheidungen mit den Ergebnissen der Studie vergleichen
+- Interaktive Ergebnisübersicht
   - Daten werden dynamisch aus JSON-Dateien geladen
-  - Verschiedene Diagrammtypen zur Visualisierung der Daten
-- Fazit der Studie präsentieren
+  - Verschiedene Diagrammtypen zur Visualisierung
+- Präsentation des Fazits der Studie
 
 ## Installation
 
