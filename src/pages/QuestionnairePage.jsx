@@ -634,7 +634,6 @@ function QuestionnairePage() {
             <div className={`${styles.bottomNavbar} ${questionId < 17 ? styles.bottomNavbarVideo : ''}`}>
                 <NavLink
                     to={questionId > 1 ? `/questionnaire/${questionId - 1}` : '/method'}
-                    preventScrollReset={true}
                     title="Zurück"
                     className={styles.bottomNavbarItem}
                 >

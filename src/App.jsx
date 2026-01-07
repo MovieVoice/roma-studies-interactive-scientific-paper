@@ -1,4 +1,5 @@
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { useEffect } from "react";
 import Appbar from './components/Appbar.jsx';
 import Sidebar from './components/Sidebar.jsx';
 import ResearchQuestionPage from './pages/ResearchQuestionPage.jsx';
@@ -12,6 +13,21 @@ import ImprintModal from './modals/ImprintModal.jsx';
 
 import styles from './App.module.css';
 
+
+const ScrollToTop = () => {
+    const { pathname } = useLocation();
+
+    useEffect(() => {
+        const timeout = setTimeout(() => {
+            window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+        }, 50);
+        return () => clearTimeout(timeout);
+    }, [pathname]);
+
+    return null;
+};
+
+
 function App() {
     const location = useLocation();
     const state = location.state || {};
@@ -22,13 +38,14 @@ function App() {
             <Sidebar />
             <main className={styles.main}>
                 <Appbar />
+                <ScrollToTop />
                 <Routes location={backgroundLocation || location}>
                     <Route path="/" element={<ResearchQuestionPage />} />
-                    <Route path="/method/" element={<MethodPage />} />
-                    <Route path="/questionnaire/" element={<Navigate to="/questionnaire/1" replace />} />
+                    <Route path="/method" element={<MethodPage />} />
+                    <Route path="/questionnaire" element={<Navigate to="/questionnaire/1" replace />} />
                     <Route path="/questionnaire/:id" element={<QuestionnairePage />} />
-                    <Route path="/results/" element={<ResultsPage />} />
-                    <Route path="/conclusion/" element={<ConclusionPage />} />
+                    <Route path="/results" element={<ResultsPage />} />
+                    <Route path="/conclusion" element={<ConclusionPage />} />
                     <Route path="*" element={<Navigate to="/" replace />} />
                 </Routes>
             </main>
