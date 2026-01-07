@@ -32,22 +32,22 @@
 
 1. Projekt klonen:
 
-    - Terminal im Zielordner öffnen und folgenden Befehl ausführen:
+- Terminal im Zielordner öffnen und folgenden Befehl ausführen:
 
-    ```bash
-    git clone https://github.com/MovieVoice/roma-studies-interactive-scientific-paper.git
-    ```
+```bash
+git clone https://github.com/MovieVoice/roma-studies-interactive-scientific-paper.git
+```
 
 2. Abhängigkeiten installieren:
 
-    ```bash
-    npm install
-    ```
+```bash
+npm install
+```
 
 3. Entwicklungsserver starten:
 
-    ```bash
-    npm run dev
-    ```
+```bash
+npm run dev
+```
 
 4. Im Browser `http://localhost:5173` öffnen
