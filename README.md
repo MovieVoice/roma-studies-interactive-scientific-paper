@@ -1,8 +1,8 @@
 <p align="center">
   <a href="https://github.com/MovieVoice/roma-studies-interactive-scientific-paper" target="_blank">
-    <img src="./src/assets/logo/logo-vertical.svg" alt="Roma Studies Logo" width="25%"><br/>
+    <img src="./src/assets/logo/logo-vertical.svg" alt="Roma Studies Logo" width="25%"><br/><br/>
   </a>
-  Interaktive wissenschaftliche Arbeit: "Künstliche Intelligenz (KI) zur Erzeugung von Produktvideos: Erkennbarkeit und Auswirkungen"
+  Interaktive wissenschaftliche Arbeit
 </p>
 
 <p align="center">
