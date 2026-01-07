@@ -30,7 +30,13 @@
 
 ### Schritte
 
-1. Terminal im Projektordner öffnen
+1. Projekt klonen:
+
+    - Terminal im Zielordner öffnen und folgenden Befehl ausführen:
+
+    ```bash
+    git clone https://github.com/MovieVoice/roma-studies-interactive-scientific-paper.git
+    ```
 
 2. Abhängigkeiten installieren:
 
