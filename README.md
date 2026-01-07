@@ -31,12 +31,17 @@
 ### Schritte
 
 1. Terminal im Projektordner öffnen
+
 2. Abhängigkeiten installieren:
+
     ```bash
     npm install
     ```
+
 3. Entwicklungsserver starten:
+
     ```bash
     npm run dev
     ```
+
 4. Im Browser `http://localhost:5173` öffnen
