@@ -9,9 +9,6 @@
   <a href="https://youtu.be/@movievoice.app" target="_blank">
     <img src="https://img.shields.io/badge/Watch-Demo%20Video-red?style=flat-square&logo=youtube" alt="Demo Video">
   </a>
-  <a href="https://github.com/MovieVoice/roma-studies-interactive-scientific-paper/blob/main/LICENSE">
-    <img src="https://img.shields.io/badge/License-MIT-lightgrey?style=flat-square" alt="License">
-  </a>
 </p>
 
 ## Dokumentation
@@ -48,10 +45,9 @@
     npm run dev
     ```
 
-4. Im Browser [http://localhost:5173/](http://localhost:5173/) öffnen
-
+4. Im Browser öffnen: [http://localhost:5173/](http://localhost:5173/)
 
 ## Lizenz & Credits
 
-- Copyright: © Marcel Otto 2025
-- Entstanden als Uni-Projekt (2 Monate Entwicklungsdauer)
+- Copyright: © Marcel Otto 2026
+- Entstanden als Uni-Projekt (21 Tage Entwicklungsdauer)
