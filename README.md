@@ -48,4 +48,10 @@
     npm run dev
     ```
 
-4. Im Browser `http://localhost:5173` öffnen
+4. Im Browser [http://localhost:5173/](http://localhost:5173/) öffnen
+
+
+## Lizenz & Credits
+
+- Copyright: © Marcel Otto 2025
+- Entstanden als Uni-Projekt (2 Monate Entwicklungsdauer)
