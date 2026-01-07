@@ -13,11 +13,23 @@
 
 ## Dokumentation
 
-<!-- TODO -->
+Die Anwendung **„Roma Studies“** ist als interaktive Lernplattform konzipiert.
+Sie macht die Ergebnisse einer wissenschaftlichen Untersuchung nicht nur lesbar, sondern **erlebbar**: Nutzer können durch die Abschnitte einer echten Studie navigieren, Fragen beantworten, eigene Einschätzungen abgeben und ihre Entscheidungen mit den realen Befragungsergebnissen vergleichen.
+
+Technisch basiert das Projekt auf **React** und wurde zunächst in **Figma** als Prototyp entworfen. Anschließend erfolgte die Umsetzung als Single‑Page‑Application, wobei die **Daten der Studie aus JSON‑Dateien dynamisch eingelesen** und auf verschiedene Weise visualisiert werden.  
+
+Ziel war es, wissenschaftliche Inhalte in einem **interaktiven Multimediasystem** aufzubereiten.
 
 ## Features
 
-<!-- TODO -->
+- Forschungsfrage darstellen
+- Interaktives, animiertes Flussdiagramm zum Ablauf der Studie
+- Interaktiver Nachbau des in der Studie verwendeten Fragebogens
+  - Nutzer kann seine Entscheidungen mit den Ergebnissen der Studie vergleichen
+- Darstellung der Ergebnisse in einer interaktiven Übersicht
+  - Daten werden dynamisch aus JSON-Dateien geladen
+  - Verschiedene Diagrammtypen zur Visualisierung der Daten
+- Fazit der Studie präsentieren
 
 ## Installation
 
@@ -29,21 +41,21 @@
 
 1. Projekt klonen:
 
-    ```bash
-    git clone https://github.com/MovieVoice/roma-studies-interactive-scientific-paper.git
-    ```
+  ```bash
+  git clone https://github.com/MovieVoice/roma-studies-interactive-scientific-paper.git
+  ```
 
 2. Abhängigkeiten installieren:
 
-    ```bash
-    npm install
-    ```
+  ```bash
+  npm install
+  ```
 
 3. Entwicklungsserver starten:
 
-    ```bash
-    npm run dev
-    ```
+  ```bash
+  npm run dev
+  ```
 
 4. Im Browser öffnen: [http://localhost:5173/](http://localhost:5173/)
 
