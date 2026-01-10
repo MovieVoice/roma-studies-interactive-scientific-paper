@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, NavLink } from 'react-router-dom';
 import styles from './Appbar.module.css';
 
 function Appbar() {
@@ -38,7 +38,15 @@ function Appbar() {
                 </h1>
 
                 <div className={styles.placeholder}></div>
-                <img src="/src/assets/logo/logo-big.svg" alt="" className={styles.logo} />
+
+                <NavLink
+                    to="/"
+                    end
+                    className={styles.logoContainer}
+                    title="Zur Hauptseite"
+                >
+                    <img src="/src/assets/logo/logo-big.svg" alt="" className={styles.logo} />
+                </NavLink>
 
                 <button className={styles.settingsToggle} onClick={toggleMenu}>
                     <img src="/src/assets/icons/settings.svg" alt="Einstellungen" />

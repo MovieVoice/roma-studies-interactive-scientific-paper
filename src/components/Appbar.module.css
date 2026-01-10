@@ -103,9 +103,17 @@
     flex-shrink: 0;
 }
 
+.logoContainer {
+    width: fit-content;
+    height: 35px;
+    display: inline-block;
+}
+
 .logo {
-    width: 100%;
-    max-height: 35px;
+    width: auto;
+    height: 35px;
+    object-fit: contain;
+    display: block;
 }
 
 
@@ -122,7 +130,7 @@
         display: none;
     }
 
-    .logo {
+    .logoContainer {
         display: none;
     }
 }
