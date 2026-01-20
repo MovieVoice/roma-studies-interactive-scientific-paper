@@ -19,7 +19,7 @@ const ScrollToTop = () => {
 
     useEffect(() => {
         const timeout = setTimeout(() => {
-            window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+            window.scrollTo({ top: 0, behavior: "auto" });
         }, 50);
         return () => clearTimeout(timeout);
     }, [pathname]);

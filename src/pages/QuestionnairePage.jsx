@@ -17,7 +17,10 @@ function QuestionnairePage() {
 
 
     useEffect(() => {
-        window.scrollTo({ top: 0, behavior: "auto" });
+        const timeout = setTimeout(() => {
+            window.scrollTo({ top: 0, behavior: "auto" });
+        }, 50);
+        return () => clearTimeout(timeout);
     }, [questionId]);
 
 
@@ -647,7 +650,7 @@ function QuestionnairePage() {
         );
     }
 
-    // Fallback
+
     return (
         <>
             <div className={`${styles.container} ${questionId < 17 ? styles.containerVideo : ''}`}>
