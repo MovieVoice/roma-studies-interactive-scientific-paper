@@ -42,7 +42,7 @@ function App() {
                 <Routes location={backgroundLocation || location}>
                     <Route path="/" element={<ResearchQuestionPage />} />
                     <Route path="/method" element={<MethodPage />} />
-                    <Route path="/questionnaire" element={<Navigate to="/questionnaire/1" replace />} />
+                    <Route path="/questionnaire" element={<Navigate to="/questionnaire/0" replace />} />
                     <Route path="/questionnaire/:id" element={<QuestionnairePage />} />
                     <Route path="/results" element={<ResultsPage />} />
                     <Route path="/conclusion" element={<ConclusionPage />} />

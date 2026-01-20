@@ -88,7 +88,7 @@ function QuestionnairePage() {
 
 
     // Ungültige IDs -> zurück
-    if (isNaN(questionId) || questionId < 1 || questionId > 19) {
+    if (isNaN(questionId) || questionId < 0 || questionId > 19) {
         return <Navigate to="/" replace />;
     }
 
@@ -177,6 +177,29 @@ function QuestionnairePage() {
 
 
     let pageContent;
+
+    // ID 0 (Intro)
+    if (questionId === 0) {
+        pageContent = (
+            <div className={styles.content}>
+                <p className={styles.headline}>Fragebogen</p>
+                <p className={styles.text}>Im Folgenden findest du einen Fragebogen mit denselben Fragen wie in der Online-Befragung. Beantworte sie selbst und vergleiche deine Antworten mit den Ergebnissen der Studie oder decke die Ergebnisse direkt auf. Der Fragebogen setzt sich aus insgesamt 19 Fragen zusammen:</p>
+
+                <div className={styles.introQuestionTypesWrapper}>
+                    <div className={styles.introQuestionTypeContainer}>
+                        <p className={styles.introQuestionTypeHeadline}>16 Video-Fragen</p>
+                        <p className={styles.introQuestionTypeText}>Schaue dir je ein Video an und entscheide, ob es KI-generiert oder real ist. Jedes Video darfst du genau einmal anschauen, bevor du eine Entscheidung treffen musst.</p>
+                    </div>
+                    <div className={styles.introQuestionTypeContainer}>
+                        <p className={styles.introQuestionTypeHeadline}>3 Einstellungsfragen</p>
+                        <p className={styles.introQuestionTypeText}>Entscheide, wie du zu KI-Videos in den Sozialen Medien stehst, wie sie sich deiner Meinung nach auf das Image eines Unternehmens auswirken und wie sie die Kaufkraft beeinflussen.</p>
+                    </div>
+                </div>
+
+                <p className={styles.text}>Drücke auf "Weiter", um zu starten.</p>
+            </div>
+        );
+    }
 
     // IDs 1–16
     if (questionId >= 1 && questionId <= 16) {
@@ -633,7 +656,7 @@ function QuestionnairePage() {
 
             <div className={`${styles.bottomNavbar} ${questionId < 17 ? styles.bottomNavbarVideo : ''}`}>
                 <NavLink
-                    to={questionId > 1 ? `/questionnaire/${questionId - 1}` : '/method'}
+                    to={questionId > 0 ? `/questionnaire/${questionId - 1}` : '/method'}
                     title="Zurück"
                     className={styles.bottomNavbarItem}
                 >
