@@ -375,8 +375,6 @@
 
     .sidebar,
     .sidebar.open {
-        position: sticky;
-        top: 0;
         transform: none;
         width: 321px;
         max-width: 321px;
