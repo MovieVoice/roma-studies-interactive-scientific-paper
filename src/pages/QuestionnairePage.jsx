@@ -183,16 +183,16 @@ function QuestionnairePage() {
         pageContent = (
             <div className={styles.content}>
                 <p className={styles.headline}>Fragebogen</p>
-                <p className={styles.text}>Im Folgenden findest du einen Fragebogen mit denselben Fragen wie in der Online-Befragung. Beantworte sie selbst und vergleiche deine Antworten mit den Ergebnissen der Studie oder decke die Ergebnisse direkt auf. Der Fragebogen setzt sich aus insgesamt 19 Fragen zusammen:</p>
+                <p className={styles.text}>Im Folgenden findest du einen Fragebogen mit denselben Fragen wie in der Online-Befragung. Beantworte sie selbst und vergleiche deine Antworten mit den Ergebnissen der Studie oder decke die Ergebnisse direkt auf. Der Fragebogen besteht aus insgesamt 19 Fragen:</p>
 
                 <div className={styles.introQuestionTypesWrapper}>
                     <div className={styles.introQuestionTypeContainer}>
                         <p className={styles.introQuestionTypeHeadline}>16 Video-Fragen</p>
-                        <p className={styles.introQuestionTypeText}>Schaue dir je ein Video an und entscheide, ob es KI-generiert oder real ist. Jedes Video darfst du genau einmal anschauen, bevor du eine Entscheidung treffen musst.</p>
+                        <p className={styles.introQuestionTypeText}>Schau dir jeweils ein Video an und entscheide, ob es KI-generiert oder real ist. Jedes Video darfst du nur ein einziges Mal ansehen, bevor du deine Entscheidung treffen musst.</p>
                     </div>
                     <div className={styles.introQuestionTypeContainer}>
                         <p className={styles.introQuestionTypeHeadline}>3 Einstellungsfragen</p>
-                        <p className={styles.introQuestionTypeText}>Entscheide, wie du zu KI-Videos in den Sozialen Medien stehst, wie sie sich deiner Meinung nach auf das Image eines Unternehmens auswirken und wie sie die Kaufkraft beeinflussen.</p>
+                        <p className={styles.introQuestionTypeText}>Beantworte, wie du zu KI-Videos in den sozialen Medien stehst, wie sie deiner Meinung nach das Image eines Unternehmens beeinflussen und welchen Einfluss sie auf die Kaufentscheidungen haben könnten.</p>
                     </div>
                 </div>
 

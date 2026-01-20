@@ -52,8 +52,9 @@
     width: 100%;
     height: fit-content;
     display: flex;
-    gap: 12px;
+    gap: 16px;
     margin: 16px 0px;
+    flex-direction: column;
 }
 
 .introQuestionTypeContainer {
@@ -710,6 +711,11 @@
 
     .headline {
         font-size: 36px;
+    }
+
+    .introQuestionTypesWrapper {
+        flex-direction: row;
+        gap: 12px;
     }
 
     .layoutVideoMobile {
