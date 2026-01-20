@@ -43,6 +43,10 @@
     color: var(--color-fg-1);
 }
 
+.textDesktop {
+    display: none;
+}
+
 .timelineSmall {
     width: 100%;
     height: fit-content;
@@ -428,6 +432,14 @@
 }
 
 @media screen and (min-width: 1300px) {
+    .textMobile {
+        display: none;
+    }
+
+    .textDesktop {
+        display: block;
+    }
+
     .timelineMedium {
         display: none;
     }

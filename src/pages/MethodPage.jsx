@@ -297,7 +297,8 @@ function MethodPage() {
                 <div className={styles.content}>
                     <div className={styles.description}>
                         <p className={styles.headline}>Ablauf der Studie</p>
-                        <p className={styles.text}>Klicke auf einen der Punkte, um mehr zu erfahren.</p>
+                        <p className={`${styles.text} ${styles.textMobile}`}>Tippe auf einen der Punkte, um mehr zu erfahren.</p>
+                        <p className={`${styles.text} ${styles.textDesktop}`}>Hovere über einen der Punkte, um mehr zu erfahren.</p>
                     </div>
 
                     <div className={styles.timelineSmall}>
@@ -593,7 +594,7 @@ function MethodPage() {
                     </span>
                 </NavLink>
                 <NavLink
-                    to="/questionnaire/1"
+                    to="/questionnaire/0"
                     end
                     title="Fragebogen"
                     className={styles.bottomNavbarItem}
