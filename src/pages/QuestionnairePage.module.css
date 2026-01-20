@@ -771,7 +771,7 @@
     }
 
     .layoutVideo {
-        max-width: 1264px;
+        max-width: 1232px;
         height: fit-content;
         display: flex;
         justify-content: center;
