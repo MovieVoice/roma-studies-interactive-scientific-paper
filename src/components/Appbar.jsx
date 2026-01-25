@@ -45,7 +45,7 @@ function Appbar() {
                     className={styles.logoContainer}
                     title="Zur Hauptseite"
                 >
-                    <img src="/src/assets/logo/logo-big.svg" alt="" className={styles.logo} />
+                    <img src="/src/assets/logo/logo-big.svg" alt="RoMa Studies Logo" className={styles.logo} />
                 </NavLink>
 
                 <button className={styles.settingsToggle} onClick={toggleMenu}>
@@ -56,17 +56,17 @@ function Appbar() {
             {menuOpen && (
                 <div className={styles.dropdown}>
                     <Link to="/about" state={{ background: location }} className={styles.dropdownAction}>
-                        <img src="/src/assets/icons/about.svg" alt="" />
+                        <img src="/src/assets/icons/about.svg" alt="About" />
                         About
                     </Link>
 
                     <Link to="/privacy-policy" state={{ background: location }} className={styles.dropdownAction}>
-                        <img src="/src/assets/icons/law.svg" alt="" />
+                        <img src="/src/assets/icons/law.svg" alt="Datenschutzerklärung" />
                         Datenschutzerklärung
                     </Link>
 
                     <Link to="/imprint" state={{ background: location }} className={styles.dropdownAction}>
-                        <img src="/src/assets/icons/imprint.svg" alt="" />
+                        <img src="/src/assets/icons/imprint.svg" alt="Impressum" />
                         Impressum
                     </Link>
 
@@ -77,7 +77,7 @@ function Appbar() {
                             window.dispatchEvent(new Event("storageCleared"));
                         }}
                     >
-                        <img src="/src/assets/icons/reset.svg" alt="" />
+                        <img src="/src/assets/icons/reset.svg" alt="Fragebogen zurücksetzen" />
                         Fragebogen zurücksetzen
                     </button>
                 </div>

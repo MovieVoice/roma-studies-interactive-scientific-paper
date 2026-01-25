@@ -135,7 +135,7 @@ function Sidebar() {
                                 <span className={styles.linkTitleBox}>
                                     <img
                                         src={isActive ? "/src/assets/icons/nav-1-active.svg" : "/src/assets/icons/nav-1.svg"}
-                                        alt=""
+                                        alt="Forschungsfrage & Zielsetzung"
                                     />
                                     <span className={styles.linkTitle}>Forschungsfrage & Zielsetzung</span>
                                 </span>
@@ -158,7 +158,7 @@ function Sidebar() {
                                     <img
                                         className={styles.linkIcon}
                                         src={isActive ? "/src/assets/icons/nav-2-active.svg" : "/src/assets/icons/nav-2.svg"}
-                                        alt=""
+                                        alt="Methodik & Vorgehen"
                                     />
                                     <span className={styles.linkTitle}>Methodik & Vorgehen</span>
                                 </span>
@@ -185,7 +185,7 @@ function Sidebar() {
                                         <img
                                             className={styles.linkIcon}
                                             src={isActive ? "/src/assets/icons/nav-3-active.svg" : "/src/assets/icons/nav-3.svg"}
-                                            alt=""
+                                            alt="Fragebogen"
                                         />
                                         <span className={styles.linkTitle}>Fragebogen</span>
                                     </span>
@@ -200,7 +200,7 @@ function Sidebar() {
                                         >
                                             <img
                                                 src="/src/assets/icons/arrow-down.svg"
-                                                alt=""
+                                                alt="Toggle Fragebogen Untermenü"
                                                 style={{
                                                     transform: isQuestionnaireOpen ? "rotate(0deg)" : "rotate(180deg)",
                                                 }}
@@ -233,9 +233,9 @@ function Sidebar() {
                                                     return (
                                                         <span className={styles.subLinkBox}>
                                                             {isActive ? (
-                                                                <img className={styles.subIcon} src="/src/assets/icons/arrow-right.svg" alt="" />
+                                                                <img className={styles.subIcon} src="/src/assets/icons/arrow-right.svg" alt="Aktive Frage" />
                                                             ) : isAnswered ? (
-                                                                <img className={styles.subIcon} src="/src/assets/icons/check-question.svg" alt="" />
+                                                                <img className={styles.subIcon} src="/src/assets/icons/check-question.svg" alt="Frage beantwortet" />
                                                             ) : (
                                                                 <div className={styles.subIconPlaceholder} />
                                                             )}
@@ -262,9 +262,9 @@ function Sidebar() {
                                                     return (
                                                         <span className={styles.subLinkBox}>
                                                             {isActive ? (
-                                                                <img className={styles.subIcon} src="/src/assets/icons/arrow-right.svg" alt="" />
+                                                                <img className={styles.subIcon} src="/src/assets/icons/arrow-right.svg" alt="Aktive Frage" />
                                                             ) : isAnswered ? (
-                                                                <img className={styles.subIcon} src="/src/assets/icons/check-question.svg" alt="" />
+                                                                <img className={styles.subIcon} src="/src/assets/icons/check-question.svg" alt="Frage beantwortet" />
                                                             ) : (
                                                                 <div className={styles.subIconPlaceholder} />
                                                             )}
@@ -296,7 +296,7 @@ function Sidebar() {
                                     <img
                                         className={styles.linkIcon}
                                         src={isActive ? "/src/assets/icons/nav-4-active.svg" : "/src/assets/icons/nav-4.svg"}
-                                        alt=""
+                                        alt="Ergebnisübersicht"
                                     />
                                     <span className={styles.linkTitle}>Ergebnisübersicht</span>
                                 </span>
@@ -319,7 +319,7 @@ function Sidebar() {
                                     <img
                                         className={styles.linkIcon}
                                         src={isActive ? "/src/assets/icons/nav-5-active.svg" : "/src/assets/icons/nav-5.svg"}
-                                        alt=""
+                                        alt="Fazit"
                                     />
                                     <span className={styles.linkTitle}>Fazit</span>
                                 </span>

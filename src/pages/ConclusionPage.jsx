@@ -25,7 +25,7 @@ function ConclusionPage() {
                     className={styles.bottomNavbarItem}
                 >
                     <span className={styles.bottomNavbarItemBox}>
-                        <img src="/src/assets/icons/previous-page.svg" alt="" />
+                        <img src="/src/assets/icons/previous-page.svg" alt="Vorherige Seite" />
                         <span className={styles.linkTitle}>Zurück</span>
                     </span>
                 </NavLink>
@@ -37,7 +37,7 @@ function ConclusionPage() {
                 >
                     <span className={styles.bottomNavbarItemBox}>
                         <span className={styles.linkTitle}>Zum Anfang</span>
-                        <img src="/src/assets/icons/next-page.svg" alt="" />
+                        <img src="/src/assets/icons/next-page.svg" alt="Zum Anfang" />
                     </span>
                 </NavLink>
             </div>

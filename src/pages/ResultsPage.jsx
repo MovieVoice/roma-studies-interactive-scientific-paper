@@ -413,7 +413,7 @@ function ResultsPage() {
                                     {purchaseImpactData.quotes.map((quote, index) => (
                                         <div key={index} className={styles.dataQuoteContainer}>
                                             <div className={styles.dataQuoteIcon}>
-                                                <img src="/src/assets/icons/arrow-right-blue.svg" alt="" />
+                                                <img src="/src/assets/icons/arrow-right-blue.svg" alt="Pfeil nach rechts" />
                                             </div>
                                             <p className={styles.dataQuote}>
                                                 "{quote}"
@@ -435,7 +435,7 @@ function ResultsPage() {
                     className={styles.bottomNavbarItem}
                 >
                     <span className={styles.bottomNavbarItemBox}>
-                        <img src="/src/assets/icons/previous-page.svg" alt="" />
+                        <img src="/src/assets/icons/previous-page.svg" alt="Vorherige Seite" />
                         <span className={styles.linkTitle}>Zurück</span>
                     </span>
                 </NavLink>
@@ -447,7 +447,7 @@ function ResultsPage() {
                 >
                     <span className={styles.bottomNavbarItemBox}>
                         <span className={styles.linkTitle}>Weiter</span>
-                        <img src="/src/assets/icons/next-page.svg" alt="" />
+                        <img src="/src/assets/icons/next-page.svg" alt="Nächste Seite" />
                     </span>
                 </NavLink>
             </div>

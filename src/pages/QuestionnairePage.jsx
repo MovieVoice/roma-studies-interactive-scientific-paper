@@ -256,7 +256,7 @@ function QuestionnairePage() {
                                             <p className={styles.aiHeadline}>{headline}</p>
                                             <p className={styles.aiText}>{text}</p>
                                             <a className={styles.aiLink} href={link} target="_blank" rel="noopener noreferrer" >
-                                                <img src="/src/assets/icons/link.svg" alt="" />
+                                                <img src="/src/assets/icons/link.svg" alt="Link zur Website" />
                                                 Zur Website
                                             </a>
                                         </>
@@ -272,7 +272,7 @@ function QuestionnairePage() {
                                     className={styles.voteBtn}
                                     onClick={() => handleAnswer('real')}
                                 >
-                                    <img src="/src/assets/icons/real.svg" alt="" />
+                                    <img src="/src/assets/icons/real.svg" alt="Echtes Video" />
                                     Echtes Video
                                 </button>
 
@@ -280,7 +280,7 @@ function QuestionnairePage() {
                                     className={styles.voteBtn}
                                     onClick={() => handleAnswer('ai')}
                                 >
-                                    <img src="/src/assets/icons/ai.svg" alt="" />
+                                    <img src="/src/assets/icons/ai.svg" alt="KI-generiertes Video" />
                                     KI-generiertes Video
                                 </button>
 
@@ -288,7 +288,7 @@ function QuestionnairePage() {
                                     className={styles.revealBtn}
                                     onClick={() => handleAnswer('-')}
                                 >
-                                    <img src="/src/assets/icons/reveal.svg" alt="" />
+                                    <img src="/src/assets/icons/reveal.svg" alt="Ergebnisse direkt aufdecken" />
                                     Ergebnisse direkt aufdecken
                                 </button>
                             </div>
@@ -299,10 +299,10 @@ function QuestionnairePage() {
                             {alreadyWatched ? (
                                 <div className={styles.alreadyWatchedContainer}>
                                     <div className={styles.alreadyWatchedBox}>
-                                        <img src="/src/assets/icons/no-repeat.svg" alt="" />
+                                        <img src="/src/assets/icons/no-repeat.svg" alt="Video kann nicht wiederholt werden" />
                                         <p>Dieses Video wurde bereits angesehen und kann nicht erneut abgespielt werden.</p>
                                     </div>
-                                    <img className={styles.alreadyWatchedBG} src={`/src/assets/thumbnails/${questionId}.jpg`} alt="" />
+                                    <img className={styles.alreadyWatchedBG} src={`/src/assets/thumbnails/${questionId}.jpg`} alt="Vorschaubild des Videos" />
                                 </div>
                             ) : (
                                 <>
@@ -333,10 +333,10 @@ function QuestionnairePage() {
                             {alreadyWatched ? (
                                 <div className={styles.alreadyWatchedContainer}>
                                     <div className={styles.alreadyWatchedBox}>
-                                        <img src="/src/assets/icons/no-repeat.svg" alt="" />
+                                        <img src="/src/assets/icons/no-repeat.svg" alt="Video kann nicht wiederholt werden" />
                                         <p>Dieses Video wurde bereits angesehen und kann nicht erneut abgespielt werden.</p>
                                     </div>
-                                    <img className={styles.alreadyWatchedBG} src={`/src/assets/thumbnails/${questionId}.jpg`} alt="" />
+                                    <img className={styles.alreadyWatchedBG} src={`/src/assets/thumbnails/${questionId}.jpg`} alt="Vorschaubild des Videos" />
                                 </div>
                             ) : (
                                 <>
@@ -371,7 +371,7 @@ function QuestionnairePage() {
                                         className={styles.revealBtn}
                                         onClick={() => handleAnswer('-')}
                                     >
-                                        <img src="/src/assets/icons/reveal.svg" alt="" />
+                                        <img src="/src/assets/icons/reveal.svg" alt="Ergebnisse direkt aufdecken" />
                                         Direkt aufdecken
                                     </button>
                                 </div>
@@ -419,7 +419,7 @@ function QuestionnairePage() {
                                             <p className={styles.aiHeadline}>{headline}</p>
                                             <p className={styles.aiText}>{text}</p>
                                             <a className={styles.aiLink} href={link} target="_blank" rel="noopener noreferrer" >
-                                                <img src="/src/assets/icons/link.svg" alt="" />
+                                                <img src="/src/assets/icons/link.svg" alt="Link zur Website" />
                                                 Zur Website
                                             </a>
                                         </>
@@ -436,7 +436,7 @@ function QuestionnairePage() {
                                         className={styles.voteBtn}
                                         onClick={() => handleAnswer('real')}
                                     >
-                                        <img src="/src/assets/icons/real.svg" alt="" />
+                                        <img src="/src/assets/icons/real.svg" alt="Echtes Video" />
                                         <span className={styles.voteBtnEllipsis}>Echtes Video</span>
                                     </button>
 
@@ -444,7 +444,7 @@ function QuestionnairePage() {
                                         className={styles.voteBtn}
                                         onClick={() => handleAnswer('ai')}
                                     >
-                                        <img src="/src/assets/icons/ai.svg" alt="" />
+                                        <img src="/src/assets/icons/ai.svg" alt="KI-generiertes Video" />
                                         <span className={styles.voteBtnEllipsis}>KI-generiertes Video</span>
                                     </button>
                                 </div>
@@ -471,7 +471,7 @@ function QuestionnairePage() {
                                 className={`${styles.revealBtn} ${styles.settingsRevealBtn}`}
                                 onClick={() => handleAnswer('Keine Angabe')}
                             >
-                                <img src="/src/assets/icons/reveal.svg" alt="" />
+                                <img src="/src/assets/icons/reveal.svg" alt="Ergebnisse direkt aufdecken" />
                                 Direkt aufdecken
                             </button>
                         </div>
@@ -578,7 +578,7 @@ function QuestionnairePage() {
                                 className={`${styles.revealBtn} ${styles.settingsRevealBtn}`}
                                 onClick={() => handleAnswer('-')}
                             >
-                                <img src="/src/assets/icons/reveal.svg" alt="" />
+                                <img src="/src/assets/icons/reveal.svg" alt="Ergebnisse direkt aufdecken" />
                                 Direkt aufdecken
                             </button>
                         </div>
@@ -614,7 +614,7 @@ function QuestionnairePage() {
                                 ))}
                                 {visibleQuotes < quotes.length && (
                                     <button className={styles.showMoreBtn} onClick={showMore}>
-                                        <img src="/src/assets/icons/more.svg" alt="" />
+                                        <img src="/src/assets/icons/more.svg" alt="Mehr Begründungen anzeigen" />
                                         Mehr anzeigen
                                     </button>
                                 )}
@@ -631,7 +631,7 @@ function QuestionnairePage() {
                                 className={styles.voteBtn}
                                 onClick={() => handleAnswer('yes')}
                             >
-                                <img src="/src/assets/icons/yes.svg" alt="" />
+                                <img src="/src/assets/icons/yes.svg" alt="Antwort Ja" />
                                 Ja
                             </button>
 
@@ -639,7 +639,7 @@ function QuestionnairePage() {
                                 className={styles.voteBtn}
                                 onClick={() => handleAnswer('no')}
                             >
-                                <img src="/src/assets/icons/no.svg" alt="" />
+                                <img src="/src/assets/icons/no.svg" alt="Antwort Nein" />
                                 Nein
                             </button>
                         </div>
@@ -664,7 +664,7 @@ function QuestionnairePage() {
                     className={styles.bottomNavbarItem}
                 >
                     <span className={styles.bottomNavbarItemBox}>
-                        <img src="/src/assets/icons/previous-page.svg" alt="" />
+                        <img src="/src/assets/icons/previous-page.svg" alt="Vorherige Seite" />
                         <span className={styles.linkTitle}>Zurück</span>
                     </span>
                 </NavLink>
@@ -676,7 +676,7 @@ function QuestionnairePage() {
                 >
                     <span className={styles.bottomNavbarItemBox}>
                         <span className={styles.linkTitle}>Weiter</span>
-                        <img src="/src/assets/icons/next-page.svg" alt="" />
+                        <img src="/src/assets/icons/next-page.svg" alt="Nächste Seite" />
                     </span>
                 </NavLink>
             </div>

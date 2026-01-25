@@ -589,7 +589,7 @@ function MethodPage() {
                     className={styles.bottomNavbarItem}
                 >
                     <span className={styles.bottomNavbarItemBox}>
-                        <img src="/src/assets/icons/previous-page.svg" alt="" />
+                        <img src="/src/assets/icons/previous-page.svg" alt="Vorherige Seite" />
                         <span className={styles.linkTitle}>Zurück</span>
                     </span>
                 </NavLink>
@@ -601,7 +601,7 @@ function MethodPage() {
                 >
                     <span className={styles.bottomNavbarItemBox}>
                         <span className={styles.linkTitle}>Weiter</span>
-                        <img src="/src/assets/icons/next-page.svg" alt="" />
+                        <img src="/src/assets/icons/next-page.svg" alt="Nächste Seite" />
                     </span>
                 </NavLink>
             </div>
@@ -609,4 +609,4 @@ function MethodPage() {
     );
 }
 
-export default MethodPage;;
+export default MethodPage;
