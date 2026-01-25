@@ -145,7 +145,7 @@ function ResultsPage() {
                                     <div className={styles.dataBlockItemTitleContainer}>
                                         <p className={styles.dataBlockItemTitle}>Einordnung von Produktvideos</p>
                                         <div className={styles.dataBlockItemTooltipContainer}>
-                                            <img className={styles.dataBlockItemTooltipIcon} src="/src/assets/icons/info.svg" alt="" />
+                                            <img className={styles.dataBlockItemTooltipIcon} src="/src/assets/icons/info.svg" alt="Info zur Sortierung der Daten" />
                                             <div className={styles.dataBlockItemTooltip}>
                                                 Sortierung nach Erstellungsart der Videos: KI-generiert (Digen, Tasy) und real.
                                             </div>
