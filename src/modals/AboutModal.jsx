@@ -21,7 +21,7 @@ function AboutModal() {
                 <div className={styles.modal}>
                     <div className={styles.appbar}>
                         <p>About</p>
-                        <button onClick={handleClose}>
+                        <button onClick={handleClose} title='Fenster schließen'>
                             <img src="/src/assets/icons/close.svg" alt="Fenster schließen" />
                         </button>
                     </div>

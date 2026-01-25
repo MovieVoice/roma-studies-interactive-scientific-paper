@@ -48,30 +48,31 @@ function Appbar() {
                     <img src="/src/assets/logo/logo-big.svg" alt="RoMa Studies Logo" className={styles.logo} />
                 </NavLink>
 
-                <button className={styles.settingsToggle} onClick={toggleMenu}>
+                <button className={styles.settingsToggle} onClick={toggleMenu} title={menuOpen ? 'Untermenü schließen' : 'Untermenü öffnen'}>
                     <img src="/src/assets/icons/settings.svg" alt="Einstellungen" />
                 </button>
             </div>
 
             {menuOpen && (
                 <div className={styles.dropdown}>
-                    <Link to="/about" state={{ background: location }} className={styles.dropdownAction}>
+                    <Link to="/about" title='About' state={{ background: location }} className={styles.dropdownAction}>
                         <img src="/src/assets/icons/about.svg" alt="About" />
                         About
                     </Link>
 
-                    <Link to="/privacy-policy" state={{ background: location }} className={styles.dropdownAction}>
+                    <Link to="/privacy-policy" title='Datenschutzerklärung' state={{ background: location }} className={styles.dropdownAction}>
                         <img src="/src/assets/icons/law.svg" alt="Datenschutzerklärung" />
                         Datenschutzerklärung
                     </Link>
 
-                    <Link to="/imprint" state={{ background: location }} className={styles.dropdownAction}>
+                    <Link to="/imprint" title='Impressum' state={{ background: location }} className={styles.dropdownAction}>
                         <img src="/src/assets/icons/imprint.svg" alt="Impressum" />
                         Impressum
                     </Link>
 
                     <button
                         className={styles.dropdownAction}
+                        title='Fragebogen zurücksetzen'
                         onClick={() => {
                             localStorage.clear();
                             window.dispatchEvent(new Event("storageCleared"));

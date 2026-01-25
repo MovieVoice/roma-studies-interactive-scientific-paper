@@ -87,6 +87,7 @@ function Sidebar() {
                 className={`${styles.toggleSidebar} ${open ? styles.isOpen : ''} ${isDesktop ? styles.hideToggle : ''}`}
                 aria-expanded={open}
                 aria-controls="app-sidebar"
+                title={open ? 'Sidebar schließen' : 'Sidebar öffnen'}
                 onClick={handleToggle}
             >
                 <img src="/src/assets/icons/sidebar-open.svg" alt="Sidebar öffnen" className={styles.iconOpen} />
@@ -225,6 +226,7 @@ function Sidebar() {
                                                 key={i}
                                                 id={`sidebar-question-${qNumber}`}
                                                 to={`/questionnaire/${qNumber}`}
+                                                title={`Frage #${i + 1}`}
                                                 className={styles.sub}
                                                 onClick={() => !isDesktop && setOpen(false)}
                                             >
@@ -254,6 +256,7 @@ function Sidebar() {
                                             <NavLink
                                                 key={i + 16}
                                                 to={`/questionnaire/${qNumber}`}
+                                                title={`Einstellungsfrage #${i + 1}`}
                                                 className={styles.sub}
                                                 onClick={() => !isDesktop && setOpen(false)}
                                             >
@@ -333,7 +336,7 @@ function Sidebar() {
                         <p className={styles.downloadHeadline}>Studie in Textform herunterladen</p>
                         <p className={styles.downloadDescription}>Jetzt kostenlos herunterladen und alle Forschungsergebnisse anschauen.</p>
                     </div>
-                    <a href="/docs/Studie_KI_Produktvideos_Erkennbarkeit_Auswirkungen_2025-Robert_Stein-Marcel_Otto.pdf" download className={styles.downloadBtn}>
+                    <a href="/docs/Studie_KI_Produktvideos_Erkennbarkeit_Auswirkungen_2025-Robert_Stein-Marcel_Otto.pdf" download className={styles.downloadBtn} title='Studie herunterladen'>
                         Herunterladen
                     </a>
                 </div>
