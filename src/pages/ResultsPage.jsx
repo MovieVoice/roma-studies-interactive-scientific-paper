@@ -142,7 +142,15 @@ function ResultsPage() {
                             </div>
                             <div className={styles.dataBlockItem}>
                                 <div className={styles.dataBlockItemDescription}>
-                                    <p className={styles.dataBlockItemTitle}>Einordnung von Produktvideos</p>
+                                    <div className={styles.dataBlockItemTitleContainer}>
+                                        <p className={styles.dataBlockItemTitle}>Einordnung von Produktvideos</p>
+                                        <div className={styles.dataBlockItemTooltipContainer}>
+                                            <img className={styles.dataBlockItemTooltipIcon} src="/src/assets/icons/info.svg" alt="" />
+                                            <div className={styles.dataBlockItemTooltip}>
+                                                Sortierung nach Erstellungsart der Videos: KI-generiert (Digen, Tasy) und real.
+                                            </div>
+                                        </div>
+                                    </div>
                                     <p className={styles.dataBlockItemText}>Angaben in Prozent</p>
                                 </div>
 
