@@ -308,7 +308,8 @@ function QuestionnairePage() {
                                 <>
                                     {isLoading && <div className={styles.loader}></div>}
                                     <video
-                                        src={`/videos/${questionId}.mp4`}
+                                        // src={`/videos/${questionId}.mp4`}
+                                        src={`/videos_blured/${questionId}.mp4`}
                                         controls
                                         playsInline
                                         onCanPlay={() => setIsLoading(false)}
@@ -342,7 +343,8 @@ function QuestionnairePage() {
                                 <>
                                     {isLoading && <div className={styles.loader}></div>}
                                     <video
-                                        src={`/videos/${questionId}.mp4`}
+                                        // src={`/videos/${questionId}.mp4`}
+                                        src={`/videos_blured/${questionId}.mp4`}
                                         controls
                                         playsInline
                                         onCanPlay={() => setIsLoading(false)}
