@@ -24,5 +24,4 @@ dist-ssr
 *.sw?
 
 # Project directories and files
-public/docs/
 public/videos/
